@@ -2,7 +2,7 @@ import React from "react";
 import ClietnSidebar from "../../Components/dashboard/client/ClientSideBar";
 import Header from "../../Components/dashboard/client/ClientHeader";   
 import MessageContainer from "../../Components/messages/MessageContainer";
-import ScheduledMeetings from "../../Components/scheduledMeetings";
+import ScheduledMeetings from "../../Components/ScheduledMeetings";
 
 function ClientChat() {
   return (
