@@ -15,7 +15,7 @@ import AssignedTasks from "../../Components/dashboard/lawyer/AssignedTasks";
 import LawyerAvailability from "../../Components/dashboard/lawyer/AvailabilityForMeetings";
 import ChatButton from "../../Components/dashboard/lawyer/LawyerChatButton";
 import PDFSummerizer from "../../Components/dashboard/lawyer/PdfSummerizer";
-import ScheduledMeetings from "../../Components/scheduledMeetings";
+import ScheduledMeetings from "../../Components/ScheduledMeetings";
 
 function Case() {
   const { backendUrl, userData } = useContext(AppContext);
