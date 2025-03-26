@@ -1,0 +1,307 @@
+# Sri Lankan Legal Knowledge Base
+
+## Penal Code of Sri Lanka
+
+### Introduction
+The Penal Code of Sri Lanka (Chapter 19) is the main criminal code of Sri Lanka. It outlines criminal offenses, procedures, and penalties applicable within the jurisdiction. The code was first enacted in 1883 during the British colonial period and has undergone numerous amendments since then.
+
+### Key Sections
+
+#### Section 293 - Homicide
+• <b>Definition:</b> Causing of death of a human being by another human being.
+• <b>Categories:</b>
+  ◦ Culpable homicide - When death is caused with the intention of causing death.
+  ◦ Murder - Culpable homicide becomes murder when done with premeditation.
+• <b>Punishment:</b> Death penalty or life imprisonment for murder, imprisonment up to 20 years for culpable homicide not amounting to murder.
+
+#### Section 350-365 - Theft and Related Offenses
+• <b>Theft (Section 350):</b> Dishonest taking of property without consent.
+  ◦ Punishment: Imprisonment up to 3 years.
+• <b>Robbery (Section 358):</b> Theft with force or threat of force.
+  ◦ Punishment: Imprisonment up to 10 years.
+• <b>Extortion (Section 364):</b> Obtaining property through threats.
+  ◦ Punishment: Imprisonment up to 7 years.
+
+#### Section 300-308 - Assault and Criminal Force
+• <b>Assault:</b> Making any gesture or preparation intending to cause reasonable apprehension of criminal force.
+• <b>Criminal Force:</b> Intentionally using force on another person without their consent.
+• <b>Punishment:</b> Varies from 1 to 5 years imprisonment depending on severity.
+
+## Motor Traffic Act of Sri Lanka
+
+### Introduction
+The Motor Traffic Act (No. 14 of 1951) regulates the registration, licensing, and operation of motor vehicles in Sri Lanka. The act is administered by the Department of Motor Traffic.
+
+### Key Provisions
+
+#### Vehicle Registration
+• All motor vehicles must be registered with the Department of Motor Traffic.
+• Requirements include:
+  ◦ Certificate of origin or previous registration
+  ◦ Insurance certificate
+  ◦ Revenue license
+  ◦ Certificate of roadworthiness
+
+#### Driving Licenses
+• <b>Categories:</b>
+  ◦ Class A: Motorcycles
+  ◦ Class B: Light vehicles (cars, vans up to 12 passengers)
+  ◦ Class C: Commercial vehicles (trucks, lorries)
+  ◦ Class D: Heavy vehicles (buses over 12 passengers)
+• <b>Requirements:</b>
+  ◦ Minimum age: 18 years
+  ◦ Medical fitness certificate
+  ◦ Successful completion of written and practical tests
+
+#### Traffic Violations and Penalties
+• <b>Drunk Driving:</b>
+  ◦ Legal limit: 80mg of alcohol per 100ml of blood
+  ◦ Penalties: Fine up to LKR 25,000 and/or imprisonment up to 2 years
+• <b>Speeding:</b>
+  ◦ Urban areas: 50 km/h maximum
+  ◦ Highways: 100 km/h maximum
+  ◦ Penalties: Fine up to LKR 3,000 for first offense, higher for repeat offenders
+• <b>Causing an Accident:</b>
+  ◦ With injury: Fine up to LKR 10,000 and/or imprisonment up to 5 years
+  ◦ With death: Fine up to LKR 25,000 and/or imprisonment up to 10 years
+
+#### Road Accident Claims
+• <b>Insurance Requirements:</b>
+  ◦ All vehicles must have at least third-party insurance
+  ◦ Comprehensive insurance covers own damages as well as third-party damages
+• <b>Claim Process:</b>
+  ◦ File police report immediately
+  ◦ Inform insurance company within 24 hours
+  ◦ Submit claim with supporting documents (medical reports, repair estimates)
+  ◦ Insurance assessment and settlement
+
+## Family Law in Sri Lanka
+
+### Marriage Laws
+• <b>Legal Marriage Age:</b>
+  ◦ 18 years for both males and females
+• <b>Types of Marriages:</b>
+  ◦ General Law (Marriage Registration Ordinance)
+  ◦ Kandyan Law (applicable to Kandyan Sinhalese)
+  ◦ Muslim Law (Muslim Marriage and Divorce Act)
+  ◦ Tamil Law (applicable to Tamils of Indian origin)
+
+### Divorce Procedures
+• <b>General Law:</b>
+  ◦ Grounds: Adultery, malicious desertion, incurable impotence
+  ◦ Two-year separation required before filing
+• <b>Kandyan Law:</b>
+  ◦ Grounds: Adultery, inability to live together
+  ◦ No specific separation period required
+• <b>Muslim Law:</b>
+  ◦ Talaq (husband's right to divorce)
+  ◦ Khula (wife-initiated divorce with compensation)
+  ◦ Fasakh (judicial divorce due to specific grounds)
+
+### Child Custody
+• <b>Best Interest Principle:</b> Courts determine custody based on the child's best interests
+• <b>Age Considerations:</b> Children under 12 years often placed with mother
+• <b>Types of Custody:</b>
+  ◦ Legal custody (decision-making authority)
+  ◦ Physical custody (residence and daily care)
+  ◦ Joint custody (shared between parents)
+
+## Labor Laws in Sri Lanka
+
+### Employment Rights
+• <b>Working Hours:</b>
+  ◦ Standard: 8 hours per day, 45 hours per week
+  ◦ Overtime: Maximum 12 hours per week, paid at 1.5x normal rate
+• <b>Leave Entitlements:</b>
+  ◦ Annual leave: 14 days after 1 year of service
+  ◦ Sick leave: 7 days with pay, 14 days half-pay
+  ◦ Maternity leave: 84 working days for first two children, 42 days thereafter
+
+### Termination of Employment
+• <b>Notice Period:</b>
+  ◦ Less than 1 year service: 2 weeks
+  ◦ 1-5 years service: 1 month
+  ◦ Over 5 years service: 3 months
+• <b>Unfair Dismissal:</b>
+  ◦ Grounds: Discrimination, union activities, pregnancy
+  ◦ Remedy: Reinstatement or compensation
+
+### Industrial Disputes
+• <b>Resolution Mechanisms:</b>
+  ◦ Conciliation by Commissioner of Labor
+  ◦ Arbitration
+  ◦ Industrial Court proceedings
+• <b>Trade Union Rights:</b>
+  ◦ Freedom of association
+  ◦ Collective bargaining
+  ◦ Right to strike with proper notice
+
+## Property Law in Sri Lanka
+
+### Land Ownership
+• <b>Types of Land:</b>
+  ◦ Private land
+  ◦ State land
+  ◦ Temple land (Viharagam and Devalagam)
+• <b>Transfer Requirements:</b>
+  ◦ Deed must be notarized
+  ◦ Registration at Land Registry Office
+  ◦ Payment of stamp duty (4% of property value)
+
+### Landlord-Tenant Relations
+• <b>Rent Control:</b>
+  ◦ Applies to premises constructed before 1972
+  ◦ Annual rent increase limited to 5%
+• <b>Eviction Grounds:</b>
+  ◦ Non-payment of rent
+  ◦ Breach of tenancy agreement
+  ◦ Landlord requiring premises for personal use
+• <b>Notice Requirements:</b>
+  ◦ One month for monthly tenancies
+  ◦ Three months for yearly tenancies
+
+## Civil Procedure in Sri Lanka
+
+### Court Structure
+• <b>District Courts:</b> Civil matters exceeding LKR 3 million
+• <b>Magistrate Courts:</b> Criminal cases, civil matters up to LKR 3 million
+• <b>High Courts:</b> Major criminal cases, appeals from lower courts
+• <b>Court of Appeal:</b> Appeals from District Courts and High Courts
+• <b>Supreme Court:</b> Final appellate jurisdiction, constitutional matters
+
+### Civil Suit Process
+• <b>Filing a Plaint:</b>
+  ◦ Statement of claim
+  ◦ Supporting documents
+  ◦ Payment of court fees
+• <b>Summons:</b> Served to defendant requiring appearance
+• <b>Answer:</b> Defendant's response to allegations
+• <b>Trial:</b>
+  ◦ Examination of witnesses
+  ◦ Documentary evidence
+  ◦ Arguments
+• <b>Judgment:</b> Court's decision on the matter
+• <b>Appeal:</b> Within 14 days of judgment
+
+### Limitation Periods
+• <b>Contract claims:</b> 3 years from breach
+• <b>Tort claims:</b> 2 years from damage
+• <b>Property recovery:</b> 10 years from dispossession
+• <b>Against government:</b> 1 year from cause of action
+
+## Criminal Procedure in Sri Lanka
+
+### Investigation Process
+• <b>Complaint/FIR:</b> Filed at police station
+• <b>Investigation:</b> Conducted by police
+• <b>Arrest:</b> With or without warrant depending on offense
+• <b>Detention:</b> Maximum 24 hours before production before Magistrate
+
+### Trial Procedure
+• <b>Indictment/Charge Sheet:</b> Formal accusation
+• <b>Arraignment:</b> Reading of charges and plea
+• <b>Prosecution Case:</b> Presentation of evidence and witnesses
+• <b>Defense Case:</b> Counter-evidence and witnesses
+• <b>Verdict:</b> Guilty or not guilty
+• <b>Sentencing:</b> If found guilty
+
+### Bail Provisions
+• <b>Bailable Offenses:</b> Right to bail
+• <b>Non-Bailable Offenses:</b> Discretion of court
+• <b>Conditions:</b>
+  ◦ Surety bond
+  ◦ Reporting to police station
+  ◦ Surrender of passport
+
+## Platform-Specific Information
+
+### Client Workflow
+• <b>Registration & Login:</b>
+  ◦ Register with valid email and phone number
+  ◦ Verify account through email confirmation
+  ◦ Set secure password
+• <b>Case Management:</b>
+  ◦ Post up to 3 Pending cases simultaneously
+  ◦ Required details: legal issue, district, case type
+  ◦ Track case status through color-coded system:
+    ▪ Pending: Gray
+    ▪ Ongoing: Yellow-golden
+    ▪ Closed: Red
+    ▪ Expired: Dark gray
+• <b>Lawyer Engagement:</b>
+  ◦ Receive notifications when lawyers express interest
+  ◦ Respond with Yes/No to lawyer interest
+  ◦ Chat with lawyers only when case status is Ongoing
+• <b>Notifications:</b>
+  ◦ Case expiry warning (after 14 days)
+  ◦ Lawyer interest alerts
+  ◦ Status change updates
+
+### Lawyer Workflow
+• <b>Registration & Verification:</b>
+  ◦ Professional signup with credentials
+  ◦ Admin verification required before activation
+  ◦ Set district and case type preferences (locked after first case)
+• <b>Case Discovery:</b>
+  ◦ Browse Pending cases filtered by district/case types
+  ◦ Express interest in relevant cases
+  ◦ Await client confirmation
+• <b>Case Management:</b>
+  ◦ Handle up to 3 Ongoing cases simultaneously
+  ◦ Add private notes and tasks for each case
+  ◦ Close cases when resolved
+• <b>Client Communication:</b>
+  ◦ Secure in-platform messaging
+  ◦ Document sharing capabilities
+  ◦ Appointment scheduling
+
+### Case Types
+• <b>Criminal:</b>
+  ◦ Assault and battery
+  ◦ Theft and robbery
+  ◦ Drug offenses
+  ◦ Homicide
+• <b>Civil:</b>
+  ◦ Contract disputes
+  ◦ Property disputes
+  ◦ Debt recovery
+  ◦ Professional negligence
+• <b>Family:</b>
+  ◦ Divorce and separation
+  ◦ Child custody
+  ◦ Maintenance claims
+  ◦ Adoption
+• <b>Corporate:</b>
+  ◦ Business formation
+  ◦ Shareholder disputes
+  ◦ Intellectual property
+  ◦ Regulatory compliance
+• <b>Labor:</b>
+  ◦ Wrongful termination
+  ◦ Discrimination
+  ◦ Harassment
+  ◦ Wage disputes
+
+### Districts Available
+• <b>Western Province:</b>
+  ◦ Colombo
+  ◦ Gampaha
+  ◦ Kalutara
+• <b>Central Province:</b>
+  ◦ Kandy
+  ◦ Matale
+  ◦ Nuwara Eliya
+• <b>Southern Province:</b>
+  ◦ Galle
+  ◦ Matara
+  ◦ Hambantota
+• <b>Northern Province:</b>
+  ◦ Jaffna
+  ◦ Kilinochchi
+  ◦ Mannar
+  ◦ Vavuniya
+  ◦ Mullaitivu
+• <b>Eastern Province:</b>
+  ◦ Batticaloa
+  ◦ Ampara
+  ◦ Trincomalee
