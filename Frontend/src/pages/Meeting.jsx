@@ -1,5 +1,5 @@
 import React from "react";
-import VideoMeet from "../Components/videoMeet";
+import VideoMeet from "../Components/VideoMeet";
 import { useParams } from "react-router-dom";
 
 const Meeting = () => {
