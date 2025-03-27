@@ -5,10 +5,10 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 // Media imports
-import welcomeVideo from "../../../assets/Images/gtrfe.mp4";
-import logo from "../../../assets/Images/logo.png";
-import showPasswordIcon from "../../../assets/Images/open.png";
-import hidePasswordIcon from "../../../assets/Images/close.png";
+import welcomeVideo from "../../../assets/images/gtrfe.mp4";
+import logo from "../../../assets/images/logo.png";
+import showPasswordIcon from "../../../assets/images/open.png";
+import hidePasswordIcon from "../../../assets/images/close.png";
 
 function ClientCreateAcc() {
   const navigate = useNavigate();
@@ -247,9 +247,9 @@ function ClientCreateAcc() {
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? (
-                    <img src={hidePasswordIcon} alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={showPasswordIcon} alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   ) : (
-                    <img src={showPasswordIcon} alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={hidePasswordIcon} alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   )}
                 </button>
               </div>
@@ -274,9 +274,9 @@ function ClientCreateAcc() {
                   aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                 >
                   {showConfirmPassword ? (
-                    <img src={hidePasswordIcon} alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={showPasswordIcon} alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   ) : (
-                    <img src={showPasswordIcon} alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={hidePasswordIcon} alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   )}
                 </button>
               </div>
