@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {  toast } from "react-toastify";
 import { AppContext } from "../../../Context/AppContext";
@@ -12,8 +12,8 @@ import hidePasswordIcon from "../../../assets/images/close.png";
 function Lawyerlogin() {
 
   const navigate = useNavigate();
-  const {backendUrl, setIsLoggedIn, getLawyerData} = useContext(AppContext);
-  const [email, setEmailLocal] = useState("");
+    const { backendUrl, setIsLoggedIn, getLawyerData, isLoggedIn } = useContext(AppContext);
+    const [email, setEmailLocal] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
