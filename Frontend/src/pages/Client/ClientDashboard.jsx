@@ -9,7 +9,7 @@ import ClientSidebar from "../../Components/dashboard/client/ClientSideBar";
 import CaseCard from "../../Components/dashboard/client/CaseCardForClient";
 import TaskList from "../../Components/TaskList";
 import NoteList from "../../Components/NoteList";
-import ScheduledMeetings from "../../Components/scheduledMeetings";
+import ScheduledMeetings from "../../Components/ScheduledMeetings";
 import ScheduleMeeting from "../../Components/ScheduleMeeting";
 import ChatButton from "../../Components/dashboard/client/ClientChatButton";
 

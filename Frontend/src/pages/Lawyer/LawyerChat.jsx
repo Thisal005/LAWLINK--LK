@@ -2,7 +2,6 @@ import React from "react";
 import Sidebar from "../../Components/dashboard/lawyer/LawyerSidebar";
 import Header from "../../Components/dashboard/lawyer/LawyerHeader";
 import MessageContainer from "../../Components/messages/MessageContainer";
-import ScheduledMeetings from "../../Components/scheduledMeetings";
 
 function LawyerChat() {
   return (

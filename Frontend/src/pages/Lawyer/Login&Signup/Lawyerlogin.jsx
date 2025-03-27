@@ -16,6 +16,13 @@ function Lawyerlogin() {
   const [isLoading, setIsLoading] = useState(false);
  
 
+   useEffect(() => {
+      if (isLoggedIn) {
+        const redirectTo = location.state?.from || "/lawyer-dashboard";
+        navigate(redirectTo, { replace: true });
+      }
+    }, [isLoggedIn, navigate, location]);
+
   const handleSubmit = async (e) => {
     try { 
       e.preventDefault();

@@ -19,13 +19,13 @@ const CTA = () => {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
           <Link
-            to="/auth/client-login"
+            to="/create-account"
             className="bg-white/90 text-blue-700 px-8 py-3 rounded-full text-base font-medium shadow-lg hover:bg-white hover:shadow-xl hover:text-blue-800 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
           >
             Join as a Client
           </Link>
           <Link
-            to="/auth/lawyer-login"
+            to="/lawyer-create-account"
             className="bg-transparent border-2 border-white/90 text-white px-8 py-3 rounded-full text-base font-medium shadow-lg hover:bg-white/10 hover:border-white hover:text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
           >
             Join as a Lawyer

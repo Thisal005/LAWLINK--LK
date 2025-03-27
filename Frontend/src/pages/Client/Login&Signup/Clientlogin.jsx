@@ -16,7 +16,7 @@ function Clientlogin() {
   // If user is already logged in, redirect to home or the page they were trying to access
   useEffect(() => {
     if (isLoggedIn) {
-      const redirectTo = location.state?.from || "/";
+      const redirectTo = location.state?.from || "/client-dashboard";
       navigate(redirectTo, { replace: true });
     }
   }, [isLoggedIn, navigate, location]);
