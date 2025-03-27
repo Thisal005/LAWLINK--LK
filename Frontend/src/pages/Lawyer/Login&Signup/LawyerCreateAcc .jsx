@@ -4,6 +4,12 @@ import { AppContext } from "../../../Context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+import welcomeVideo from "../../../assets/images/gtrfe.mp4";
+import logo from "../../../assets/images/logo.png";
+import showPasswordIcon from "../../../assets/images/open.png";
+import hidePasswordIcon from "../../../assets/images/close.png";
+
+
 
 function LawyerCreateAcc() {
   const navigate = useNavigate();
@@ -135,7 +141,7 @@ function LawyerCreateAcc() {
           </div>
           <div className="w-full max-w-[380px] my-10 mx-auto relative z-10 group">
             <video
-              src="images/gtrfe.mp4"
+              src={welcomeVideo}
               autoPlay
               loop
               muted
@@ -148,7 +154,7 @@ function LawyerCreateAcc() {
             <a href="https://www.lawlinklk.com/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-110 inline-block">
               <img
                 className="w-[130px] h-auto mt-2 mb-8 filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
-                src="images/logo.png"
+                src={logo}
                 alt="Logo"
               />
             </a>
@@ -241,7 +247,7 @@ function LawyerCreateAcc() {
                       onClick={() => setShowPassword(!showPassword)}
                       aria-label={showPassword ? "Hide password" : "Show password"}
                     >
-                      {showPassword ? <img src="images/close.png" alt="Hide" className="w-5 h-5"/> : <img src="images/open.png" alt="Show" className="w-5 h-5" />}
+                      {showPassword ? <img src={hidePasswordIcon} alt="Hide" className="w-5 h-5"/> : <img src={showPasswordIcon} alt="Show" className="w-5 h-5" />}
                     </button>
                   </div>
                 </div>
@@ -263,7 +269,7 @@ function LawyerCreateAcc() {
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                     >
-                      {showConfirmPassword ? <img src="images/close.png" alt="Hide" className="w-5 h-5"/> : <img src="images/open.png" alt="Show" className="w-5 h-5" />}
+                      {showConfirmPassword ? <img src={hidePasswordIcon} alt="Hide" className="w-5 h-5"/> : <img src={showPasswordIcon} alt="Show" className="w-5 h-5" />}
                     </button>
                   </div>
                 </div>
