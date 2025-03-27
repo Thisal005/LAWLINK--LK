@@ -4,6 +4,9 @@ import {  toast } from "react-toastify";
 import { AppContext } from "../../../Context/AppContext";
 import axios from "axios";
 
+import loginVideo from "../../../assets/images/gtrfe-1.mp4";
+import showPasswordIcon from "../../../assets/images/open.png";
+import hidePasswordIcon from "../../../assets/images/close.png";
 
 
 function Lawyerlogin() {
@@ -58,7 +61,7 @@ function Lawyerlogin() {
         {/* Animation Container - Hidden on mobile */}
         <div className="hidden md:flex md:w-[60%] bg-gradient-to-br from-[#0022fc] to-[#001cd8] justify-center items-center overflow-hidden p-4">
           <video
-            src="images/gtrfe-1.mp4"
+            src={loginVideo}
             autoPlay
             loop
             muted
@@ -105,9 +108,9 @@ function Lawyerlogin() {
                   onClick={() => setShowPassword((prev) => !prev)}
                 >
                   {showPassword ? (
-                    <img src="images/close.png" alt="Hide password" className="w-6 h-6" />
+                    <img src={hidePasswordIcon} alt="Hide password" className="w-6 h-6" />
                   ) : (
-                    <img src="images/open.png" alt="Show password" className="w-6 h-6" />
+                    <img src={showPasswordIcon} alt="Show password" className="w-6 h-6" />
                   )}
                 </button>
               </div>
