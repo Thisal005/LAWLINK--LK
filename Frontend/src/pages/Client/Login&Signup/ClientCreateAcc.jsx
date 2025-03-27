@@ -4,6 +4,12 @@ import { AppContext } from "../../../Context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+// Media imports
+import welcomeVideo from "../../../assets/Images/gtrfe.mp4";
+import logo from "../../../assets/Images/logo.png";
+import showPasswordIcon from "../../../assets/Images/open.png";
+import hidePasswordIcon from "../../../assets/Images/close.png";
+
 function ClientCreateAcc() {
   const navigate = useNavigate();
   const { backendUrl, setEmail } = useContext(AppContext);
@@ -146,7 +152,7 @@ function ClientCreateAcc() {
   
         <div className="w-full max-w-[380px] my-10 mx-auto relative z-10 group">
           <video
-            src="images/gtrfe.mp4"
+            src={welcomeVideo}
             autoPlay
             loop
             muted
@@ -159,7 +165,7 @@ function ClientCreateAcc() {
           <a href="https://www.lawlinklk.com/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-110 inline-block">
             <img
               className="w-[130px] h-auto mt-2 mb-8 filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
-              src="images/logo.png"
+              src={logo}
               alt="Logo"
             />
           </a>
@@ -241,9 +247,9 @@ function ClientCreateAcc() {
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? (
-                    <img src="images/close.png" alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={hidePasswordIcon} alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   ) : (
-                    <img src="images/open.png" alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={showPasswordIcon} alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   )}
                 </button>
               </div>
@@ -268,9 +274,9 @@ function ClientCreateAcc() {
                   aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                 >
                   {showConfirmPassword ? (
-                    <img src="images/close.png" alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={hidePasswordIcon} alt="Hide" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   ) : (
-                    <img src="images/open.png" alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                    <img src={showPasswordIcon} alt="Show" className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                   )}
                 </button>
               </div>
