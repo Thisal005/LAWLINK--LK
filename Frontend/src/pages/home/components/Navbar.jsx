@@ -57,7 +57,7 @@ const Navbar = ({ isLoading }) => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link to="#" className="flex items-center space-x-2">
-            <img src={logo} alt="LawLinkLK Logo" className="h-10 w-50" /> {/* Logo image */}
+            <img src={logo} alt="LawLinkLK Logo" className="h-10 w-35" /> {/* Logo image */}
           </Link>
   
           {/* Desktop Menu */}
