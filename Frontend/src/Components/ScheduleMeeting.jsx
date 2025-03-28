@@ -93,7 +93,7 @@ const ScheduleMeeting = ({ caseId }) => {
         </div>
       </div>
 
-      <div className="h-[5px] bg-red-500 w-113 rounded-full my-4 transition-all duration-300 hover:w-113 hover:bg-red-300"></div>
+      <div className="h-[5px] bg-red-500 w-130 rounded-full my-4 transition-all duration-300 hover: hover:bg-red-300"></div>
 
       {fetchLoading ? (
         <div className="flex flex-col items-center py-6">

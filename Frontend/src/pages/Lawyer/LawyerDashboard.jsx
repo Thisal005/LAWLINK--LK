@@ -65,10 +65,10 @@ function Home() {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 ">
 
                 {/* Active Cases Card */}
-                <div className="group bg-white border border-gray-200 p-6 rounded-2xl hover:border-blue-500 transition-all duration-300 hover:shadow-lg">
+                <div className="group bg-white border border-gray-200 p-6 rounded-2xl  transition-all duration-300 hover:shadow-lg">
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <h3 className="text-xs uppercase tracking-wide text-gray-500 font-medium">Active Cases</h3>

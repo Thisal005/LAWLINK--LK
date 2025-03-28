@@ -104,7 +104,7 @@ const ScheduledMeetings = () => {
         </div>
       </div>
 
-      <div className="h-[5px] bg-yellow-500 w-113 rounded-full my-4 transition-all duration-300 hover:w-113 hover:bg-yellow-300"></div>
+      <div className="h-[5px] bg-yellow-500 w-128 rounded-full my-4 transition-all duration-300 hover: hover:bg-yellow-300"></div>
 
       {meetings.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-[180px] text-gray-500">

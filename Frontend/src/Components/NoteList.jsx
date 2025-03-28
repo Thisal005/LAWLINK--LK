@@ -23,7 +23,7 @@ const NoteList = () => {
         </h2>
       </div>
 
-      <div className="h-[5px] bg-purple-500 w-113 rounded-full my-4 transition-all duration-300 hover:w-113 hover:bg-purple-300"></div>
+      <div className="h-[5px] bg-purple-500 w-128 rounded-full my-4 transition-all duration-300 hover: hover:bg-purple-300"></div>
 
       {loading ? (
         <div className="space-y-4">
