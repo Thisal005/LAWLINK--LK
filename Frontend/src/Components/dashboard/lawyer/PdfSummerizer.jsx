@@ -185,7 +185,7 @@ const PDFSummarizer = () => {
               </div>
               <button 
                 type="submit" 
-                className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors disabled:bg-blue-300"
+                className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-300"
                 disabled={!file || isLoading}
               >
                 {isLoading ? 'Processing...' : 'Summarize'}
@@ -232,9 +232,9 @@ const PDFSummarizer = () => {
               <div className="flex items-center">
                 <button 
                   onClick={handleAudioPlay} 
-                  className="p-2 bg-indigo-100 rounded-full hover:bg-indigo-200 transition-colors"
+                  className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors"
                 >
-                  {isPlaying ? <BsVolumeUp className="text-indigo-600" /> : <BsVolumeOff className="text-indigo-600" />}
+                  {isPlaying ? <BsVolumeUp className="text-blue-600" /> : <BsVolumeOff className="text-blue-600" />}
                 </button>
                 <audio 
                   ref={audioRef} 

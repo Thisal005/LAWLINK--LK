@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-16">
+        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-400 bg-clip-text text-transparent mb-16">
           Contact Us
         </h2>
         <div className="grid sm:grid-cols-2 gap-8">
@@ -76,7 +76,7 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-indigo-600 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-400 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300"
               >
                 Send Message
               </button>

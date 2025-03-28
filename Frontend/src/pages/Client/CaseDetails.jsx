@@ -98,7 +98,7 @@ const CaseDetails = () => {
           animate={{ opacity: 1 }}
           className="flex items-center gap-3 text-gray-700"
         >
-          <Clock className="w-8 h-8 text-indigo-600 animate-spin" />
+          <Clock className="w-8 h-8 text-blue-600 animate-spin" />
           <span className="text-xl font-semibold">Loading Case Details...</span>
         </motion.div>
       </div>
@@ -119,10 +119,10 @@ const CaseDetails = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
           >
-            <div className="p-8 bg-gradient-to-r from-indigo-50 to-white border-b border-gray-200">
+            <div className="p-8 bg-gradient-to-r from-blue-50 to-white border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <Briefcase className="w-8 h-8 text-indigo-600" />
+                  <Briefcase className="w-8 h-8 text-blue-600" />
                   <div>
                     <h2 className="text-3xl font-bold text-gray-800">{caseData.subject}</h2>
                     <p className="text-sm text-gray-500 mt-1">
@@ -147,7 +147,7 @@ const CaseDetails = () => {
             <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start gap-3">
-                  <FileText className="w-6 h-6 text-indigo-600 mt-1" />
+                  <FileText className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
                     <label className="text-sm font-medium text-gray-600">Description</label>
                     <p className="text-gray-700 text-base leading-relaxed">
@@ -156,7 +156,7 @@ const CaseDetails = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Briefcase className="w-6 h-6 text-indigo-600 mt-1" />
+                  <Briefcase className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
                     <label className="text-sm font-medium text-gray-600">Case Type</label>
                     <p className="text-gray-800 text-base font-semibold">
@@ -165,7 +165,7 @@ const CaseDetails = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-6 h-6 text-indigo-600 mt-1" />
+                  <MapPin className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
                     <label className="text-sm font-medium text-gray-600">District</label>
                     <p className="text-gray-800 text-base font-semibold">
@@ -210,7 +210,7 @@ const CaseDetails = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-6 h-6 text-indigo-600" />
+                  <Clock className="w-6 h-6 text-blue-600" />
                   <div>
                     <label className="text-sm font-medium text-gray-600">Created At</label>
                     <p className="text-gray-700 text-base">
@@ -225,7 +225,7 @@ const CaseDetails = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-6 h-6 text-indigo-600" />
+                  <Calendar className="w-6 h-6 text-blue-600" />
                   <div>
                     <label className="text-sm font-medium text-gray-600">Court Date</label>
                     <p className="text-gray-700 text-base">
@@ -242,7 +242,7 @@ const CaseDetails = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <User className="w-6 h-6 text-indigo-600" />
+                  <User className="w-6 h-6 text-blue-600" />
                   <div>
                     <label className="text-sm font-medium text-gray-600">Assigned Lawyer</label>
                     <p className="text-gray-800 text-base font-semibold">
@@ -260,7 +260,7 @@ const CaseDetails = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate("/client-dashboard")}
-                className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm flex items-center gap-2 text-base font-medium"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2 text-base font-medium"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Back to Dashboard

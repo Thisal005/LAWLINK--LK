@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
+import showPasswordIcon from "../../../assets/images/open.png";
+import hidePasswordIcon from "../../../assets/images/close.png";
+
 
 function Newpassword() {
   const navigate = useNavigate();
@@ -107,6 +110,7 @@ function Newpassword() {
   };
 
   return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
     <div className="w-full max-w-[500px] bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float">
       <h1 className="text-2xl font-bold text-[#0026ff] text-center mb-4">Create New Password</h1>
       <div className="h-[3px] bg-[#3652fc] w-40 mx-auto rounded-full mb-6"></div>
@@ -130,9 +134,9 @@ function Newpassword() {
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <img src="images/close.png" alt="Hide password" className="w-5 h-5" />
+                <img src={hidePasswordIcon} alt="Hide password" className="w-5 h-5" />
               ) : (
-                <img src="images/open.png" alt="Show password" className="w-5 h-5" />
+                <img src={showPasswordIcon} alt="Show password" className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -157,9 +161,9 @@ function Newpassword() {
               onClick={() => setShowConfirmPassword((prev) => !prev)}
             >
               {showConfirmPassword ? (
-                <img src="images/close.png" alt="Hide password" className="w-5 h-5" />
+                <img src={hidePasswordIcon} alt="Hide password" className="w-5 h-5" />
               ) : (
-                <img src="images/open.png" alt="Show password" className="w-5 h-5" />
+                <img src={showPasswordIcon} alt="Show password" className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -190,6 +194,7 @@ function Newpassword() {
         </button>
       </form>
     </div>
+  </div>
 );
 }
 

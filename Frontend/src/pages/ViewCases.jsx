@@ -103,10 +103,10 @@ const ViewCases = () => {
             transition={{ duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="bg-gradient-to-r from-indigo-50 to-white rounded-xl p-8 shadow-lg border border-gray-100 mb-8">
+            <div className="bg-gradient-to-r from-blue-50 to-white rounded-xl p-8 shadow-lg border border-gray-100 mb-8">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <Briefcase className="w-8 h-8 text-indigo-600" />
+                  <Briefcase className="w-8 h-8 text-blue-600" />
                   <div>
                     <h2 className="text-4xl font-bold text-gray-800 tracking-tight">
                       Available Cases
@@ -120,7 +120,7 @@ const ViewCases = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => navigate("/lawyer-dashboard")}
-                  className="px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm flex items-center gap-2"
+                  className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2"
                 >
                   <ArrowLeft className="w-5 h-5" />
                   Back
@@ -136,7 +136,7 @@ const ViewCases = () => {
               >
                 <span className="flex items-center justify-center gap-3 text-xl">
                   <svg
-                    className="animate-spin h-8 w-8 text-indigo-600"
+                    className="animate-spin h-8 w-8 text-blue-600"
                     viewBox="0 0 24 24"
                   >
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />

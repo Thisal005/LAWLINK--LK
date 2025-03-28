@@ -10,7 +10,7 @@ function ChatButton() {
   return (
     <motion.button
       onClick={() => navigate("/client-chat")}
-      className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full shadow-lg flex items-center justify-center z-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+      className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
       aria-label="Chat with lawyer"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}

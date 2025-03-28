@@ -56,7 +56,7 @@ const CaseCard = ({ caseId }) => {
   if (loading) {
     return (
       <div className="flex items-center gap-2 text-gray-600 bg-white/80 backdrop-blur-md rounded-lg p-4 shadow-sm">
-        <Circle className="w-5 h-5 text-indigo-500 animate-pulse" />
+        <Circle className="w-5 h-5 text-blue-500 animate-pulse" />
         <p>Loading case details...</p>
       </div>
     );
@@ -81,7 +81,7 @@ const CaseCard = ({ caseId }) => {
       className={`group bg-white border border-gray-200 rounded-2xl p-6 transition-all duration-300 ${
         isClosed
           ? "opacity-75 cursor-default"
-          : "hover:border-indigo-500 hover:bg-indigo-50/20 hover:shadow-xl cursor-pointer"
+          : "hover:border-blue-500 hover:bg-blue-50/20 hover:shadow-xl cursor-pointer"
       }`}
       role="button"
       tabIndex="0"
@@ -99,7 +99,7 @@ const CaseCard = ({ caseId }) => {
         </div>
         <div className="flex items-center gap-4">
           <div
-            className="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center relative"
+            className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center relative"
             aria-hidden="true"
           >
             <span
@@ -155,14 +155,14 @@ const CaseCard = ({ caseId }) => {
       </div>
       <div className="mt-6 border-t border-gray-100 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div className="flex items-center gap-2">
-          <Briefcase className="w-5 h-5 text-indigo-600" />
+          <Briefcase className="w-5 h-5 text-blue-600" />
           <span className="text-gray-600">Case Type:</span>
           <span className="font-semibold text-gray-900">
             {capitalizeText(caseData.caseType)}
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <MapPin className="w-5 h-5 text-indigo-600" />
+          <MapPin className="w-5 h-5 text-blue-600" />
           <span className="text-gray-600">District:</span>
           <span className="font-semibold text-gray-900">
             {capitalizeText(caseData.district)}
@@ -200,7 +200,7 @@ const CaseCard = ({ caseId }) => {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-indigo-600" />
+          <Calendar className="w-5 h-5 text-blue-600" />
           <span className="text-gray-600">Court Date:</span>
           <span className="font-semibold text-gray-900">
             {caseData.courtDate

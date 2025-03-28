@@ -25,7 +25,7 @@ const TaskForm = ({ caseId, clientId }) => {
     aria-labelledby="notes-header"
   >  <div className="absolute inset-0 opacity-20">
     <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-    <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
+    <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
   </div>
 
   <div className="relative z-10">

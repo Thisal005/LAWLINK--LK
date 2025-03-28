@@ -4,6 +4,9 @@ import { Grid, Eye, MessageSquare, Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AppContext } from "../../../Context/AppContext";
 
+import logo from "../../../assets/images/hori.png";
+
+
 const Sidebar = ({ activeTab }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,7 +71,7 @@ const Sidebar = ({ activeTab }) => {
                   setIsSidebarOpen(false);
                 }}
                 style={{ cursor: "pointer" }}
-                src="./images/hori.png"
+                src={logo}
                 alt="Sidebar Logo"
                 className="block"
               />

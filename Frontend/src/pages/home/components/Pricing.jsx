@@ -45,7 +45,7 @@ const Pricing = () => {
   return (
     <section id="pricing" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-20">
+        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-400 bg-clip-text text-transparent mb-20">
           Pricing
         </h2>
         <motion.div
@@ -64,7 +64,7 @@ const Pricing = () => {
               <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-200 mb-4">
                 {plan.name}
               </h3>
-              <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-6">
+              <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-400 bg-clip-text text-transparent mb-6">
                 {plan.price}
               </p>
               <ul className="space-y-3">
