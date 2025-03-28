@@ -123,7 +123,7 @@ const Chatbot = () => {
               {!showChatSidebar && (
                 <button
                   onClick={() => setShowChatSidebar(true)}
-                  className="absolute top-4 left-4 p-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 shadow-md z-10"
+                  className="absolute top-4 left-4 p-2 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-full hover:from-blue-600 hover:to-blue-600 transition-all duration-200 shadow-md z-10"
                   title="Show Chat History"
                 >
                   <Bars3Icon className="h-5 w-5" />
@@ -150,7 +150,7 @@ const Chatbot = () => {
                     <button
                       onClick={sendMessage}
                       disabled={loading || isChatLimitReached}
-                      className="p-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full hover:from-blue-600 hover:to-indigo-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-md"
+                      className="p-3 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-full hover:from-blue-600 hover:to-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-md"
                     >
                       <PaperAirplaneIcon className="h-5 w-5" />
                     </button>
@@ -168,7 +168,7 @@ const Chatbot = () => {
                         <div
                           className={`max-w-md p-4 rounded-xl shadow-md ${
                             msg.sender === "user"
-                              ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white"
+                              ? "bg-gradient-to-r from-blue-500 to-blue-500 text-white"
                               : "bg-white text-gray-900 border-l-4 border-blue-500"
                           }`}
                           style={{ whiteSpace: "pre-wrap" }}
@@ -205,7 +205,7 @@ const Chatbot = () => {
                       <button
                         onClick={sendMessage}
                         disabled={loading || isChatLimitReached}
-                        className="p-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full hover:from-blue-600 hover:to-indigo-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-md"
+                        className="p-3 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-full hover:from-blue-600 hover:to-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-md"
                       >
                         <PaperAirplaneIcon className="h-5 w-5" />
                       </button>
@@ -230,7 +230,7 @@ const Chatbot = () => {
                 </div>
                 <button
                   onClick={startNewChat}
-                  className="w-full p-2 mb-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 shadow-md"
+                  className="w-full p-2 mb-4 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-lg hover:from-blue-600 hover:to-blue-600 transition-all duration-200 shadow-md"
                 >
                   New Chat
                 </button>

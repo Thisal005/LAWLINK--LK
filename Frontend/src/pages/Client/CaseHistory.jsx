@@ -92,7 +92,7 @@ const CaseHistory = () => {
           className="flex items-center gap-3 text-gray-700"
         >
           <Circle
-            className="w-8 h-8 text-indigo-500 animate-pulse"
+            className="w-8 h-8 text-blue-500 animate-pulse"
             style={{ filter: "drop-shadow(0 0 6px rgba(99, 102, 241, 0.5))" }}
           />
           <span className="text-xl font-semibold">Loading your cases...</span>
@@ -115,9 +115,9 @@ const CaseHistory = () => {
             transition={{ duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="bg-gradient-to-r from-indigo-50 to-white rounded-xl p-8 shadow-lg border border-gray-100 mb-8">
+            <div className="bg-gradient-to-r from-blue-50 to-white rounded-xl p-8 shadow-lg border border-gray-100 mb-8">
               <h2 className="text-4xl font-bold text-gray-800 tracking-tight flex items-center gap-3">
-                <FileText className="w-8 h-8 text-indigo-600" />
+                <FileText className="w-8 h-8 text-blue-600" />
                 Your Case History
               </h2>
               <p className="mt-2 text-gray-600 text-lg">
@@ -142,7 +142,7 @@ const CaseHistory = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => navigate("/post-case")}
-                  className="mt-6 px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm text-base font-medium"
+                  className="mt-6 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm text-base font-medium"
                 >
                   Post a Case
                 </motion.button>
@@ -175,7 +175,7 @@ const CaseHistory = () => {
                         </p>
                         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 text-base">
                           <div className="flex items-center gap-2">
-                            <Calendar className="w-5 h-5 text-indigo-600" />
+                            <Calendar className="w-5 h-5 text-blue-600" />
                             <span>
                               <span className="font-medium">Court Date:</span>{" "}
                               {caseItem.status === "closed" || caseItem.status === "completed"
@@ -186,21 +186,21 @@ const CaseHistory = () => {
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Clock className="w-5 h-5 text-indigo-600" />
+                            <Clock className="w-5 h-5 text-blue-600" />
                             <span>
                               <span className="font-medium">Created:</span>{" "}
                               {new Date(caseItem.createdAt).toLocaleDateString()}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <MapPin className="w-5 h-5 text-indigo-600" />
+                            <MapPin className="w-5 h-5 text-blue-600" />
                             <span>
                               <span className="font-medium">District:</span>{" "}
                               {capitalizeText(caseItem.district)}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Briefcase className="w-5 h-5 text-indigo-600" />
+                            <Briefcase className="w-5 h-5 text-blue-600" />
                             <span>
                               <span className="font-medium">Type:</span>{" "}
                               {capitalizeText(caseItem.caseType)}
@@ -208,7 +208,7 @@ const CaseHistory = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3 bg-indigo-50 px-4 py-2 rounded-full shadow-sm">
+                      <div className="flex items-center gap-3 bg-blue-50 px-4 py-2 rounded-full shadow-sm">
                         {getStatusIcon(caseItem.status)}
                         <span
                           className={`text-base font-semibold capitalize ${

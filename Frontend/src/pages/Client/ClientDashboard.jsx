@@ -104,7 +104,7 @@ function ClientDashboard() {
         <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-6 mt-6 relative overflow-hidden transform transition-all duration-300 hover:shadow-2xl w-full">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
           </div>
           <div className="relative z-10 flex flex-col md:flex-row justify-between gap-8">
             <div className="flex-1 space-y-8">
@@ -122,7 +122,7 @@ function ClientDashboard() {
                   </p>
                   <button
                     onClick={() => navigate("/post-case")}
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all"
                   >
                     Create Your First Case
                   </button>
@@ -152,7 +152,7 @@ function ClientDashboard() {
               <div className="p-4 border border-blue-200 rounded-lg hover:bg-blue-50 transition-all">
                 <h4 className="font-medium text-gray-800">Learn the Basics</h4>
                 <p className="text-gray-600">Watch a tutorial on managing your cases.</p>
-                <a href="/tutorial" className="text-indigo-600 hover:underline">
+                <a href="/tutorial" className="text-blue-600 hover:underline">
                   Watch Now
                 </a>
               </div>
@@ -161,7 +161,7 @@ function ClientDashboard() {
                 <p className="text-gray-600">Need help? Reach out to our team.</p>
                 <button
                   onClick={() => navigate("/support")}
-                  className="text-indigo-600 hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
                   Get Support
                 </button>
@@ -169,7 +169,7 @@ function ClientDashboard() {
               <div className="p-4 border border-blue-200 rounded-lg hover:bg-blue-50 transition-all">
                 <h4 className="font-medium text-gray-800">Explore Features</h4>
                 <p className="text-gray-600">Discover what you can do with your dashboard.</p>
-                <a href="/features" className="text-indigo-600 hover:underline">
+                <a href="/features" className="text-blue-600 hover:underline">
                   Learn More
                 </a>
               </div>

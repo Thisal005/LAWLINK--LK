@@ -156,7 +156,7 @@ const ClientAccountSettings = () => {
                   />
                   <label
                     htmlFor="profile-picture-upload"
-                    className="px-3 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors inline-flex items-center gap-2 cursor-pointer text-sm"
+                    className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors inline-flex items-center gap-2 cursor-pointer text-sm"
                   >
                     <Upload className="w-4 h-4" />
                     Upload Photo
@@ -212,7 +212,7 @@ const ClientAccountSettings = () => {
                     name="province"
                     value={formData.province}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   >
                     <option value="">Select Province</option>
                     {provinces.map((province) => (
@@ -232,7 +232,7 @@ const ClientAccountSettings = () => {
                     name="receiveNotifications"
                     checked={formData.receiveNotifications}
                     onChange={handleChange}
-                    className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   Receive Notifications
                 </label>
@@ -242,7 +242,7 @@ const ClientAccountSettings = () => {
                     name="receiveEmailNotifications"
                     checked={formData.receiveEmailNotifications}
                     onChange={handleChange}
-                    className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   Receive Notifications via Email
                 </label>
@@ -253,7 +253,7 @@ const ClientAccountSettings = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:bg-gray-400 transition-colors text-sm font-medium"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 transition-colors text-sm font-medium"
                 >
                   {submitting ? "Saving..." : "Save Changes"}
                 </button>

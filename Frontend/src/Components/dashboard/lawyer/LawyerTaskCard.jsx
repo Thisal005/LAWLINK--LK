@@ -7,7 +7,7 @@ const LawyerTaskCard = ({ task }) => {
   {/* Dynamic background elements */}
   <div className="absolute inset-0 opacity-20">
     <div className="absolute top-0 right-0 w-48 h-48 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-    <div className="absolute bottom-0 left-0 w-40 h-40 bg-indigo-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
+    <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
   </div>
 
   {/* Content container */}

@@ -65,7 +65,7 @@ const HowItWorks = () => {
   return (
     <section id="HowItWorks" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-16">
+        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-400 dark:to-blue-400 bg-clip-text text-transparent mb-16">
           How LawLinkLK Works
         </h2>
         <motion.div
