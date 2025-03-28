@@ -55,7 +55,7 @@ export const signup = async (req, res) => {
         subject: "Welcome to LawLink LK - Verify your email",
         html: `
             <            <div style="text-align: center; margin: 10px 0;">
-            <img src="https://i.ibb.co/Tq6mb2M/img1.png" 
+            <img src="https://i.ibb.co/ZzLt5C6V/img1.png" 
                 alt="LawLink LK Header Image" 
                 style="max-width: 100%; max-width: 640px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
         </div>
@@ -88,7 +88,7 @@ export const signup = async (req, res) => {
                 <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
                     <p style="font-size: 16px; color: #555;">
                         If you need further assistance, contact us at
-                        <a href="mailto:support@lawlinklk.com" style="color: #1e90ff; text-decoration: none;">support@lawlinklk.com</a>.
+                        <a href="mailto:lawlinklk@gmail.com" style="color: #1e90ff; text-decoration: none;">lawlinklk@gmail.com</a>.
                     </p>
                     <p style="font-size: 14px; color: #777;">Best regards,<br><b>LawLink LK Team</b><br>
                   
@@ -96,7 +96,7 @@ export const signup = async (req, res) => {
                     </p>
                 </div>
     
-                <img src="https://i.ibb.co/sHkgFsX/lawlink-hori-copy.png" alt="LawLink LK" style="width: 200px; margin-top: 20px;">
+                <img src="https://i.ibb.co/Rp8Y415s/lawlink-hori-copy.png" alt="LawLink LK" style="width: 200px; margin-top: 20px;">
             </div>
         </div>
         `,
@@ -186,7 +186,7 @@ export const sendVerifyOtp = async (req, res) => {
             subject: "Welcome to LawLink LK - Verify your email - New OTP",
             html: `
              <            <div style="text-align: center; margin: 10px 0;">
-                <img src="https://i.ibb.co/Tq6mb2M/img1.png" 
+                <img src="https://i.ibb.co/ZzLt5C6V/img1.png" 
                     alt="LawLink LK Header Image" 
                     style="max-width: 100%; max-width: 640px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             </div>
@@ -219,7 +219,7 @@ export const sendVerifyOtp = async (req, res) => {
                     <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
                         <p style="font-size: 16px; color: #555;">
                             If you need further assistance, contact us at
-                            <a href="mailto:support@lawlinklk.com" style="color: #1e90ff; text-decoration: none;">support@lawlinklk.com</a>.
+                            <a href="mailto:lawlinklk@gmail.com" style="color: #1e90ff; text-decoration: none;">lawlinklk@gmail.com</a>.
                         </p>
                         <p style="font-size: 14px; color: #777;">Best regards,<br><b>LawLink LK Team</b><br>
                       
@@ -227,7 +227,7 @@ export const sendVerifyOtp = async (req, res) => {
                         </p>
                     </div>
         
-                    <img src="https://i.ibb.co/sHkgFsX/lawlink-hori-copy.png" alt="LawLink LK" style="width: 200px; margin-top: 20px;">
+                    <img src="https://i.ibb.co/Rp8Y415s/lawlink-hori-copy.png" alt="LawLink LK" style="width: 200px; margin-top: 20px;">
                 </div>
             </div>
             `,
@@ -309,7 +309,7 @@ export const sendRestPasswordOtp = async (req, res) => {
             subject: "Reset your password",
             html: `
              <div style="text-align: center; margin: 10px 0;">
-                <img src="https://i.ibb.co/Tq6mb2M/img1.png" 
+                <img src="https://i.ibb.co/ZzLt5C6V/img1.png" 
                     alt="LawLink LK Header Image" 
                     style="max-width: 100%; max-width: 640px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             </div>
@@ -340,7 +340,7 @@ export const sendRestPasswordOtp = async (req, res) => {
                     <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
                         <p style="font-size: 16px; color: #555;">
                             For any help, contact our support team at
-                            <a href="mailto:support@lawlinklk.com" style="color: #1e90ff; text-decoration: none;">support@lawlinklk.com</a>.
+                            <a href="mailto:lawlinklk@gmail.com" style="color: #1e90ff; text-decoration: none;">lawlinklk@gmail.com</a>.
                         </p>
                         <p style="font-size: 14px; color: #777;">Best regards,<br><b>LawLink LK Team</b><br>
                       
@@ -348,7 +348,7 @@ export const sendRestPasswordOtp = async (req, res) => {
                         </p>
                     </div>
         
-                    <img src="https://i.ibb.co/sHkgFsX/lawlink-hori-copy.png" alt="LawLink LK" style="width: 200px; margin-top: 20px;">
+                    <img src="https://i.ibb.co/Rp8Y415s/lawlink-hori-copy.png" alt="LawLink LK" style="width: 200px; margin-top: 20px;">
                 </div>
             </div>
             `,
