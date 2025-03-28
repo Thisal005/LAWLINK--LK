@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
+import showPasswordIcon from "../../../assets/images/open.png";
+import hidePasswordIcon from "../../../assets/images/close.png";
+
+
 function Newpassword() {
   const navigate = useNavigate();
   const { backendUrl, email } = useContext(AppContext);
@@ -127,9 +131,9 @@ function Newpassword() {
                 onClick={() => setShowPassword((prev) => !prev)}
               >
                 {showPassword ? (
-                  <img src="images/close.png" alt="Hide password" className="w-5 h-5" />
+                  <img src={hidePasswordIcon} alt="Hide password" className="w-5 h-5" />
                 ) : (
-                  <img src="images/open.png" alt="Show password" className="w-5 h-5" />
+                  <img src={showPasswordIcon} alt="Show password" className="w-5 h-5" />
                 )}
               </button>
             </div>
@@ -154,9 +158,9 @@ function Newpassword() {
                 onClick={() => setShowConfirmPassword((prev) => !prev)}
               >
                 {showConfirmPassword ? (
-                  <img src="images/close.png" alt="Hide password" className="w-5 h-5" />
+                  <img src={hidePasswordIcon} alt="Hide password" className="w-5 h-5" />
                 ) : (
-                  <img src="images/open.png" alt="Show password" className="w-5 h-5" />
+                  <img src={showPasswordIcon} alt="Show password" className="w-5 h-5" />
                 )}
               </button>
             </div>
