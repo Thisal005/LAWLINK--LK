@@ -19,7 +19,7 @@ const AssignedTasks = ({ caseId }) => {
         </h2>
       </div>
 
-      <div className="h-[5px] bg-blue-500 w-113 rounded-full my-4 transition-all duration-300 hover:w-113 hover:blue-300"></div>
+      <div className="h-[5px] bg-blue-500 w-125 rounded-full my-4 transition-all duration-300 hover:w-113 hover:blue-300"></div>
 
       {fetchLoading ? (
         <div className="space-y-4">
