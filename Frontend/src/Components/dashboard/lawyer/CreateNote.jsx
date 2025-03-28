@@ -24,7 +24,7 @@ const NoteForm = ({ clientId, caseId }) => {
         </h2>
       </div>
   
-      <div className="h-[5px] bg-red-500 w-130 rounded-full my-5 transition-all duration-300 hover:bg-red-300 mb-10"></div>
+      <div className="h-[5px] bg-red-500 w-120 rounded-full my-5 transition-all duration-300 hover:bg-red-300 mb-10"></div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <textarea
           placeholder="Write your note here (max 500 characters)"
