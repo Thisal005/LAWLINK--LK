@@ -9,6 +9,8 @@ import Calender from "../../Components/dashboard/Calender";
 import BasicLineChart from "../../Components/dashboard/Linechart";
 import BasicTimeClock from "../../Components/dashboard/Clock";
 
+import video from "../../assets/images/lawyer.mp4";
+
 
 function Home() {
   const { lawyerData } = useContext(AppContext);
@@ -39,7 +41,7 @@ function Home() {
       <main className="ml-64 p-6 lg:p-8 pt-24">
 
         {/* Welcome Card */}
-        <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-6 mt-5 relative overflow-hidden transform transition-all duration-300 hover:shadow-2xl w-290">
+        <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-6 mt-10 relative overflow-hidden transform transition-all duration-300 hover:shadow-2xl w-full">
 
           {/* Background effects */}
           <div className="absolute inset-0 opacity-20">
@@ -130,7 +132,7 @@ function Home() {
             <div className="self-center md:self-start">
               <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm transform transition-all duration-300 hover:shadow-lg">
                 <video
-                  src="images/lawyer.mp4"
+                  src={video}
                   autoPlay
                   loop
                   muted

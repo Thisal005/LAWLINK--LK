@@ -6,6 +6,9 @@ import { toast } from "react-toastify";
 import { AppContext } from "../../../Context/AppContext";
 import LawyerAvailability from "./AvailabilityForMeetings";
 
+import profilepic from "../../../assets/images/profilepic.jpg";
+
+
 const Header = ({ displayName: propDisplayName, practiceAreas = "Corporate Law" }) => {
   const [notificationsVisible, setNotificationsVisible] = useState(false);
   const [userMenuVisible, setUserMenuVisible] = useState(false);
@@ -165,8 +168,8 @@ const Header = ({ displayName: propDisplayName, practiceAreas = "Corporate Law" 
             </div>
             <div className="relative">
               <img
-                src="./images/profilepic.jpg"
-                alt={`${displayName}'s profile`}
+                  src={profilepic}
+                  alt={`${displayName}'s profile`}
                 className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
               />
               <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-white`}></div>
@@ -176,7 +179,7 @@ const Header = ({ displayName: propDisplayName, practiceAreas = "Corporate Law" 
             <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50 overflow-hidden border border-gray-200" role="menu">
               <div className="p-4 border-b border-gray-100 flex items-center gap-3">
                 <img
-                  src="./images/profilepic.jpg"
+                  src={profilepic}
                   alt={`${displayName}'s profile`}
                   className="w-12 h-12 rounded-full object-cover"
                 />

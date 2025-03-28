@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { AppContext } from "../../../Context/AppContext";
 
+import profilePic from "../../../assets/images/profilepic.jpg";
 
 
 const Header = ({ displayName: propDisplayName, practiceAreas = "Client" }) => {
@@ -231,7 +232,7 @@ const Header = ({ displayName: propDisplayName, practiceAreas = "Client" }) => {
             </div>
             <div className="relative">
               <img
-                src={currentUser?.profilePic || "./images/profilepic.jpg"}
+                src={profilePic}
                 alt={`${displayName}'s profile`}
                 className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
               />
@@ -242,7 +243,7 @@ const Header = ({ displayName: propDisplayName, practiceAreas = "Client" }) => {
             <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50 overflow-hidden border border-gray-200">
               <div className="p-4 border-b border-gray-100 flex items-center gap-3">
                 <img
-                  src={currentUser?.profilePic || "./images/profilepic.jpg"}
+                  src={profilePic}
                   alt={`${displayName}'s profile`}
                   className="w-12 h-12 rounded-full object-cover"
                 />
