@@ -98,6 +98,7 @@ function VerifyEmail() {
   
 
   return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
     <div className="w-full max-w-md bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float text-center">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Heading */}
@@ -152,7 +153,7 @@ function VerifyEmail() {
         </button>
       </form>
 
-   
+   </div>
     </div>
 );  
 }

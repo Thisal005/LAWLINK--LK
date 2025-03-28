@@ -107,6 +107,7 @@ function Newpassword() {
   };
 
   return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
     <div className="w-full max-w-[500px] bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float">
       <h1 className="text-2xl font-bold text-[#0026ff] text-center mb-4">Create New Password</h1>
       <div className="h-[3px] bg-[#3652fc] w-40 mx-auto rounded-full mb-6"></div>
@@ -190,6 +191,7 @@ function Newpassword() {
         </button>
       </form>
     </div>
+  </div>
 );
 }
 

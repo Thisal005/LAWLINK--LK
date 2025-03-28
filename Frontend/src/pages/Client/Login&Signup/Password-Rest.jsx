@@ -93,8 +93,9 @@ function RestPasswordOtp() {
   };
 
 return (
-      <div className="w-full max-w-md bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float text-center">
-        <form onSubmit={handleSubmit} className="space-y-6">
+  <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+        <div className="w-full max-w-md bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float text-center">    
+              <form onSubmit={handleSubmit} className="space-y-6">
           {/* Heading */}
           <h1 className="text-2xl md:text-3xl font-bold text-[#0026ff] mb-4">
             Verify Your Email Reset Password OTP
@@ -160,6 +161,7 @@ return (
           </p>
         </div>
       </div>
+    </div>
   );  
 }
 

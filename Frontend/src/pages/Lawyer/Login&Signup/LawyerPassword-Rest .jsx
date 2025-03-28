@@ -93,74 +93,76 @@ function LawyerRestPasswordOtp() {
   };
 
   return (
-    <div className="w-full max-w-md bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float text-center">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Heading */}
-        <h1 className="text-2xl md:text-3xl font-bold text-[#0026ff] mb-4">
-          Verify Your Email Reset Password OTP
-        </h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <div className="w-full max-w-md bg-white rounded-[20px] shadow-[0_8px_25px_rgba(0,0,0,0.1)] p-8 animate-float text-center">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Heading */}
+          <h1 className="text-2xl md:text-3xl font-bold text-[#0026ff] mb-4">
+            Verify Your Email Reset Password OTP
+          </h1>
 
-        {/* Divider Line */}
-        <div className="h-[3px] bg-[#0026ff] w-60 mx-auto rounded-full"></div>
+          {/* Divider Line */}
+          <div className="h-[3px] bg-[#0026ff] w-60 mx-auto rounded-full"></div>
 
-        {/* OTP Instructions */}
-        <label htmlFor="otp" className="block text-sm text-[#02189c] font-medium ">
-          Enter the One Time Password sent to your email:{" "}
-          <span className="font-semibold text-[#0026ff]">{email}</span>
-        </label>
+          {/* OTP Instructions */}
+          <label htmlFor="otp" className="block text-sm text-[#02189c] font-medium ">
+            Enter the One Time Password sent to your email:{" "}
+            <span className="font-semibold text-[#0026ff]">{email}</span>
+          </label>
 
-        {/* OTP Input Boxes */}
-        <div className="otp-container flex justify-center gap-3">
-          {otp.map((_, index) => (
-            <input
-              key={index}
-              type="text"
-              maxLength="1"
-              value={otp[index]}
-              onChange={(e) => handleChange(e, index)}
-              onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-10 h-10 text-[1.5rem] text-center border border-[#cccccc] rounded-[6px] focus:outline-none focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/50 transition-all duration-200"
-            />
-          ))}
+          {/* OTP Input Boxes */}
+          <div className="otp-container flex justify-center gap-3">
+            {otp.map((_, index) => (
+              <input
+                key={index}
+                type="text"
+                maxLength="1"
+                value={otp[index]}
+                onChange={(e) => handleChange(e, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className="w-10 h-10 text-[1.5rem] text-center border border-[#cccccc] rounded-[6px] focus:outline-none focus:border-[#007bff] focus:ring-2 focus:ring-[#007bff]/50 transition-all duration-200"
+              />
+            ))}
+          </div>
+
+          {/* Resend OTP Button */}
+          <button
+            type="button"
+            onClick={handleResend}
+            className={`w-full text-sm text-[#1e90ff] underline hover:text-[#0066cc] transition-colors duration-200 ${
+              isResendDisabled ? "text-[#999] cursor-not-allowed no-underline" : ""
+            }`}
+            disabled={isResendDisabled}
+          >
+            {isResendDisabled
+              ? `Resend OTP in ${resendTimer}s`
+              : "Resend OTP"}
+          </button>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-3 px-6 bg-[#0026ff] text-white font-semibold rounded-[12px] hover:bg-[#3452fe] hover:-translate-y-[1px] active:scale-95 transition-all duration-300"
+          >
+            Submit
+          </button>
+        </form>
+
+        {/* Back to Login Link */}
+        <div className="mt-6 text-sm text-[#02189c]">
+          <p
+            className="cursor-pointer hover:text-[#0026ff] transition-colors duration-200"
+            onClick={() => navigate("/lawyer-login")}
+          >
+            Back to{" "}
+            <u className="text-[#007bff] no-underline hover:underline">
+              <b>Login</b>
+            </u>
+          </p>
         </div>
-
-        {/* Resend OTP Button */}
-        <button
-          type="button"
-          onClick={handleResend}
-          className={`w-full text-sm text-[#1e90ff] underline hover:text-[#0066cc] transition-colors duration-200 ${
-            isResendDisabled ? "text-[#999] cursor-not-allowed no-underline" : ""
-          }`}
-          disabled={isResendDisabled}
-        >
-          {isResendDisabled
-            ? `Resend OTP in ${resendTimer}s`
-            : "Resend OTP"}
-        </button>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full py-3 px-6 bg-[#0026ff] text-white font-semibold rounded-[12px] hover:bg-[#3452fe] hover:-translate-y-[1px] active:scale-95 transition-all duration-300"
-        >
-          Submit
-        </button>
-      </form>
-
-      {/* Back to Login Link */}
-      <div className="mt-6 text-sm text-[#02189c]">
-        <p
-          className="cursor-pointer hover:text-[#0026ff] transition-colors duration-200"
-          onClick={() => navigate("/lawyer-login")}
-        >
-          Back to{" "}
-          <u className="text-[#007bff] no-underline hover:underline">
-            <b>Login</b>
-          </u>
-        </p>
       </div>
     </div>
-);
+  );
 }
 
 export default LawyerRestPasswordOtp;
