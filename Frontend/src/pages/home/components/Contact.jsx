@@ -16,7 +16,7 @@ const Contact = () => {
             <div className="space-y-6">
               <div>
                 <p className="text-blue-600 dark:text-blue-400 font-semibold">Email:</p>
-                <p className="text-gray-600 dark:text-gray-300">support@lawlinklk.com</p>
+                <p className="text-gray-600 dark:text-gray-300">lawlinklk@gmail.com</p>
               </div>
               <div>
                 <p className="text-blue-600 dark:text-blue-400 font-semibold">Phone:</p>
