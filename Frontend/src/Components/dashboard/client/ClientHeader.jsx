@@ -6,6 +6,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { AppContext } from "../../../Context/AppContext";
 
+
+
 const Header = ({ displayName: propDisplayName, practiceAreas = "Client" }) => {
   const [notificationsVisible, setNotificationsVisible] = useState(false);
   const [userMenuVisible, setUserMenuVisible] = useState(false);

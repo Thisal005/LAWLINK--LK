@@ -5,6 +5,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AppContext } from "../../../Context/AppContext"; // Path from first code
 import axios from "axios";
 
+import logo from "../../../assets/images/hori.png";
+
+
 const ClientSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -93,7 +96,7 @@ const ClientSidebar = () => {
                   setIsSidebarOpen(false);
                 }}
                 style={{ cursor: "pointer" }}
-                src="./images/hori.png"
+                src={logo}
                 alt="Sidebar Logo"
                 className="block"
               />

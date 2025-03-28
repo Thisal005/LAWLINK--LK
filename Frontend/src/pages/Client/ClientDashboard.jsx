@@ -13,6 +13,9 @@ import ScheduledMeetings from "../../Components/ScheduledMeetings";
 import ScheduleMeeting from "../../Components/ScheduleMeeting";
 import ChatButton from "../../Components/dashboard/client/ClientChatButton";
 
+
+import video from "../../assets/images/lawyer2.mp4";
+
 function ClientDashboard() {
   const { userData, backendUrl } = useContext(AppContext);
   const navigate = useNavigate();
@@ -98,7 +101,7 @@ function ClientDashboard() {
       <Header />
       <ClientSidebar activeTab="Dashboard" />
       <main className="ml-64 p-6 lg:p-8 pt-24 mt-6">
-        <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-6 mt-5 relative overflow-hidden transform transition-all duration-300 hover:shadow-2xl w-290">
+        <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-6 mt-6 relative overflow-hidden transform transition-all duration-300 hover:shadow-2xl w-full">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
@@ -129,7 +132,7 @@ function ClientDashboard() {
             <div className="self-center md:self-start">
               <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm transform transition-all duration-300 hover:shadow-lg mt-4">
                 <video
-                  src="images/lawyer2.mp4"
+                  src={video}
                   autoPlay
                   loop
                   muted
