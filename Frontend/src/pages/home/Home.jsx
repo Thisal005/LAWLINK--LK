@@ -1,3 +1,4 @@
+// D:/PROJECT_REPOS/hosted/LAWLINK--LK/Frontend/src/Home.jsx
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -14,7 +15,7 @@ import HowItWorks from "./components/HowItWorks";
 
 const Home = () => {
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <div className="home-page"> 
       <Navbar />
       <Hero />
       <About />
