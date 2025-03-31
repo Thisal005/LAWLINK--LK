@@ -5,10 +5,10 @@ const CTA = () => {
   return (
     <section
       id="CTA"
-      className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 dark:from-gray-800 dark:via-gray-900 dark:to-black relative overflow-hidden"
+      className="py-24 bg-gradient-to-br from-blue-600 via-blue-800 to-blue-900 relative overflow-hidden"
     >
       {/* Subtle Background Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent_70%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent_70%)]"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-semibold text-white mb-5 tracking-tight animate-fade-in">
