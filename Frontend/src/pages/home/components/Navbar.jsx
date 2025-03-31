@@ -46,7 +46,7 @@ const Navbar = ({ isLoading }) => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white dark:bg-darkBackground shadow-lg rounded-lg mx-4 mt-4"
+          ? "bg-white  shadow-lg rounded-lg mx-4 mt-4"
           : "bg-transparent"
       }`}
       style={{
@@ -62,22 +62,22 @@ const Navbar = ({ isLoading }) => {
   
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection("about")} className="text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff] transition duration-300">
+            <button onClick={() => scrollToSection("about")} className="text-textPrimary  hover:text-[#042cc7]  0 transition duration-300">
               About
             </button>
-            <button onClick={() => scrollToSection("features")} className="text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff] transition duration-300">
+            <button onClick={() => scrollToSection("features")} className="text-textPrimary  hover:text-[#042cc7]  0 transition duration-300">
               Features
             </button>
-            <button onClick={() => scrollToSection("HowItWorks")} className="text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff] transition duration-300">
+            <button onClick={() => scrollToSection("HowItWorks")} className="text-textPrimary  hover:text-[#042cc7]  0 transition duration-300">
               How It Works
             </button>
-            <button onClick={() => scrollToSection("pricing")} className="text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff] transition duration-300">
+            <button onClick={() => scrollToSection("pricing")} className="text-textPrimary   hover:text-[#042cc7]  0 transition duration-300">
               Pricing
             </button>
-            <button onClick={() => scrollToSection("faq")} className="text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff] transition duration-300">
+            <button onClick={() => scrollToSection("faq")} className="text-textPrimary   hover:text-[#042cc7]  0 transition duration-300">
               FAQ
             </button>
-            <button onClick={() => scrollToSection("contact")} className="text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff] transition duration-300">
+            <button onClick={() => scrollToSection("contact")} className="text-textPrimary   hover:text-[#042cc7]  0 transition duration-300">
               Contact
             </button>
             <div className="flex space-x-4">
@@ -98,13 +98,7 @@ const Navbar = ({ isLoading }) => {
                 <span className="relative z-10 group-hover:text-white">Register</span>
               </Link>
             </div>
-            {/* Dark Mode Toggle Button (Desktop) */}
-            <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
-            >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+           
           </div>
   
           {/* Mobile Menu Button and Dark Mode Toggle */}
@@ -116,7 +110,7 @@ const Navbar = ({ isLoading }) => {
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={toggleMenu} className="text-textPrimary dark:text-darkTextPrimary focus:outline-none">
+            <button onClick={toggleMenu} className="text-textPrimary   focus:outline-none">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -132,7 +126,7 @@ const Navbar = ({ isLoading }) => {
                     scrollToSection("about");
                     toggleMenu();
                   }}
-                  className="flex items-center space-x-3 text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-textPrimary   hover:text-[#042cc7]  0"
                 >
                   <Info size={20} />
                   <span>About</span>
@@ -142,7 +136,7 @@ const Navbar = ({ isLoading }) => {
                     scrollToSection("features");
                     toggleMenu();
                   }}
-                  className="flex items-center space-x-3 text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-textPrimary   hover:text-[#042cc7]  0"
                 >
                   <Settings size={20} />
                   <span>Features</span>
@@ -152,7 +146,7 @@ const Navbar = ({ isLoading }) => {
                     scrollToSection("HowItWorks");
                     toggleMenu();
                   }}
-                  className="flex items-center space-x-3 text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-textPrimary   hover:text-[#042cc7]  0"
                 >
                   <Home size={20} />
                   <span>How It Works</span>
@@ -162,7 +156,7 @@ const Navbar = ({ isLoading }) => {
                     scrollToSection("pricing");
                     toggleMenu();
                   }}
-                  className="flex items-center space-x-3 text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-textPrimary   hover:text-[#042cc7]  0"
                 >
                   <HelpCircle size={20} />
                   <span>Pricing</span>
@@ -172,7 +166,7 @@ const Navbar = ({ isLoading }) => {
                     scrollToSection("faq");
                     toggleMenu();
                   }}
-                  className="flex items-center space-x-3 text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-textPrimary   hover:text-[#042cc7]  0"
                 >
                   <HelpCircle size={20} />
                   <span>FAQ</span>
@@ -182,14 +176,14 @@ const Navbar = ({ isLoading }) => {
                     scrollToSection("contact");
                     toggleMenu();
                   }}
-                  className="flex items-center space-x-3 text-textPrimary dark:text-darkTextPrimary hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-textPrimary   hover:text-[#042cc7]  0"
                 >
                   <Phone size={20} />
                   <span>Contact</span>
                 </button>
                 <Link
                   to="/login"
-                  className="flex items-center space-x-3 text-[#042cc7] dark:text-[#008bff] hover:text-[#042cc7] dark:hover:text-[#008bff]"
+                  className="flex items-center space-x-3 text-[#042cc7] dark:text-[#008bff] hover:text-[#042cc7]  0"
                 >
                   <LogIn size={20} />
                   <span>Login</span>

@@ -69,17 +69,17 @@ const Features = () => {
 
   const clientFeatures = [
     {
-      icon: <User size={28} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 hover:scale-110" />,
+      icon: <User size={28} className="text-blue-600 transition-transform duration-300 hover:scale-110" />,
       title: "Post Your Case",
       description: "Share legal issues anonymously and connect with the perfect lawyer.",
     },
     {
-      icon: <Bell size={28} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 hover:scale-110" />,
+      icon: <Bell size={28} className="text-blue-600 transition-transform duration-300 hover:scale-110" />,
       title: "Stay Updated",
       description: "Get real-time updates on your case and deadlines.",
     },
     {
-      icon: <MessageSquare size={28} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 hover:scale-110" />,
+      icon: <MessageSquare size={28} className="text-blue-600 transition-transform duration-300 hover:scale-110" />,
       title: "Secure Messaging",
       description: "Chat securely with lawyers via our encrypted system.",
     },
@@ -87,17 +87,17 @@ const Features = () => {
 
   const lawyerFeatures = [
     {
-      icon: <Briefcase size={28} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 hover:scale-110" />,
+      icon: <Briefcase size={28} className="text-blue-600 transition-transform duration-300 hover:scale-110" />,
       title: "Find Relevant Cases",
       description: "Discover cases tailored to your expertise and region.",
     },
     {
-      icon: <Folder size={28} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 hover:scale-110" />,
+      icon: <Folder size={28} className="text-blue-600 transition-transform duration-300 hover:scale-110" />,
       title: "Case Management",
       description: "Streamline documents and schedules effortlessly.",
     },
     {
-      icon: <Shield size={28} className="text-blue-600 dark:text-blue-400 transition-transform duration-300 hover:scale-110" />,
+      icon: <Shield size={28} className="text-blue-600 transition-transform duration-300 hover:scale-110" />,
       title: "Build Trust",
       description: "Highlight your skills and grow your reputation.",
     },
@@ -107,12 +107,12 @@ const Features = () => {
     <section 
       id="features" 
       ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+      className="py-20 bg-gradient-to-br from-blue-50 to-white opacity-0"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
           ref={titleRef}
-          className="text-4xl font-bold text-center text-blue-600 mb-16 opacity-0 translate-y-6 transition-all duration-700 delay-100"
+          className="text-4xl font-bold text-center text-blue-600 mb-16 opacity-0"
         >
           Features
         </h2>
@@ -126,20 +126,20 @@ const Features = () => {
                 ref={clientImageRef}
                 src={clientImage} 
                 alt="Client" 
-                className="w-full max-w-md mx-auto mr-40 transition-transform duration-300 hover:scale-105 opacity-0 -translate-x-12 transition-all duration-1000 delay-200"
+                className="w-full max-w-md mx-auto mr-40 transition-transform duration-300 hover:scale-105 opacity-0"
                 loading="lazy"
               />
               
               {/* Client label */}
               <div 
                 ref={clientLabelRef}
-                className="absolute top-10 right-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full py-2 px-6 shadow-lg transition-shadow duration-300 hover:shadow-xl opacity-0 translate-x-8 transition-all duration-700 delay-400"
+                className="absolute top-10 right-6 bg-white/80 backdrop-blur-sm rounded-full py-2 px-6 shadow-lg transition-shadow duration-300 hover:shadow-xl opacity-0"
               >
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-blue-600 mr-2"></div>
                   <div>
-                    <p className="font-semibold text-blue-600 dark:text-blue-400">For Clients</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Individuals who seek legal <br />help in Sri Lanka</p>
+                    <p className="font-semibold text-blue-600">For Clients</p>
+                    <p className="text-sm text-gray-600">Individuals who seek legal <br />help in Sri Lanka</p>
                   </div>
                 </div>
               </div>
@@ -151,19 +151,18 @@ const Features = () => {
                 <div 
                   key={index}
                   ref={addToClientRefs}
-                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg flex items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8 transition-all duration-700"
-                  style={{ transitionDelay: `${500 + (index * 150)}ms` }}
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg flex items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl opacity-0"
                   tabIndex="0"
                   aria-label={`Feature: ${feature.title}. ${feature.description}`}
                 >
-                  <div className="p-4 rounded-full bg-blue-100 dark:bg-blue-800 mr-5">
+                  <div className="p-4 rounded-full bg-blue-100 mr-5">
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                    <h4 className="text-xl font-semibold text-blue-600">
                       {feature.title}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600">
                       {feature.description}
                     </p>
                   </div>
@@ -180,19 +179,18 @@ const Features = () => {
                 <div 
                   key={index}
                   ref={addToLawyerRefs}
-                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg flex items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8 transition-all duration-700"
-                  style={{ transitionDelay: `${500 + (index * 150)}ms` }}
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg flex items-center transition-transform duration-300 hover:scale-105 hover:shadow-xl opacity-0"
                   tabIndex="0"
                   aria-label={`Feature: ${feature.title}. ${feature.description}`}
                 >
-                  <div className="p-4 rounded-full bg-blue-100 dark:bg-blue-800 mr-5">
+                  <div className="p-4 rounded-full bg-blue-100 mr-5">
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+                    <h4 className="text-xl font-semibold text-blue-600">
                       {feature.title}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600">
                       {feature.description}
                     </p>
                   </div>
@@ -206,20 +204,20 @@ const Features = () => {
                 ref={lawyerImageRef}
                 src={lawyerImage} 
                 alt="Lawyer" 
-                className="w-full max-w-md mx-auto ml-40 transition-transform duration-300 hover:scale-105 opacity-0 translate-x-12 transition-all duration-1000 delay-200 hover:scale-105 opacity-0 translate-x-12 transition-all duration-1000 delay-200"
+                className="w-full max-w-md mx-auto ml-40 transition-transform duration-300 hover:scale-105 opacity-0"
                 loading="lazy"
               />
               
               {/* Lawyer label */}
               <div 
                 ref={lawyerLabelRef}
-                className="absolute top-16 left-7 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full py-2 px-6 shadow-lg transition-shadow duration-300 hover:shadow-xl opacity-0 -translate-x-8 transition-all duration-700 delay-400"
+                className="absolute top-16 left-7 bg-white/80 backdrop-blur-sm rounded-full py-2 px-6 shadow-lg transition-shadow duration-300 hover:shadow-xl opacity-0"
               >
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-blue-600 mr-2"></div>
                   <div>
-                    <p className="font-semibold text-blue-600 dark:text-blue-400">For Lawyers</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">22,000+ legal professionals<br />in Sri Lanka</p>
+                    <p className="font-semibold text-blue-600">For Lawyers</p>
+                    <p className="text-sm text-gray-600">22,000+ legal professionals<br />in Sri Lanka</p>
                   </div>
                 </div>
               </div>
@@ -234,6 +232,104 @@ const Features = () => {
           .animate-in {
             opacity: 1 !important;
             transform: translateY(0) translateX(0) !important;
+          }
+
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+
+          @keyframes slideInFromTop {
+            0% {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes slideInFromLeft {
+            0% {
+              opacity: 0;
+              transform: translateX(-30px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          @keyframes slideInFromRight {
+            0% {
+              opacity: 0;
+              transform: translateX(30px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          @keyframes slideInFromBottom {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          /* Section fade-in */
+          section#features.animate-in {
+            animation: fadeIn 0.8s ease-out forwards;
+          }
+
+          /* Title slide-in from top */
+          h2.animate-in {
+            animation: slideInFromTop 0.7s ease-out forwards;
+            animation-delay: 0.2s;
+          }
+
+          /* Client image and label animations */
+          img[alt="Client"].animate-in {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+            animation-delay: 0.4s;
+          }
+          div.absolute.top-10.right-6.animate-in {
+            animation: slideInFromRight 0.8s ease-out forwards;
+            animation-delay: 0.6s;
+          }
+
+          /* Lawyer image and label animations */
+          img[alt="Lawyer"].animate-in {
+            animation: slideInFromRight 0.8s ease-out forwards;
+            animation-delay: 0.4s;
+          }
+          div.absolute.top-16.left-7.animate-in {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+            animation-delay: 0.6s;
+          }
+
+          /* Feature cards slide-in with stagger */
+          div.bg-white\\/80.animate-in {
+            animation: slideInFromBottom 0.7s ease-out forwards;
+          }
+          div.bg-white\\/80:nth-child(1).animate-in {
+            animation-delay: 0.8s;
+          }
+          div.bg-white\\/80:nth-child(2).animate-in {
+            animation-delay: 1s;
+          }
+          div.bg-white\\/80:nth-child(3).animate-in {
+            animation-delay: 1.2s;
           }
         `
       }} />
