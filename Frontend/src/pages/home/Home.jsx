@@ -1,4 +1,3 @@
-// D:/PROJECT_REPOS/hosted/LAWLINK--LK/Frontend/src/Home.jsx
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -15,15 +14,11 @@ import HowItWorks from "./components/HowItWorks";
 
 const Home = () => {
   return (
-<<<<<<< HEAD
     <div className="">
-=======
-    <div className="home-page"> 
->>>>>>> dd0139464caf2351fc1d96709eb5d06f648c478a
       <Navbar />
       <Hero />
-      <About />
-      <Features />
+      <About/>
+      <Features/>
       <FAQ />
       <HowItWorks />
       <Testimonials />
