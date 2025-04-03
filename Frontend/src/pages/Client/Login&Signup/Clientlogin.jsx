@@ -46,7 +46,7 @@ function Clientlogin() {
       if (response.status === 200) {
         console.log("User logged in successfully:", response.data);
         toast.success("Logged in successfully!");
-
+        navigate("/client-dashboard", { replace: true });
         // Set login state immediately
         setIsLoggedIn(true);
 
