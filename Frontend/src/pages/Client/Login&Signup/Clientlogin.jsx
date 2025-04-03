@@ -53,7 +53,7 @@ function Clientlogin() {
         // Fetch user data and handle redirect
         try {
           await getUserData();
-          const redirectTo = location.state?.from || "/client-dashboard";
+          const redirectTo =  "/client-dashboard";
           navigate(redirectTo, { replace: true });
         } catch (error) {
           console.error("Failed to fetch user data after login:", error);
