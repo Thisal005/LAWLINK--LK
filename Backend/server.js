@@ -29,7 +29,11 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = "https://lawlink-bnc9ncdxq-thisal005s-projects.vercel.app" || ["http://localhost:5173"];
+const allowedOrigins = [
+  "https://lawlink-bnc9ncdxq-thisal005s-projects.vercel.app", // Vercel project URL
+  "https://www.lawlinklk.com", // Your production frontend URL
+  "http://localhost:5173" // Local development
+];
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 app.use("/uploads", express.static("uploads"));
