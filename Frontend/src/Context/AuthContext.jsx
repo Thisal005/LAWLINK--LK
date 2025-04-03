@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { AppContext } from "./AppContext";
 import axios from "axios";
 
 const AuthContext = createContext();
@@ -8,6 +9,8 @@ export const useAuthContext = () => {
 };
 
 export const AuthContextProvider = ({ children }) => {
+    const { backendUrl} = useContext(AppContext);
+  
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
       try {
         // Try fetching client data first
         try {
-          const clientRes = await axios.get("http://localhost:5000/api/user/data", {
+          const clientRes = await axios.get(`${backendUrl}/api/user/data`,{
             withCredentials: true,
           });
           console.log("Client data response:", clientRes.data);
@@ -24,7 +27,7 @@ export const AuthContextProvider = ({ children }) => {
         } catch (clientErr) {
           console.log("Client fetch failed, trying lawyer:", clientErr.response?.status);
           if (clientErr.response?.status === 401 || clientErr.response?.status === 404) {
-            const lawyerRes = await axios.get("http://localhost:5000/api/lawyer-data/data", {
+            const lawyerRes = await axios.get(`${backendUrl}/api/lawyer-data/data`, {
               withCredentials: true,
             });
             console.log("Lawyer data response:", lawyerRes.data);

@@ -1,16 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef,useContext } from 'react';
+import { AppContext } from '../Context/AppContext';
 import io from 'socket.io-client';
 
 const useSocket = (userId) => {
   const [connected, setConnected] = useState(false);
   const [newMessage, setNewMessage] = useState(null);
   const socketRef = useRef(null);
+  const { backendUrl} = useContext(AppContext);
+  
   
   useEffect(() => {
     if (!userId) return;
     
     // Initialize socket connection
-    const socketUrl = 'http://localhost:5000'; // Match your backend URL
+    const socketUrl = backendUrl; // Match your backend URL
     socketRef.current = io(socketUrl, {
       withCredentials: true,
       query: { userId }

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useAuthContext } from "./AuthContext";
+import { AppContext } from "./AppContext";
 import io from "socket.io-client";
 import { toast } from "react-toastify";
 
@@ -11,6 +12,7 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const { user } = useAuthContext();
+  const { backendUrl} = useContext(AppContext);
 
   useEffect(() => {
     if (!user) {
@@ -21,7 +23,7 @@ export const SocketProvider = ({ children }) => {
       return;
     }
 
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io(backendUrl, {
       query: { userId: user._id },
       reconnection: true,
       reconnectionAttempts: 5,
