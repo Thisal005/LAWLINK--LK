@@ -58,9 +58,19 @@ export const AppContentProvider = (props) => {
 
   const getUserData = async () => {
     try {
+      const token = getCookie("jwt");
+      if (!token) {
+        console.log("No JWT token found");
+        setIsLoggedIn(false);
+        return;
+      }
+
       const { data } = await axios.get(`${backendUrl}/api/user/data`, {
         withCredentials: true,
-        headers: { Authorization: `Bearer ${getCookie("jwt")}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
       });
       console.log("Fetched user data:", data); 
       if (data.success) {
@@ -72,8 +82,8 @@ export const AppContentProvider = (props) => {
       }
     } catch (error) {
       console.error("Error fetching user data:", error.response?.data || error.message);
-      toast.error("Error fetching user data.");
       setIsLoggedIn(false);
+      setUserData(null);
     }
   };
 

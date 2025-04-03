@@ -1,7 +1,7 @@
 // utils/api.js
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/tasks";
+const API_URL = "https://lawlink-lk.onrender.com/api/tasks";
 
 // Assign a new task
 export const createTask = async (taskData) => {
