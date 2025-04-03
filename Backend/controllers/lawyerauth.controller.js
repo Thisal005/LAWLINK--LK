@@ -14,7 +14,7 @@ function generateUniqueLawyerID() {
   return "LAWYER-" + Math.random().toString(36).substr(2, 9).toUpperCase();
 }
 
-const uploadDir = "uploads-chat/";
+const uploadDir = "Backend/uploads/verify"; // Directory for uploaded documents
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }

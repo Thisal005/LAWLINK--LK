@@ -4,7 +4,7 @@ import path from "path";
 import fs from "fs";
 
 // Create upload directory if it doesn't exist
-const uploadDir = 'uploads-chat';
+const uploadDir = 'Backend/uploads/chat'; // Directory for uploaded PDFs
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
 }

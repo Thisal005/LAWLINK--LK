@@ -33,7 +33,7 @@ const allowedOrigins = ["http://localhost:5173"];
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 app.use("/uploads", express.static("uploads"));
-app.use("/uploads-chat", express.static("uploads-chat"));
+app.use("/uploads/chat", express.static("Backend/uploads/chat"));
 app.use("/uploads/pdf", express.static("Backend/uploads/pdf"));
 app.use("/audio", express.static("Backend/audio"));
 
