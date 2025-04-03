@@ -11,8 +11,8 @@ import textToSpeech from "@google-cloud/text-to-speech";
 
 dotenv.config();
 
-const uploadDir = "uploads"; 
-const audioDir = "audio";   
+const uploadDir = "Backend/uploads/pdf"; // Directory for uploaded PDFs
+const audioDir = "Backend/audio";   
 const credentialsPath = path.resolve(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
 [uploadDir, audioDir].forEach((dir) => {
@@ -62,7 +62,7 @@ export const summarizePDF = async (req, res) => {
       }
 
       const summarizationCount = await Summarization.countDocuments({ lawyerId });
-      if (summarizationCount >= 20) {
+      if (summarizationCount >= 50) {
         return res.status(403).json({ message: "Summarization limit reached" });
       }
 
