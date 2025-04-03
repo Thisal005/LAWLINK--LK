@@ -37,6 +37,7 @@
     "ws": "^8.18.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "patch-package": "^8.0.0"
   }
 }
