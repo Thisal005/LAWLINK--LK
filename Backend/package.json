@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon Backend/server.js"
+    "server": "nodemon Backend/server.js",
+    "start": "node Backend/server.js",
+    "postinstall": "patch-package"
   },
   "type": "module",
   "author": "",
@@ -15,6 +17,7 @@
     "axios": "^1.8.4",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "chat": "file:",
     "cookie-parser": "^1.4.7",
     "cros": "^1.0.1",
     "crypto": "^1.0.1",
