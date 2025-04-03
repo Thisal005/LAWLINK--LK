@@ -18,8 +18,6 @@ function Clientlogin() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-
-  // If user is already logged in, redirect to home or the page they were trying to access
   useEffect(() => {
     if (isLoggedIn) {
       const redirectTo = location.state?.from || "/client-dashboard";
@@ -30,48 +28,42 @@ function Clientlogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-  
+
     try {
-      // Configure axios for credentials
       const config = {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         }
       };
-  
-      // Send login request to the backend
+
       const response = await axios.post(
-        `${backendUrl}/api/auth/login`, 
+        `${backendUrl}/api/auth/login`,
         { email, password },
         config
       );
-  
-      // Check if the login was successful
+
       if (response.status === 200) {
         console.log("User logged in successfully:", response.data);
-  
-        // Check if cookies were set
-        setTimeout(() => {
-          console.log("Cookies after login:", document.cookie);
-        }, 100);
-  
-        // Update the login state
-        setIsLoggedIn(true);
-  
-        // Fetch user data
-        await getUserData();
-        
-        // Redirect to home
-        navigate("/client-dashboard", { replace: true });
-  
-        // Show success message
         toast.success("Logged in successfully!");
+
+        // Set login state immediately
+        setIsLoggedIn(true);
+
+        // Fetch user data and handle redirect
+        try {
+          await getUserData();
+          const redirectTo = location.state?.from || "/client-dashboard";
+          navigate(redirectTo, { replace: true });
+        } catch (error) {
+          console.error("Failed to fetch user data after login:", error);
+          toast.error("Login succeeded, but failed to load user data.");
+          // Still redirect even if getUserData fails
+          navigate("/client-dashboard", { replace: true });
+        }
       }
     } catch (err) {
       console.error("Login error:", err);
-  
-      // Handle specific error messages from the backend
       if (err.response && err.response.data && err.response.data.msg) {
         toast.error(err.response.data.msg);
       } else {
@@ -83,9 +75,9 @@ function Clientlogin() {
   };
 
   return (
+    // [Your existing JSX remains unchanged]
     <div className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat p-5">
       <div className="flex flex-col md:flex-row max-w-[1000px] bg-white rounded-[12px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] overflow-hidden md:animate-float">
-        {/* Animation Container - Hidden on mobile */}
         <div className="hidden md:flex md:w-[60%] bg-gradient-to-br from-[#0022fc] to-[#001cd8] justify-center items-center overflow-hidden p-4">
           <video
             src={loginVideo}
@@ -96,8 +88,6 @@ function Clientlogin() {
           ></video>
           <div className="absolute inset-0 bg-[#0022fc]/10 opacity-0 group-hover:opacity-100 rounded-[16px] transition-opacity duration-300 pointer-events-none"></div>
         </div>
-  
-        {/* Form Container - Full width on mobile */}
         <div className="w-full md:w-[60%] p-6 md:p-8 flex flex-col justify-center items-center text-center">
           <h1 className="text-[24px] md:text-[28px] font-bold text-[#02189c] mb-4">
             Log in to your account
