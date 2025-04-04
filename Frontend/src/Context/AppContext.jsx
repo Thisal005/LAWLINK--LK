@@ -18,61 +18,40 @@ export const AppContentProvider = (props) => {
     const checkLoginStatus = async () => {
       setIsCheckingAuth(true);
       try {
-        try {
-          const { data } = await axios.get(`${backendUrl}/api/user/data`, { withCredentials: true });
-          console.log("User data response:", data);
-          if (data.success) {
-            setIsLoggedIn(true);
-            setUserData(data.userData);
-            setPrivateKey(data.userData.privateKey);
-            return;
-          }
-        } catch (error) {
-          console.log("User auth check failed:", error.response?.data || error.message);
+        const { data } = await axios.get(`${backendUrl}/api/user/data`, {
+          withCredentials: true,
+        });
+        console.log("User data response:", data);
+        if (data.success) {
+          setIsLoggedIn(true);
+          setUserData(data.userData);
+          setPrivateKey(data.userData.privateKey);
+        } else {
+          setIsLoggedIn(false);
+          setUserData(null);
         }
-
-        try {
-          const { data } = await axios.get(`${backendUrl}/api/lawyer-data/data`, { withCredentials: true });
-          console.log("Lawyer data response:", data); 
-          if (data.success) {
-            setIsLoggedIn(true);
-            setLawyerData(data.UserData);
-            setPrivateKey(data.UserData.privateKey);
-            return;
-          }
-        } catch (error) {
-          console.log("Lawyer auth check failed:", error.response?.data || error.message);
-        }
-
-        setIsLoggedIn(false);
       } catch (error) {
-        console.error("Auth check failed:", error);
+        console.log("User auth check failed:", error.response?.data || error.message);
         setIsLoggedIn(false);
+        setUserData(null);
       } finally {
         setIsCheckingAuth(false);
       }
     };
-
+  
     checkLoginStatus();
   }, [backendUrl]);
 
+  
   const getUserData = async () => {
     try {
-      const token = getCookie("jwt");
-      if (!token) {
-        console.log("No JWT token found");
-        setIsLoggedIn(false);
-        return;
-      }
-
       const { data } = await axios.get(`${backendUrl}/api/user/data`, {
         withCredentials: true,
         headers: {
-          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       });
-      console.log("Fetched user data:", data); 
+      console.log("Fetched user data:", data);
       if (data.success) {
         setUserData(data.userData);
         setPrivateKey(data.userData.privateKey);

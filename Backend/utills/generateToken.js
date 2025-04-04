@@ -7,8 +7,8 @@ const generateToken = (userId, res) => {
   res.cookie('jwt', token, {
     maxAge: 2 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    secure: true,
-    sameSite: 'none', 
+    secure: process.env.NODE_ENV === 'production', // Only secure in production
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Lax for local dev
     path: '/'
   });
 };
