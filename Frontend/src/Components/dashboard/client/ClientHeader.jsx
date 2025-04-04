@@ -94,17 +94,22 @@ const Header = ({ displayName: propDisplayName, practiceAreas = "Client" }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post(`${backendUrl}/api/auth/logout`, {}, { withCredentials: true });
-      setIsLoggedIn(false);
-      setUserData(null);
-      navigate("/login");
-      toast.success("Logged out successfully");
-    } catch (error) {
-      console.error("Logout error:", error);
-      toast.error(error.response?.data?.msg || "Logout failed. Please try again.");
+      const response = await axios.post(
+        `${backendUrl}/api/auth/logout`,
+        {},
+        { withCredentials: true }
+      );
+      if (response.status === 200) {
+        toast.success("Logged out successfully!");
+        setIsLoggedIn(false); // Reset login state
+        setUserData(null); // Clear user data
+        navigate("/login", { replace: true }); // Redirect to login
+      }
+    } catch (err) {
+      console.error("Logout error:", err);
+      toast.error("Failed to log out. Please try again.");
     }
   };
-
   const markAllAsRead = async () => {
     try {
       const endpoint = lawyerData

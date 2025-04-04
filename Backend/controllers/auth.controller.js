@@ -150,14 +150,19 @@ export const login = async(req, res) => {
 };
 
 export const logout = (req, res) => {
-   try{
-         res.clearCookie("jwt");
-         res.status(200).json({ msg: "Logged out successfully" }); 
-    }catch(err){
-       console.error("Error in logout controller:", err.message);
-       res.status(500).json({ msg: "Something went wrong" });
-   }
-};
+    try {
+      res.clearCookie("jwt", {
+        httpOnly: true,
+        secure: true, // Match generateToken settings
+        sameSite: "none", // Match generateToken settings
+        path: "/", // Match generateToken settings
+      });
+      res.status(200).json({ msg: "Logged out successfully" });
+    } catch (err) {
+      console.error("Error in logout controller:", err.message);
+      res.status(500).json({ msg: "Something went wrong" });
+    }
+  };
 
 export const sendVerifyOtp = async (req, res) => {
     const { email } = req.body;

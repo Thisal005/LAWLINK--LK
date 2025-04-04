@@ -19,48 +19,41 @@ function Clientlogin() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && !isLoading) {
       const redirectTo = location.state?.from || "/client-dashboard";
       navigate(redirectTo, { replace: true });
     }
-  }, [isLoggedIn, navigate, location]);
+  }, [isLoggedIn, isLoading, navigate, location]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
+  
     try {
       const config = {
         withCredentials: true,
         headers: {
-          'Content-Type': 'application/json',
-        }
+          "Content-Type": "application/json",
+        },
       };
-
+  
       const response = await axios.post(
         `${backendUrl}/api/auth/login`,
         { email, password },
         config
       );
-
+  
       if (response.status === 200) {
         console.log("User logged in successfully:", response.data);
         toast.success("Logged in successfully!");
-        navigate("/client-dashboard", { replace: true });
-        // Set login state immediately
-        setIsLoggedIn(true);
-
-        // Fetch user data and handle redirect
-        try {
-          await getUserData();
-          const redirectTo =  "/client-dashboard";
-          navigate(redirectTo, { replace: true });
-        } catch (error) {
+        setIsLoggedIn(true); // Set immediately
+        navigate("/client-dashboard", { replace: true }); // Redirect immediately
+  
+        // Fetch user data in the background
+        getUserData().catch((error) => {
           console.error("Failed to fetch user data after login:", error);
           toast.error("Login succeeded, but failed to load user data.");
-          // Still redirect even if getUserData fails
-          navigate("/client-dashboard", { replace: true });
-        }
+        });
       }
     } catch (err) {
       console.error("Login error:", err);
