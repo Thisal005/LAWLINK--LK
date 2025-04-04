@@ -30,11 +30,26 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  process.env.VERCEL_URL,
-  process.env.PRODUCTION_URL,
-  process.env.LOCAL_URL
-];
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+  "https://www.lawlinklk.com",
+  process.env.LOCAL_URL || "http://localhost:5173", // For local dev
+  process.env.PRODUCTION_URL, // Optional additional production URL
+  process.env.VERCEL_URL, // If using Vercel elsewhere
+].filter(Boolean); 
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, 
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type", "Authorization"], 
+  })
+);
 
 app.use("/uploads", express.static("uploads"));
 app.use("/uploads/chat", express.static("Backend/uploads/chat"));
