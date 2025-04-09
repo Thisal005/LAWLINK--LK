@@ -38,7 +38,7 @@ const TaskForm = ({ caseId, clientId }) => {
         </h2>
       </div>
 
-      <div className="h-[5px] bg-green-500 w-120 rounded-full my-4 transition-all duration-300  hover:green-300"></div>
+      <div className="h-[5px] bg-green-500 max-w-[500px] rounded-full my-4 transition-all duration-300  hover:green-300"></div>
 
 
     <form onSubmit={handleSubmit} className="space-y-6">

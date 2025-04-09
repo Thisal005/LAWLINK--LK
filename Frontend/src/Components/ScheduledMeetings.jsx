@@ -108,7 +108,7 @@ const ScheduledMeetings = () => {
             </h2>
           </div>
         </div>
-        <div className="h-[5px] bg-yellow-500 w-120 rounded-full my-4 transition-all duration-300 hover:bg-yellow-300"></div>
+        <div className="h-[5px] bg-yellow-500 max-w-[500px] rounded-full my-4 transition-all duration-300 hover:bg-yellow-300"></div>
         <div className="flex flex-col items-center justify-center h-[210px]">
           <div className="w-8 h-8 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin mb-3"></div>
           <p className="text-gray-600 font-medium">Loading meetings...</p>
@@ -118,7 +118,7 @@ const ScheduledMeetings = () => {
   }
 
   return (
-    <div className="p-6 bg-white rounded-lg h-[347px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg">
+    <div className="p-6 bg-white rounded-lg h-[300px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -130,7 +130,7 @@ const ScheduledMeetings = () => {
         </div>
       </div>
 
-      <div className="h-[5px] bg-yellow-500 w-120 rounded-full my-4 transition-all duration-300 hover:bg-yellow-300"></div>
+      <div className="h-[5px] bg-yellow-500 max-w-[500px] rounded-full my-4 transition-all duration-300 hover:bg-yellow-300"></div>
 
       {meetings.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-[180px] text-gray-500">
@@ -148,7 +148,7 @@ const ScheduledMeetings = () => {
           <p className="font-medium">No scheduled or ongoing meetings</p>
         </div>
       ) : (
-        <div className="h-[210px] overflow-y-auto scrollbar-hide hover:scrollbar-default pr-2">
+        <div className="h-[180px] overflow-y-auto scrollbar-hide hover:scrollbar-default pr-2">
           <ul className="space-y-4">
             {meetings.map((meeting) => {
               const now = new Date();
