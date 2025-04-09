@@ -183,7 +183,7 @@ const LawyerAvailability = ({ open, onClose }) => {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
-    setOpen(false);
+    onClose();
     setNewSlots([]);
     setStartTime("");
     setError(null);

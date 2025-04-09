@@ -222,7 +222,7 @@ function ClientDashboard() {
               <div className="absolute top-0 left-0 w-48 h-48 bg-green-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
               <div className="absolute bottom-0 right-0 w-56 h-56 bg-teal-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
             </div>
-            <div className="relative z-10 h-[550px]">
+            <div className="relative z-10 h-[350px]">
               {loading ? (
                 <p>Loading schedule...</p>
               ) : caseId ? (
@@ -240,7 +240,7 @@ function ClientDashboard() {
               <div className="absolute top-0 right-0 w-48 h-48 bg-purple-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
               <div className="absolute bottom-0 left-0 w-56 h-56 bg-pink-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
             </div>
-            <div className="relative z-10 h-[550px]">
+            <div className="relative z-10 h-[350px]">
               {loading ? (
                 <p>Loading meetings...</p>
               ) : caseId ? (
