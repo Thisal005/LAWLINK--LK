@@ -60,7 +60,12 @@ const ProfileSettings = ({ profilePicture, displayName, practiceAreas, onSave })
   };
 
   return (
-    <div className="p-7 bg-gray-50 min-h-screen">
+    <div className="p-20 bg-gray-50 min-h-screen">
+      {/* Application header */}
+            <Header />
+      
+            {/* Sidebar with active tab set to "Dashboard" */}
+            <Sidebar activeTab="Dashboard"/>
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-gray-800">Account Settings</h1>
