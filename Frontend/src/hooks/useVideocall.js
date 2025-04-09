@@ -7,6 +7,8 @@ const useVideocall = (meetingId) => {
   const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
   const [isCallActive, setIsCallActive] = useState(false);
+  const [audioEnabled, setAudioEnabled] = useState(true); // Add audio state
+  const [videoEnabled, setVideoEnabled] = useState(true); // Add video state
   const peerConnectionRef = useRef(null);
 
   const startCall = async () => {
@@ -75,6 +77,30 @@ const useVideocall = (meetingId) => {
     setIsCallActive(false);
   };
 
+  const toggleMute = () => {
+    if (localStream) {
+      const audioTrack = localStream.getAudioTracks()[0];
+      if (audioTrack) {
+        audioTrack.enabled = !audioTrack.enabled;
+        setAudioEnabled(audioTrack.enabled);
+        return audioTrack.enabled;
+      }
+    }
+    return audioEnabled;
+  };
+
+  const toggleVideo = () => {
+    if (localStream) {
+      const videoTrack = localStream.getVideoTracks()[0];
+      if (videoTrack) {
+        videoTrack.enabled = !videoTrack.enabled;
+        setVideoEnabled(videoTrack.enabled);
+        return videoTrack.enabled;
+      }
+    }
+    return videoEnabled;
+  };
+
   useEffect(() => {
     if (!socket) return;
 
@@ -125,7 +151,17 @@ const useVideocall = (meetingId) => {
     };
   }, [socket, meetingId, isCallActive]);
 
-  return { localStream, remoteStream, isCallActive, startCall, endCall };
+  return { 
+    localStream, 
+    remoteStream, 
+    isCallActive, 
+    startCall, 
+    endCall,
+    toggleMute,
+    toggleVideo,
+    audioEnabled,
+    videoEnabled
+  };
 };
 
 export default useVideocall;
