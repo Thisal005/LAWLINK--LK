@@ -12,8 +12,43 @@ const ScheduleMeeting = ({ caseId }) => {
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [error, setError] = useState(null);
+   const [lawyerId, setLawyerId] = useState(null);
 
-  let lawyerId = "67d8443e9e00b470d9e5f885"; 
+  useEffect(() => {
+    const fetchCaseDetails = async () => {
+      if (!caseId) {
+        toast.error("No case ID provided");
+        setLoading(false);
+        return;
+      }
+
+      try {
+       
+        const participantsRes = await axios.get(`${backendUrl}/api/case/${caseId}/participants`, {
+          withCredentials: true,
+        });
+
+        if (participantsRes.data.success && participantsRes.data.data) {
+          const lawyerIdFromParticipants = participantsRes.data.data.lawyer?.id;
+          if (lawyerIdFromParticipants) {
+            setLawyerId(lawyerIdFromParticipants);
+            
+          } else {
+            // Fallback to caseDetails if participants endpoint doesn't provide client ID
+            setLawyerId(caseDetails.lawyerId);
+            
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching case:", error.response?.data || error.message);
+        setLawyerId(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCaseDetails();
+  }, [lawyerId]);
 
   useEffect(() => {
     const fetchAvailableSlots = async () => {
