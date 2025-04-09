@@ -3,7 +3,7 @@ import Case from "../models/case.model.js";
 import Lawyer from "../models/lawyer.model.js";
 import User from "../models/user.model.js";
 import Notification from "../models/notifications.model.js";
-import Availability from "../models/availability.model.js"; // Add this import
+import Availability from "../models/availability.model.js"; 
 
 export const scheduleMeeting = async (req, res) => {
   try {
