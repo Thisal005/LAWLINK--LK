@@ -85,22 +85,7 @@ const VideoMeet = ({ meetingId, userName }) => {
         </div>
 
         <div className="w-full max-w-sm">
-          <div className="relative rounded-lg overflow-hidden bg-gray-100 h-48 mb-6">
-            {videoEnabled ? (
-              <video
-                ref={localVideoRef}
-                autoPlay
-                muted
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                <span className="text-2xl font-semibold text-gray-600">
-                  {userName?.charAt(0) || "U"}
-                </span>
-              </div>
-            )}
-          </div>
+    
 
           <button
             onClick={handleStartCall}
