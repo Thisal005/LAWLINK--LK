@@ -80,6 +80,13 @@ const ScheduleMeeting = ({ caseId }) => {
     };
 
     fetchAvailableSlots();
+    
+
+    const interval = setInterval(() => {
+      fetchAvailableSlots();
+    }, 10000); 
+
+    return () => clearInterval(interval);
   }, [lawyerId, backendUrl]);
 
   const handleSchedule = async () => {
