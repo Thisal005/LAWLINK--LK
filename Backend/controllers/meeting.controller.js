@@ -50,11 +50,7 @@ export const scheduleMeeting = async (req, res) => {
     const client = await User.findById(clientId);
     if (!client) return res.status(404).json({ error: "Client not found" });
 
-    const notification = new Notification({
-      recipientId: lawyerId,
-      message: `Client ${client.fullName} scheduled a meeting for case "${caseData.caseName}" on ${scheduledTime.toLocaleString()}.`,
-    });
-    await notification.save();
+    
 
     res.status(201).json({
       message: "Meeting scheduled successfully",

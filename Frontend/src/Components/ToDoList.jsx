@@ -29,7 +29,7 @@ const TodoList = () => {
         </h2>
       </div>
   
-      <div className="h-[5px] bg-purple-500 w-120 rounded-full my-5 transition-all duration-300 hover:bg-purple-300 mb-10"></div>
+      <div className="h-[5px] bg-purple-500 max-w-[500px] rounded-full my-5 transition-all duration-300 hover:bg-purple-300 mb-10"></div>
   
       {/* Add Task Form */}
       <form onSubmit={handleSubmit} className="mb-6 space-y-4">

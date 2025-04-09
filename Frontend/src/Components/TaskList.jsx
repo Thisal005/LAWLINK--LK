@@ -25,7 +25,7 @@ const TaskList = ({ caseId }) => {
         </h2>
       </div>
 
-      <div className="h-[5px] bg-green-500 w-120 rounded-full my-5 transition-all duration-300 hover:bg-green-300 mb-10"></div>
+      <div className="h-[5px] bg-green-500 max-w-[500px] rounded-full my-5 transition-all duration-300 hover:bg-green-300 mb-10"></div>
 
       {loading ? (
         <div className="space-y-4">
