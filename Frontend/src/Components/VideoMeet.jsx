@@ -12,13 +12,13 @@ const VideoMeet = ({ meetingId, userName }) => {
     endCall,
     toggleMute,
     toggleVideo,
+    audioEnabled,
+    videoEnabled,
   } = useVideocall(meetingId);
 
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
   const [callStarted, setCallStarted] = useState(false);
-  const [audioEnabled, setAudioEnabled] = useState(true); // Track audio state
-  const [videoEnabled, setVideoEnabled] = useState(true); // Track video state
   const [loading, setLoading] = useState(false);
   const [meetingInfo, setMeetingInfo] = useState(null);
 
@@ -42,7 +42,7 @@ const VideoMeet = ({ meetingId, userName }) => {
       const response = await axios.get(`/api/meetings/${meetingId}`, {
         withCredentials: true,
       });
-      setMeetingInfo(response.data);
+      setMeetingInfo(response.data.data); 
     } catch (err) {
       toast.error("Failed to fetch meeting information");
     }
@@ -53,11 +53,7 @@ const VideoMeet = ({ meetingId, userName }) => {
       setLoading(true);
       await startCall();
       setCallStarted(true);
-      await axios.post(
-        `/api/meetings/join/${meetingId}`,
-        { userName: userName || "Anonymous" },
-        { withCredentials: true }
-      );
+      await axios.get(`/api/meetings/join/${meetingId}`, { withCredentials: true });
       toast.success("Joined meeting");
     } catch (err) {
       toast.error("Failed to start call");
@@ -68,33 +64,22 @@ const VideoMeet = ({ meetingId, userName }) => {
 
   const handleEndCall = async () => {
     try {
-      await endCall();
+      endCall();
+      await axios.post(`/api/meetings/end/${meetingId}`, {}, { withCredentials: true });
       setCallStarted(false);
       toast.success("Meeting ended");
+      navigate("/client-dashboard"); // Redirect to dashboard or another page
     } catch (err) {
       toast.error("Failed to end meeting");
     }
   };
 
-  const handleToggleAudio = () => {
-    toggleMute();
-    setAudioEnabled(!audioEnabled);
-    toast.info(audioEnabled ? "Mic muted" : "Mic unmuted");
-  };
-
-  const handleToggleVideo = () => {
-    toggleVideo();
-    setVideoEnabled(!videoEnabled);
-    toast.info(videoEnabled ? "Camera off" : "Camera on");
-  };
-
-  
   if (!callStarted) {
     return (
       <div className="p-6 bg-white rounded-lg h-full border border-gray-200 flex flex-col justify-center items-center">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-semibold text-gray-800 mb-2">
-            {meetingInfo?.title || "Video Meeting"}
+            {meetingInfo?.caseId?.title || "Video Meeting"}
           </h1>
           <p className="text-sm text-gray-600">Room ID: {meetingId}</p>
         </div>
@@ -136,10 +121,8 @@ const VideoMeet = ({ meetingId, userName }) => {
     );
   }
 
-  // Main meeting UI
   return (
     <div className="p-6 bg-white rounded-lg h-full border border-gray-200 flex flex-col">
-      {/* Video Area */}
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="relative rounded-lg overflow-hidden bg-gray-100">
           {videoEnabled ? (
@@ -173,10 +156,12 @@ const VideoMeet = ({ meetingId, userName }) => {
         </div>
       </div>
 
-      {/* Controls */}
       <div className="flex justify-center gap-4">
         <button
-          onClick={handleToggleAudio}
+          onClick={() => {
+            const newAudioEnabled = toggleMute();
+            toast.info(newAudioEnabled ? "Mic unmuted" : "Mic muted");
+          }}
           className={`p-3 rounded-full border border-gray-200 hover:bg-gray-50 transition-colors ${
             audioEnabled ? "text-gray-600" : "text-red-500"
           }`}
@@ -185,7 +170,10 @@ const VideoMeet = ({ meetingId, userName }) => {
         </button>
 
         <button
-          onClick={handleToggleVideo}
+          onClick={() => {
+            const newVideoEnabled = toggleVideo();
+            toast.info(newVideoEnabled ? "Camera on" : "Camera off");
+          }}
           className={`p-3 rounded-full border border-gray-200 hover:bg-gray-50 transition-colors ${
             videoEnabled ? "text-gray-600" : "text-red-500"
           }`}
