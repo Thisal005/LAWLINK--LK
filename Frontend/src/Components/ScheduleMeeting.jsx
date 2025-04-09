@@ -32,7 +32,7 @@ const ScheduleMeeting = ({ caseId }) => {
           if (lawyerIdFromParticipants) {
             setLawyerId(lawyerIdFromParticipants);
           } else {
-            setLawyerId(null); // Changed from caseDetails.lawyerId since caseDetails wasn't fetched
+            setLawyerId(null); 
           }
         }
       } catch (error) {
@@ -44,7 +44,7 @@ const ScheduleMeeting = ({ caseId }) => {
     };
 
     fetchCaseDetails();
-  }, [caseId, backendUrl]); // Added missing dependencies
+  }, [caseId, backendUrl]); 
 
   useEffect(() => {
     const fetchAvailableSlots = async () => {

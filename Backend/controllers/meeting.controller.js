@@ -101,9 +101,9 @@ export const joinMeeting = async (req, res) => {
     const scheduledAt = new Date(meeting.scheduledAt);
     const timeDifference = (scheduledAt - now) / (1000 * 60); 
 
-    /*if (timeDifference > 5) { 
+    if (timeDifference >10){ 
       return res.status(400).json({ error: "Meeting has not yet started" });
-    }*/
+    }
 
     if (meeting.status === "completed" || meeting.status === "cancelled") {
       return res.status(400).json({ error: `Meeting is already ${meeting.status}` });
@@ -144,6 +144,21 @@ export const endMeeting = async (req, res) => {
   } catch (error) {
     console.error("Error in endMeeting:", error);
     res.status(500).json({ error: "Failed to end meeting", message: error.message });
+  }
+};
+
+export const getMeetingById = async (req, res) => {
+  try {
+    const { meetingId } = req.params;
+    const meeting = await Meeting.findOne({ meetingId })
+      .populate("caseId", "title")
+      .populate("lawyerId", "fullName")
+      .populate("clientId", "fullName");
+    if (!meeting) return res.status(404).json({ error: "Meeting not found" });
+    res.status(200).json({ success: true, data: meeting });
+  } catch (error) {
+    console.error("Error in getMeetingById:", error);
+    res.status(500).json({ error: "Failed to fetch meeting", message: error.message });
   }
 };
 
