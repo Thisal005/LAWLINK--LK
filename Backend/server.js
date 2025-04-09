@@ -18,7 +18,7 @@ import todoRouter from "./routes/todo.route.js";
 import summarizationRouter from "./routes/summarization.route.js";
 import meetingRouter from "./routes/meeting.route.js";
 import availabiltiyRouter from "./routes/availability.route.js";
-import chatbotRoutes from "./routes/chatbot.route.js"; // Fixed typo
+import chatbotRoutes from "./routes/chatbot.route.js"; 
 
 
 dotenv.config();
@@ -107,24 +107,33 @@ io.on("connection", (socket) => {
     socket.to(meetingId).emit("user-joined", userId);
   });
 
+  // Handle WebRTC offer event
   socket.on("offer", ({ offer, meetingId }) => {
     console.log(`Received offer from ${userId} for meeting: ${meetingId}`);
+    // Forward the offer to other participants in the meeting
     socket.to(meetingId).emit("offer", { offer, from: userId });
   });
 
+  // Handle WebRTC answer event
   socket.on("answer", ({ answer, meetingId }) => {
     console.log(`Received answer from ${userId} for meeting: ${meetingId}`);
+    // Forward the answer to other participants in the meeting
     socket.to(meetingId).emit("answer", { answer, from: userId });
   });
 
+  // Handle ICE candidate event for WebRTC
   socket.on("ice-candidate", ({ candidate, meetingId }) => {
     console.log(`Received ICE candidate from ${userId} for meeting: ${meetingId}`);
+    // Forward the ICE candidate to other participants in the meeting
     socket.to(meetingId).emit("ice-candidate", { candidate, from: userId });
   });
 
+  // Handle user leaving a meeting
   socket.on("leave-meeting", (meetingId) => {
     console.log(`${userId} left meeting: ${meetingId}`);
+    // Notify other participants that the user has left
     socket.to(meetingId).emit("user-left", userId);
+    // Remove the user from the meeting room
     socket.leave(meetingId);
   });
 

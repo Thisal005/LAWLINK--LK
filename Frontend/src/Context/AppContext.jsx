@@ -89,7 +89,6 @@ export const AppContentProvider = (props) => {
     try {
       const endpoint = isLawyer ? `/api/lawyer-data/${userId}` : `/api/user/${userId}`;
       const { data } = await axios.get(`${backendUrl}${endpoint}`, { withCredentials: true });
-      console.log(`Public key response for ${userId}:`, data); 
       if (data.success && data.data.publicKey) {
         return data.data.publicKey;
       }

@@ -10,7 +10,7 @@ const useSocket = (userId) => {
     if (!userId) return;
     
     // Initialize socket connection
-    const socketUrl = 'http://localhost:5000'; // Match your backend URL
+    const socketUrl = 'http://localhost:5000'; 
     socketRef.current = io(socketUrl, {
       withCredentials: true,
       query: { userId }
