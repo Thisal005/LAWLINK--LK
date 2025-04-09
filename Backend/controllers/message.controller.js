@@ -96,6 +96,8 @@ export const getMessages = async (req, res) => {
   try {
     const { id: receiverId } = req.params;
     const senderId = req.user._id;
+    const limit = parseInt(req.query.limit) || 20;
+    const before = req.query.before ? new Date(req.query.before) : null;
 
     const sender = await User.findById(senderId) || await Lawyer.findById(senderId);
     const receiver = await User.findById(receiverId) || await Lawyer.findById(receiverId);
@@ -106,18 +108,26 @@ export const getMessages = async (req, res) => {
 
     const conversation = await Conversation.findOne({
       participants: { $all: [senderId, receiverId] },
-    }).populate({
-      path: "messages",
-      options: { sort: { createdAt: 1 } },
     });
 
     if (!conversation) {
-      return res.status(200).json({ success: true, data: [] });
+      return res.status(200).json({ success: true, data: [], hasMore: false });
     }
+
+    let query = { _id: { $in: conversation.messages } };
+    if (before) {
+      query.createdAt = { $lt: before };
+    }
+
+    const messages = await Message.find(query)
+      .sort({ createdAt: -1 }) // Newest first
+      .limit(limit);
+
+    const hasMore = messages.length === limit;
 
     await Message.updateMany(
       {
-        _id: { $in: conversation.messages.map((m) => m._id) },
+        _id: { $in: messages.map((m) => m._id) },
         receiverId: senderId,
         status: "sent",
       },
@@ -126,7 +136,8 @@ export const getMessages = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: conversation.messages,
+      data: messages.reverse(), // Reverse to chronological order (oldest first)
+      hasMore,
     });
   } catch (error) {
     console.error("Error in getMessages:", error);

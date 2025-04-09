@@ -35,14 +35,14 @@ const Messages = () => {
     }
   }, [messages, loading, isFirstLoad]);
 
-  const groupedMessages = messages.reduce((groups, message) => {
+  const groupedMessages = Array.isArray(messages) ? messages.reduce((groups, message) => {
     const date = dayjs(message.createdAt).format("MMMM D, YYYY");
     if (!groups[date]) {
       groups[date] = [];
     }
     groups[date].push(message);
     return groups;
-  }, {});
+  }, {}) : {};
 
   return (
     <div ref={containerRef} className="flex flex-col h-full overflow-y-auto px-4 py-2">
