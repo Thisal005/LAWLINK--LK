@@ -5,15 +5,19 @@ import { AppContext } from "../Context/AppContext";
 import { toast } from "react-toastify";
 
 const ScheduleMeeting = ({ caseId }) => {
+  // Access user and backend URL from context
   const { user } = useAuthContext();
   const { backendUrl } = useContext(AppContext);
+
+  // State variables to manage available slots, selected slot, loading states, errors, and lawyer ID
   const [availableSlots, setAvailableSlots] = useState([]);
   const [selectedSlot, setSelectedSlot] = useState("");
   const [loading, setLoading] = useState(false);
-  const [fetchLoading, setFetchLoading] = useState(true); // Changed initial value to true
+  const [fetchLoading, setFetchLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lawyerId, setLawyerId] = useState(null);
 
+  // Fetch case details to get the lawyer ID
   useEffect(() => {
     const fetchCaseDetails = async () => {
       if (!caseId) {
@@ -23,16 +27,18 @@ const ScheduleMeeting = ({ caseId }) => {
       }
 
       try {
+        // Fetch participants of the case
         const participantsRes = await axios.get(`${backendUrl}/api/case/${caseId}/participants`, {
           withCredentials: true,
         });
 
+        // Extract lawyer ID from participants
         if (participantsRes.data.success && participantsRes.data.data) {
           const lawyerIdFromParticipants = participantsRes.data.data.lawyer?.id;
           if (lawyerIdFromParticipants) {
             setLawyerId(lawyerIdFromParticipants);
           } else {
-            setLawyerId(null); 
+            setLawyerId(null);
           }
         }
       } catch (error) {
@@ -44,8 +50,9 @@ const ScheduleMeeting = ({ caseId }) => {
     };
 
     fetchCaseDetails();
-  }, [caseId, backendUrl]); 
+  }, [caseId, backendUrl]);
 
+  // Fetch available time slots for the lawyer
   useEffect(() => {
     const fetchAvailableSlots = async () => {
       if (!lawyerId) {
@@ -58,12 +65,15 @@ const ScheduleMeeting = ({ caseId }) => {
       setError(null);
 
       try {
+        // Fetch available slots from the backend
         const response = await axios.get(
           `${backendUrl}/api/availability/${lawyerId}`,
           { withCredentials: true }
         );
         const slots = response.data.data || [];
         setAvailableSlots(slots);
+
+        // Show error if no slots are available
         if (slots.length === 0) {
           setError("No available slots found for this lawyer");
         }
@@ -80,15 +90,18 @@ const ScheduleMeeting = ({ caseId }) => {
       fetchAvailableSlots();
     }
 
+    // Poll for available slots every 10 seconds
     const interval = setInterval(() => {
       if (lawyerId) {
         fetchAvailableSlots();
       }
     }, 10000);
 
+    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [lawyerId, backendUrl]);
 
+  // Handle scheduling a meeting
   const handleSchedule = async () => {
     if (!selectedSlot) {
       setError("Please select a time slot");
@@ -99,11 +112,14 @@ const ScheduleMeeting = ({ caseId }) => {
     setError(null);
 
     try {
+      // Send request to schedule the meeting
       const res = await axios.post(
         `${backendUrl}/api/meetings/schedule`,
         { caseId, scheduledAt: selectedSlot },
         { withCredentials: true }
       );
+
+      // Show success message and update available slots
       toast.success("Meeting scheduled successfully!");
       setAvailableSlots((prev) =>
         prev.filter((slot) => slot.startTime !== selectedSlot)
@@ -118,6 +134,7 @@ const ScheduleMeeting = ({ caseId }) => {
     }
   };
 
+  // Show loading spinner while fetching data
   if (fetchLoading) {
     return (
       <div className="p-6 bg-white rounded-lg h-[347px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg">
@@ -158,6 +175,7 @@ const ScheduleMeeting = ({ caseId }) => {
 
       <div className="h-[5px] bg-red-500 max-w-[500px] rounded-full my-4 transition-all duration-300 hover:bg-red-300"></div>
 
+      {/* Dropdown to select available time slots */}
       <div className="mb-5">
         <label className="block text-sm font-medium text-gray-700 mb-2">Available Time Slots</label>
         <div className="relative">
@@ -194,12 +212,14 @@ const ScheduleMeeting = ({ caseId }) => {
         </div>
       </div>
 
+      {/* Error message display */}
       {error && (
         <div className="bg-blue-50 border-l-4 border-blue-400 p-3 mb-4 rounded">
           <p className="text-blue-700 text-sm">{error}</p>
         </div>
       )}
 
+      {/* Button to schedule the meeting */}
       <button
         onClick={handleSchedule}
         disabled={loading || !selectedSlot}
@@ -219,6 +239,7 @@ const ScheduleMeeting = ({ caseId }) => {
         )}
       </button>
 
+      {/* Message if no slots are available */}
       {availableSlots.length === 0 && !fetchLoading && (
         <p className="text-center text-sm text-gray-500 mt-4 mb-2">
           No time slots available. Please check back later.

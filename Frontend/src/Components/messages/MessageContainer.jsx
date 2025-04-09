@@ -6,10 +6,12 @@ const MessageContainer = () => {
         <div className="flex flex-col h-[calc(110vh-100px)] w-295 bg-white shadow-md rounded-lg overflow-hidden mx-4 my-6">
             {/* Messages container with scroll */}
             <div className="flex-1 overflow-y-auto p-6">
+                {/* Render the Messages component */}
                 <Messages />
             </div>
             {/* Fixed input at bottom */}
             <div className="border-t border-gray-300 p-4 bg-white">
+                {/* Render the MessageInput component */}
                 <MessageInput />
             </div>
         </div>
