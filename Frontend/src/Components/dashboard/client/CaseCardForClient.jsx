@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import useFetchCase from "../../../hooks/useFetchCase";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { AppContext } from "../../../Context/AppContext";
 
 const CaseCard = ({ caseId }) => {
   const { caseData, loading } = useFetchCase(caseId);
-  const navigate = useNavigate();
   const { backendUrl, userData } = useContext(AppContext);
   const [offers, setOffers] = useState([]);
   const [offerLoading, setOfferLoading] = useState(false);
@@ -57,6 +55,7 @@ const CaseCard = ({ caseId }) => {
   }, [caseId, userData, backendUrl, loading, caseData]);
 
   const handleAcceptOffer = async (lawyerId) => {
+    console.log("Accept offer clicked for lawyerId:", lawyerId);
     try {
       const response = await axios.patch(
         `${backendUrl}/api/case/accept-offer/${caseId}`,
@@ -75,6 +74,7 @@ const CaseCard = ({ caseId }) => {
   };
 
   const handleRejectOffer = async (notificationId) => {
+    console.log("Reject offer clicked for notificationId:", notificationId);
     try {
       const response = await axios.post(
         `${backendUrl}/api/case/reject-offer/${notificationId}`,
@@ -91,15 +91,6 @@ const CaseCard = ({ caseId }) => {
     }
   };
 
-  const handleCardClick = () => {
-    if (["closed", "completed"].includes(caseData?.status)) {
-      navigate("/client-dashboard");
-      toast.info("This case is closed or completed. Redirecting to dashboard.");
-    } else {
-      navigate(`/case/${caseData._id}`);
-    }
-  };
-
   if (loading) {
     return <p className="text-gray-600">Loading case details...</p>;
   }
@@ -110,8 +101,12 @@ const CaseCard = ({ caseId }) => {
       <div className="bg-white border border-gray-200 p-6 rounded-2xl text-center">
         <p className="text-gray-600 mb-4">You don't have any cases yet.</p>
         <button
-          onClick={() => navigate("/post-case")}
+          onClick={(e) => {
+            e.stopPropagation();
+            window.location.href = "/post-case";
+          }}
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all"
+          style={{ zIndex: 1000, pointerEvents: "auto" }}
         >
           Post Your First Case
         </button>
@@ -131,13 +126,12 @@ const CaseCard = ({ caseId }) => {
 
   return (
     <article
-      className={`group bg-white border border-gray-200 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg ${
-        isClosedOrCompleted ? "opacity-75 cursor-default" : "hover:border-blue-500 hover:bg-blue-50/10 cursor-pointer"
+      className={`group bg-white border border-gray-200 p-4 rounded-2xl transition-all duration-300 hover:shadow-lg relative z-50 ${
+        isClosedOrCompleted ? "opacity-75" : "hover:border-blue-500 hover:bg-blue-50/10"
       }`}
-      role="button"
+      role="article"
       tabIndex="0"
-      aria-label="View your case details"
-      onClick={handleCardClick}
+      aria-label="Your case details"
     >
       <div className="flex items-center justify-between gap-3">
         <div>
@@ -218,14 +212,16 @@ const CaseCard = ({ caseId }) => {
               : "TBD"}
           </span>
         </li>
-        <li className="flex items-center gap-2">
-          <span className="text-gray-600">Expires On:</span>
-          <span className="font-semibold text-gray-900">
-            {caseData.expiresAt
-              ? new Date(caseData.expiresAt).toLocaleDateString()
-              : "N/A"}
-          </span>
-        </li>
+        {caseData.status === "pending" && (
+          <li className="flex items-center gap-2">
+            <span className="text-gray-600">Expires On:</span>
+            <span className="font-semibold text-gray-900">
+              {caseData.expiresAt
+                ? new Date(caseData.expiresAt).toLocaleDateString()
+                : "N/A"}
+            </span>
+          </li>
+        )}
       </ul>
       {isPending && !isClosedOrCompleted && (
         <div className="mt-4 border-t border-gray-100 pt-4">
@@ -249,6 +245,7 @@ const CaseCard = ({ caseId }) => {
                         handleAcceptOffer(offer.lawyerId);
                       }}
                       className="bg-green-500 hover:bg-green-600 text-white text-xs font-semibold py-1 px-2 rounded transition-all"
+                      style={{ zIndex: 1000, pointerEvents: "auto" }}
                     >
                       Yes
                     </button>
@@ -258,6 +255,7 @@ const CaseCard = ({ caseId }) => {
                         handleRejectOffer(offer.notificationId);
                       }}
                       className="bg-red-500 hover:bg-red-600 text-white text-xs font-semibold py-1 px-2 rounded transition-all"
+                      style={{ zIndex: 1000, pointerEvents: "auto" }}
                     >
                       No
                     </button>
