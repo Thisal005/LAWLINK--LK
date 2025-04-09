@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { getCookie } from "../utills/cookies";
+import { io } from "socket.io-client";
 
 export const AppContext = createContext();
 
@@ -12,7 +13,8 @@ export const AppContentProvider = (props) => {
   const [lawyerData, setLawyerData] = useState(null);
   const [email, setEmail] = useState("");
   const [privateKey, setPrivateKey] = useState(null);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true); 
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -33,7 +35,7 @@ export const AppContentProvider = (props) => {
 
         try {
           const { data } = await axios.get(`${backendUrl}/api/lawyer-data/data`, { withCredentials: true });
-          console.log("Lawyer data response:", data); 
+          console.log("Lawyer data response:", data);
           if (data.success) {
             setIsLoggedIn(true);
             setLawyerData(data.UserData);
@@ -56,13 +58,36 @@ export const AppContentProvider = (props) => {
     checkLoginStatus();
   }, [backendUrl]);
 
+  useEffect(() => {
+    const currentUser = userData || lawyerData;
+    if (currentUser) {
+      const newSocket = io(backendUrl, {
+        query: { userId: currentUser._id },
+        withCredentials: true,
+      });
+      setSocket(newSocket);
+
+      newSocket.on("connect", () => {
+        console.log(`Socket.IO connected for user: ${currentUser._id}`);
+      });
+
+      newSocket.on("disconnect", (reason) => {
+        console.log(`Socket.IO disconnected: ${reason}`);
+      });
+
+      return () => {
+        newSocket.disconnect();
+      };
+    }
+  }, [userData, lawyerData, backendUrl]);
+
   const getUserData = async () => {
     try {
       const { data } = await axios.get(`${backendUrl}/api/user/data`, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${getCookie("jwt")}` },
       });
-      console.log("Fetched user data:", data); 
+      console.log("Fetched user data:", data);
       if (data.success) {
         setUserData(data.userData);
         setPrivateKey(data.userData.privateKey);
@@ -100,7 +125,7 @@ export const AppContentProvider = (props) => {
     try {
       const endpoint = isLawyer ? `/api/lawyer-data/${userId}` : `/api/user/${userId}`;
       const { data } = await axios.get(`${backendUrl}${endpoint}`, { withCredentials: true });
-      console.log(`Public key response for ${userId}:`, data); 
+      console.log(`Public key response for ${userId}:`, data);
       if (data.success && data.data.publicKey) {
         return data.data.publicKey;
       }
@@ -126,7 +151,8 @@ export const AppContentProvider = (props) => {
     setEmail,
     privateKey,
     getPublicKey,
-    isCheckingAuth, 
+    isCheckingAuth,
+    socket,
   };
 
   return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>;

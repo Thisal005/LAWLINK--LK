@@ -28,30 +28,30 @@ const useSendMessage = () => {
 
   const sendMessage = async (messageText, files = []) => {
     if ((!messageText.trim() && files.length === 0) || loading) return;
-
+  
     const currentUser = userData || lawyerData;
     if (!currentUser || !privateKey) {
       toast.error("You must be logged in to send messages");
       return;
     }
-
+  
     if (!selectedConversation) {
       toast.error("No conversation selected");
       return;
     }
-
+  
     const receiverId = selectedConversation._id;
     const isReceiverLawyer = selectedConversation.isLawyer;
-
+  
     const receiverPublicKey = await getPublicKey(receiverId, isReceiverLawyer);
-
+  
     if (!receiverPublicKey) {
       toast.error("Failed to fetch receiver's public key");
       return;
     }
-
+  
     setLoading(true);
-
+  
     try {
       let encryptedMessage = "";
       let nonce = "";
@@ -64,19 +64,19 @@ const useSendMessage = () => {
         encryptedMessage = encrypted;
         nonce = messageNonce;
       }
-
+  
       const formData = new FormData();
       formData.append("message", encryptedMessage);
       formData.append("nonce", nonce);
       files.forEach((file) => {
         formData.append("documents", file);
       });
-
+  
       const res = await axios.post(`${backendUrl}/api/messages/send/${receiverId}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       });
-
+  
       if (res.data.success) {
         const newMessage = {
           ...res.data.data,
@@ -84,9 +84,8 @@ const useSendMessage = () => {
           messagePlaintext: messageText, // Store plaintext locally in state
           isPending: false,
         };
-        // Persist plaintext in localStorage
-        localStorage.setItem(`message_${newMessage._id}`, messageText);
-        setMessages((prev) => [...prev, newMessage]); // Add to state immediately
+        localStorage.setItem(`message_${String(newMessage._id)}`, messageText); // Ensure _id is a string
+        setMessages((prev) => [...prev, newMessage]);
       } else {
         throw new Error("Failed to send message");
       }
