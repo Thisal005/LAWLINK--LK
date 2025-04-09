@@ -131,7 +131,7 @@ const ScheduleMeeting = ({ caseId }) => {
             </h2>
           </div>
         </div>
-        <div className="h-[5px] bg-red-500 w-120 rounded-full my-4 transition-all duration-300 hover:bg-red-300"></div>
+        <div className="h-[5px] bg-red-500 max-w-[500px] rounded-full my-4 transition-all duration-300 hover:bg-red-300"></div>
         <div className="flex flex-col items-center justify-center h-[210px]">
           <div className="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin mb-3"></div>
           <p className="text-gray-600 font-medium">Loading available slots...</p>
@@ -156,7 +156,7 @@ const ScheduleMeeting = ({ caseId }) => {
         </div>
       </div>
 
-      <div className="h-[5px] bg-red-500 w-120 rounded-full my-4 transition-all duration-300 hover:bg-red-300"></div>
+      <div className="h-[5px] bg-red-500 max-w-[500px] rounded-full my-4 transition-all duration-300 hover:bg-red-300"></div>
 
       <div className="mb-5">
         <label className="block text-sm font-medium text-gray-700 mb-2">Available Time Slots</label>
