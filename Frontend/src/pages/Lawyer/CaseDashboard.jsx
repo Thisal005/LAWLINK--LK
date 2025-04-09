@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../Context/AppContext";
 import { toast } from "react-toastify";
 import { FaComments, FaVideo } from "react-icons/fa";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import useConversation from "../../zustand/useConversation";
 import Header from "../../Components/dashboard/lawyer/LawyerHeader";
@@ -16,13 +16,10 @@ import LawyerAvailability from "../../Components/dashboard/lawyer/AvailabilityFo
 import ChatButton from "../../Components/dashboard/lawyer/LawyerChatButton";
 import PDFSummerizer from "../../Components/dashboard/lawyer/PdfSummerizer";
 import ScheduledMeetings from "../../Components/ScheduledMeetings";
-
 import video from "../../assets/images/case.mp4";
-
 
 function Case() {
   const { backendUrl, userData } = useContext(AppContext);
-  const navigate = useNavigate();
   const { caseId } = useParams();
   const { setSelectedConversation } = useConversation();
 
@@ -30,7 +27,6 @@ function Case() {
   const [clientId, setClientId] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch case details and participants
   useEffect(() => {
     const fetchCaseDetails = async () => {
       if (!caseId) {
@@ -40,14 +36,12 @@ function Case() {
       }
 
       try {
-        // Fetch case details
         const caseRes = await axios.get(`${backendUrl}/api/case/${caseId}`, {
           withCredentials: true,
         });
         const caseDetails = caseRes.data.data || caseRes.data;
         setCaseData(caseDetails);
 
-        // Fetch participants
         const participantsRes = await axios.get(`${backendUrl}/api/case/${caseId}/participants`, {
           withCredentials: true,
         });
@@ -61,7 +55,6 @@ function Case() {
               isLawyer: false,
             });
           } else {
-            // Fallback to caseDetails if participants endpoint doesn't provide client ID
             setClientId(caseDetails.clientId);
             setSelectedConversation({
               _id: caseDetails.clientId,
@@ -88,7 +81,6 @@ function Case() {
     fetchCaseDetails();
   }, [caseId, backendUrl, setSelectedConversation]);
 
-  // Add useEffect to log clientId when it changes
   useEffect(() => {
     console.log("Client ID updated:", clientId);
     console.log("Case ID:", caseId);
@@ -100,11 +92,7 @@ function Case() {
       <Sidebar caseId={caseId} />
       <main className="ml-64 p-6 lg:p-8 pt-24">
         {/* Case Overview */}
-        <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-5 mt-10 relative overflow-hidden transform transition-all duration-300 hover:shadow-2xl w-full">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
-          </div>
+        <div className="bg-white text-gray-900 rounded-3xl shadow-xl p-5 mb-5 mt-10 relative w-full">
           <div className="relative z-10 flex flex-col md:flex-row justify-between gap-6">
             <div className="flex-1 space-y-6">
               {loading ? (
@@ -116,7 +104,7 @@ function Case() {
               )}
             </div>
             <div className="self-center md:self-start">
-              <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative z-20">
                 <video
                   src={video}
                   autoPlay

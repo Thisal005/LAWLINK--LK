@@ -1,4 +1,3 @@
-// frontend/src/Components/CaseCard.jsx
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetchCase from "../../../hooks/useFetchCase";
@@ -8,7 +7,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const CaseCard = ({ caseId }) => {
+const CaseCard = ({ caseId, addNotification }) => {
   const { caseData, loading, refetch } = useFetchCase(caseId);
   const { backendUrl } = useContext(AppContext);
   const navigate = useNavigate();
@@ -29,19 +28,21 @@ const CaseCard = ({ caseId }) => {
   };
 
   const handleCloseCase = async () => {
+    console.log("handleCloseCase triggered for caseId:", caseId);
     try {
-      console.log("handleCloseCase - backendUrl:", backendUrl);
-      console.log("handleCloseCase - caseId:", caseId);
       const response = await axios.put(
         `${backendUrl}/api/case/${caseId}/close`,
         {},
         { withCredentials: true }
       );
-      console.log("handleCloseCase - response:", response.data);
+      console.log("Close case response:", response.data);
       if (response.data.success) {
         setLocalStatus("closed");
         refetch();
         toast.success("Case closed successfully!");
+        if (addNotification && caseData?.subject) {
+          addNotification(`You have closed the case "${caseData.subject}"`);
+        }
       } else {
         throw new Error(response.data.msg || "Failed to close case");
       }
@@ -51,6 +52,15 @@ const CaseCard = ({ caseId }) => {
     } finally {
       setMenuOpen(false);
     }
+  };
+
+  const toggleMenu = (e) => {
+    e.stopPropagation();
+    console.log("MoreVertical clicked, current menuOpen:", menuOpen);
+    setMenuOpen((prev) => {
+      console.log("Setting menuOpen to:", !prev);
+      return !prev;
+    });
   };
 
   if (loading) {
@@ -72,6 +82,7 @@ const CaseCard = ({ caseId }) => {
 
   const effectiveStatus = localStatus || caseData.status;
   const isClosed = effectiveStatus === "closed";
+  console.log("Case status:", effectiveStatus, "isClosed:", isClosed);
 
   return (
     <motion.article
@@ -85,8 +96,7 @@ const CaseCard = ({ caseId }) => {
       }`}
       role="button"
       tabIndex="0"
-      aria-label="View your case details"
-      onClick={!isClosed ? () => navigate(`/case/${caseData._id}`) : undefined}
+      aria-label="View case details"
     >
       <div className="flex items-center justify-between gap-4">
         <div>
@@ -94,7 +104,7 @@ const CaseCard = ({ caseId }) => {
             {caseData.subject || "Unnamed Case"}
           </h3>
           <p className="text-sm text-gray-500 mt-1">
-            Client: {isClosed ? "Disconnected" : caseData.clientId?.fullName || "Unknown Client"}
+            Client: {caseData.clientId?.fullName || "Unknown Client"}
           </p>
         </div>
         <div className="flex items-center gap-4">
@@ -120,10 +130,7 @@ const CaseCard = ({ caseId }) => {
           {!isClosed && (
             <div className="relative">
               <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setMenuOpen(!menuOpen);
-                }}
+                onClick={toggleMenu}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                 aria-label="More options"
               >
@@ -135,11 +142,12 @@ const CaseCard = ({ caseId }) => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-10 right-0 bg-white border border-gray-200 rounded-lg shadow-lg p-2 w-40 z-10"
+                  className="absolute top-10 right-0 bg-white border border-gray-200 rounded-lg shadow-lg p-2 w-40 z-50"
                 >
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      console.log("Close Case button clicked");
                       handleCloseCase();
                     }}
                     className="flex items-center gap-2 w-full px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md transition-colors"
@@ -153,7 +161,7 @@ const CaseCard = ({ caseId }) => {
           )}
         </div>
       </div>
-      <div className="mt-6 border-t border-gray-100 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+      <div className="mt-6 border-t border-gray-200 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div className="flex items-center gap-2">
           <Briefcase className="w-5 h-5 text-blue-600" />
           <span className="text-gray-600">Case Type:</span>

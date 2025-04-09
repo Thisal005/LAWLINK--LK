@@ -1,11 +1,9 @@
-// routes/notification.route.js
 import express from "express";
 import Notification from "../models/notifications.model.js";
 import { protectRoute } from "../middleware/protectRoute.js";
 
 const notificationRouter = express.Router();
 
-// Get all notifications for the logged-in lawyer
 notificationRouter.get("/", protectRoute, async (req, res) => {
   try {
     const lawyerId = req.user._id;
