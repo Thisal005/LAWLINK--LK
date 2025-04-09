@@ -92,7 +92,7 @@ const ScheduledMeetings = () => {
   if (loading) return <p>Loading meetings...</p>;
 
   return (
-    <div className="p-6 bg-white rounded-lg h-[300px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg">
+    <div className="p-6 bg-white rounded-lg h-[347px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -122,7 +122,7 @@ const ScheduledMeetings = () => {
           <p className="font-medium">No scheduled or ongoing meetings</p>
         </div>
       ) : (
-        <div className="h-[180px] overflow-y-auto scrollbar-hide hover:scrollbar-default pr-2">
+        <div className="h-[210px] overflow-y-auto scrollbar-hide hover:scrollbar-default pr-2">
           <ul className="space-y-4">
             {meetings.map((meeting) => {
               const now = new Date();

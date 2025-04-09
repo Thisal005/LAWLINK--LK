@@ -113,7 +113,7 @@ const ScheduleMeeting = ({ caseId }) => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg h-[340px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg cursor-pointer">
+    <div className="p-6 bg-white rounded-lg h-[347px] border border-gray-200 hover:border-blue-500 hover:bg-blue-50/10 transition-all duration-300 hover:shadow-lg cursor-pointer">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -199,7 +199,7 @@ const ScheduleMeeting = ({ caseId }) => {
           </button>
 
           {availableSlots.length === 0 && !fetchLoading && (
-            <p className="text-center text-sm text-gray-500 mt-4">
+            <p className="text-center text-sm text-gray-500 mt-4 mb-2">
               No time slots available. Please check back later.
             </p>
           )}
