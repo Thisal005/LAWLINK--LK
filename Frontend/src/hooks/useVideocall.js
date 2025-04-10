@@ -7,9 +7,8 @@ const useVideocall = (meetingId) => {
   const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
   const [isCallActive, setIsCallActive] = useState(false);
-  const [audioEnabled, setAudioEnabled] = useState(true);
-  const [videoEnabled, setVideoEnabled] = useState(true);
-  const [role, setRole] = useState(null);
+  const [audioEnabled, setAudioEnabled] = useState(true); // Add audio state
+  const [videoEnabled, setVideoEnabled] = useState(true); // Add video state
   const peerConnectionRef = useRef(null);
 
   const startCall = async () => {
@@ -17,53 +16,44 @@ const useVideocall = (meetingId) => {
       toast.error("Cannot start call: Server not connected");
       return;
     }
-
+  
     try {
       console.log("Requesting media devices...");
       const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
       setLocalStream(stream);
       console.log("Media devices acquired:", stream);
-
+  
       const pc = new RTCPeerConnection({
-        iceServers: [
-          { urls: "stun:stun.l.google.com:19302" },
-          {
-            urls: "turn:openrelay.metered.ca:80",
-            username: "openrelayproject",
-            credential: "openrelayproject",
-          },
-        ],
+        iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
       });
       peerConnectionRef.current = pc;
-
+  
       stream.getTracks().forEach((track) => {
         console.log("Adding track:", track);
         pc.addTrack(track, stream);
       });
-
+  
       pc.onicecandidate = (event) => {
         if (event.candidate && socket.connected) {
           socket.emit("ice-candidate", { candidate: event.candidate, meetingId });
         }
       };
-
+  
       pc.ontrack = (event) => {
         console.log("Received remote stream:", event.streams[0]);
         setRemoteStream(event.streams[0]);
       };
-
-      if (role === "initiator") {
-        const offer = await pc.createOffer();
-        await pc.setLocalDescription(offer);
-        socket.emit("offer", { offer, meetingId });
-      }
-
+  
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(offer);
+      socket.emit("offer", { offer, meetingId });
+  
       socket.emit("join-meeting", meetingId);
       setIsCallActive(true);
     } catch (error) {
       console.error("Error starting video call:", error.name, error.message);
       if (error.name === "NotReadableError") {
-        toast.error("Camera or microphone is in use by another application.");
+        toast.error("Camera or microphone is in use by another application. Please close other apps and try again.");
       } else {
         toast.error("Failed to start video call: " + error.message);
       }
@@ -85,7 +75,6 @@ const useVideocall = (meetingId) => {
     setLocalStream(null);
     setRemoteStream(null);
     setIsCallActive(false);
-    setRole(null);
   };
 
   const toggleMute = () => {
@@ -116,18 +105,9 @@ const useVideocall = (meetingId) => {
     if (!socket) return;
 
     const setupListeners = () => {
-      socket.on("role-assigned", ({ role }) => {
-        console.log(`Assigned role: ${role}`);
-        setRole(role);
-        if (role === "initiator") {
-          startCall();
-        }
-      });
-
       socket.on("offer", async ({ offer, from }) => {
         const pc = peerConnectionRef.current;
-        if (!pc || role !== "receiver") return;
-        console.log(`Received offer from ${from}`);
+        if (!pc) return;
         await pc.setRemoteDescription(new RTCSessionDescription(offer));
         const answer = await pc.createAnswer();
         await pc.setLocalDescription(answer);
@@ -137,7 +117,6 @@ const useVideocall = (meetingId) => {
       socket.on("answer", ({ answer }) => {
         const pc = peerConnectionRef.current;
         if (pc) {
-          console.log("Received answer");
           pc.setRemoteDescription(new RTCSessionDescription(answer));
         }
       });
@@ -145,7 +124,6 @@ const useVideocall = (meetingId) => {
       socket.on("ice-candidate", ({ candidate }) => {
         const pc = peerConnectionRef.current;
         if (pc) {
-          console.log("Received ICE candidate");
           pc.addIceCandidate(new RTCIceCandidate(candidate));
         }
       });
@@ -164,7 +142,6 @@ const useVideocall = (meetingId) => {
     }
 
     return () => {
-      socket.off("role-assigned");
       socket.off("offer");
       socket.off("answer");
       socket.off("ice-candidate");
@@ -172,18 +149,18 @@ const useVideocall = (meetingId) => {
       socket.off("connect");
       if (isCallActive) endCall();
     };
-  }, [socket, meetingId, role]);
+  }, [socket, meetingId, isCallActive]);
 
-  return {
-    localStream,
-    remoteStream,
-    isCallActive,
-    startCall,
+  return { 
+    localStream, 
+    remoteStream, 
+    isCallActive, 
+    startCall, 
     endCall,
     toggleMute,
     toggleVideo,
     audioEnabled,
-    videoEnabled,
+    videoEnabled
   };
 };
 

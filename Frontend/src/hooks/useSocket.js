@@ -10,14 +10,11 @@ const useSocket = (userId) => {
     if (!userId) return;
     
     // Initialize socket connection
-   // SocketContext.jsx
-const socketUrl = process.env.REACT_APP_SOCKET_URL || "http://localhost:5000";
-const newSocket = io(socketUrl, {
-  query: { userId: user._id },
-  reconnection: true,
-  reconnectionAttempts: 5,
-  reconnectionDelay: 1000,
-});
+    const socketUrl = 'http://localhost:5000'; 
+    socketRef.current = io(socketUrl, {
+      withCredentials: true,
+      query: { userId }
+    });
 
     // Setup event listeners
     socketRef.current.on('connect', () => {

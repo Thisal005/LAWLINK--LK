@@ -18,7 +18,8 @@ import todoRouter from "./routes/todo.route.js";
 import summarizationRouter from "./routes/summarization.route.js";
 import meetingRouter from "./routes/meeting.route.js";
 import availabiltiyRouter from "./routes/availability.route.js";
-import chatbotRoutes from "./routes/chatbot.route.js";
+import chatbotRoutes from "./routes/chatbot.route.js"; 
+
 
 dotenv.config();
 
@@ -31,7 +32,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   process.env.VERCEL_URL,
   process.env.PRODUCTION_URL,
-  process.env.LOCAL_URL,
+  process.env.LOCAL_URL
 ];
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
@@ -55,6 +56,7 @@ app.use("/api/availability", availabiltiyRouter);
 app.use("/api/summarization", summarizationRouter);
 app.use("/api/chatbot", chatbotRoutes);
 
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
@@ -77,7 +79,6 @@ const io = new Server(server, {
 });
 
 global.clients = new Map();
-const meetingParticipants = new Map(); // Track participants per meeting
 
 io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
@@ -90,49 +91,49 @@ io.on("connection", (socket) => {
     console.warn("No userId provided for socket connection");
   }
 
+  socket.on("newMessage", (message) => {
+    const recipientSocket = global.clients.get(message.receiverId);
+    if (recipientSocket) {
+      console.log(`Forwarding message from ${userId} to ${message.receiverId}`);
+      recipientSocket.emit("newMessage", message);
+    } else {
+      console.log(`Recipient ${message.receiverId} not connected`);
+    }
+  });
+
   socket.on("join-meeting", (meetingId) => {
     console.log(`${userId} joined meeting: ${meetingId}`);
     socket.join(meetingId);
-
-    if (!meetingParticipants.has(meetingId)) {
-      meetingParticipants.set(meetingId, new Set());
-    }
-    const participants = meetingParticipants.get(meetingId);
-    participants.add(userId);
-
-    socket.to(meetingId).emit("user-joined", { userId, participantCount: participants.size });
-
-    // Assign role: initiator for first participant, receiver for others
-    if (participants.size === 1) {
-      socket.emit("role-assigned", { role: "initiator" });
-    } else {
-      socket.emit("role-assigned", { role: "receiver" });
-    }
+    socket.to(meetingId).emit("user-joined", userId);
   });
 
+  // Handle WebRTC offer event
   socket.on("offer", ({ offer, meetingId }) => {
     console.log(`Received offer from ${userId} for meeting: ${meetingId}`);
+    // Forward the offer to other participants in the meeting
     socket.to(meetingId).emit("offer", { offer, from: userId });
   });
 
+  // Handle WebRTC answer event
   socket.on("answer", ({ answer, meetingId }) => {
     console.log(`Received answer from ${userId} for meeting: ${meetingId}`);
+    // Forward the answer to other participants in the meeting
     socket.to(meetingId).emit("answer", { answer, from: userId });
   });
 
+  // Handle ICE candidate event for WebRTC
   socket.on("ice-candidate", ({ candidate, meetingId }) => {
     console.log(`Received ICE candidate from ${userId} for meeting: ${meetingId}`);
+    // Forward the ICE candidate to other participants in the meeting
     socket.to(meetingId).emit("ice-candidate", { candidate, from: userId });
   });
 
+  // Handle user leaving a meeting
   socket.on("leave-meeting", (meetingId) => {
     console.log(`${userId} left meeting: ${meetingId}`);
-    const participants = meetingParticipants.get(meetingId);
-    if (participants) {
-      participants.delete(userId);
-      if (participants.size === 0) meetingParticipants.delete(meetingId);
-    }
+    // Notify other participants that the user has left
     socket.to(meetingId).emit("user-left", userId);
+    // Remove the user from the meeting room
     socket.leave(meetingId);
   });
 
@@ -140,11 +141,9 @@ io.on("connection", (socket) => {
     console.log(`User disconnected: ${userId}. Reason: ${reason}`);
     if (userId) {
       global.clients.delete(userId);
-      meetingParticipants.forEach((participants, meetingId) => {
-        if (participants.has(userId)) {
-          participants.delete(userId);
-          socket.to(meetingId).emit("user-left", userId);
-          if (participants.size === 0) meetingParticipants.delete(meetingId);
+      socket.rooms.forEach((room) => {
+        if (room !== socket.id) {
+          socket.to(room).emit("user-left", userId);
         }
       });
     }

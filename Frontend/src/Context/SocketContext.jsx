@@ -21,13 +21,11 @@ export const SocketProvider = ({ children }) => {
       return;
     }
 
-    const socketUrl =  "http://localhost:5000";
-    const newSocket = io(socketUrl, {
+    const newSocket = io("http://localhost:5000", {
       query: { userId: user._id },
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
-      withCredentials: true,
     });
 
     newSocket.on("connect", () => console.log("Connected to WebSocket server"));
