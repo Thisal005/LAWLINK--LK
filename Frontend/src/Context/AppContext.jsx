@@ -106,17 +106,26 @@ export const AppContentProvider = (props) => {
     try {
       const endpoint = isLawyer ? `/api/lawyer-data/${userId}` : `/api/user/${userId}`;
       const { data } = await axios.get(`${backendUrl}${endpoint}`, { withCredentials: true });
-      if (data.success && data.data.publicKey) {
-        return data.data.publicKey;
+      
+      if (!data.success) {
+        console.warn(`Failed to fetch public key for ${isLawyer ? "lawyer" : "user"} ${userId}:`, data.message);
+        return null;
       }
-      throw new Error("Public key not found in response");
+      if (!data.data?.publicKey) {
+        console.warn(`Public key missing in response for ${userId}`);
+        return null;
+      }
+      return data.data.publicKey;
     } catch (error) {
-      console.error("Error fetching public key:", error.response?.data || error.message);
+      console.error(
+        "Error fetching public key:",
+        error.response?.data || error.message,
+        { userId, isLawyer }
+      );
       toast.error(`Failed to fetch public key for ${isLawyer ? "lawyer" : "user"} ${userId}`);
       return null;
     }
   };
-
   const value = {
     backendUrl,
     isLoggedIn,
