@@ -1,3 +1,4 @@
+// Import necessary libraries and components
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { BsUpload, BsVolumeUp, BsVolumeOff, BsClockHistory } from 'react-icons/bs';
 import { MdDelete } from 'react-icons/md';
@@ -6,39 +7,45 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { AppContext } from '../../../Context/AppContext';
 
+// Main component for PDF summarization
 const PDFSummarizer = () => {
+  // State variables for managing file, summary, audio, loading state, history, and audio playback
   const [file, setFile] = useState(null);
   const [summary, setSummary] = useState('');
   const [audioUrl, setAudioUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [history, setHistory] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  // Refs for audio and file input elements
   const audioRef = useRef(null);
   const fileInputRef = useRef(null);
-  const {backendUrl} = useContext(AppContext);
 
+  // Context to get the backend URL
+  const { backendUrl } = useContext(AppContext);
+
+  // Fetch summary history when the component mounts
   useEffect(() => {
     fetchSummaryHistory();
   }, []);
 
+  // Handle audio errors and cleanup event listeners
   useEffect(() => {
     const audioElement = audioRef.current;
-    
     if (audioElement) {
       const handleError = (e) => {
         console.error('Audio error:', e);
         toast.error('Failed to load audio file');
         setIsPlaying(false);
       };
-      
       audioElement.addEventListener('error', handleError);
-      
       return () => {
         audioElement.removeEventListener('error', handleError);
       };
     }
   }, [audioRef.current]);
 
+  // Fetch the history of previous summaries from the backend
   const fetchSummaryHistory = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/summarization/history`, { withCredentials: true });
@@ -47,16 +54,18 @@ const PDFSummarizer = () => {
     } catch (error) {
       console.error('Failed to fetch history:', error);
       toast.error('Failed to load summary history');
-      setHistory([]); 
+      setHistory([]);
     }
   };
 
+  // Handle file selection
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
       setFile(e.target.files[0]);
     }
   };
 
+  // Handle form submission to summarize the PDF
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file) {
@@ -77,16 +86,15 @@ const PDFSummarizer = () => {
         withCredentials: true,
       });
 
+      // Update summary and audio URL
       setSummary(response.data.summary);
-      
       const fullAudioUrl = response.data.audioUrl.startsWith('http') 
         ? response.data.audioUrl 
         : `${backendUrl}${response.data.audioUrl}`;
-      
       setAudioUrl(fullAudioUrl);
-      
+
       toast.success('PDF summarized successfully!');
-      fetchSummaryHistory();
+      fetchSummaryHistory(); // Refresh history
       setFile(null);
       if (fileInputRef.current) {
         fileInputRef.current.value = '';
@@ -103,6 +111,7 @@ const PDFSummarizer = () => {
     }
   };
 
+  // Handle audio playback toggle
   const handleAudioPlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -118,25 +127,20 @@ const PDFSummarizer = () => {
     }
   };
 
+  // Handle clicking on a history item to load its summary and audio
   const handleHistoryItemClick = (item) => {
     setSummary(item.summary);
-    
-    // Ensure the audioUrl is fully qualified with the backend URL
     const fullAudioUrl = item.audioUrl.startsWith('http') 
       ? item.audioUrl 
       : `${backendUrl}${item.audioUrl}`;
-    
     setAudioUrl(fullAudioUrl);
-    
-    // Reset playing state when switching to a new audio
     setIsPlaying(false);
-    
-    // If there's a current audio element, pause it
     if (audioRef.current) {
       audioRef.current.pause();
     }
   };
 
+  // Format date for display
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -146,6 +150,7 @@ const PDFSummarizer = () => {
     });
   };
 
+  // Truncate long filenames for display
   const truncateFilename = (filename) => {
     if (!filename) return 'Unnamed File';
     if (filename.length > 15) {
@@ -154,8 +159,10 @@ const PDFSummarizer = () => {
     return filename;
   };
 
+  // Render the component
   return (
-    <div className="w-full bg-white rounded-xl shadow-md overflow-hidden mt-6 shadow-xl  hover:shadow-2xl">
+    <div className="w-full bg-white rounded-xl shadow-md overflow-hidden mt-6 shadow-xl hover:shadow-2xl">
+      {/* Header */}
       <div className="px-6 py-4 bg-gradient-to-r from-blue-500 to-blue-600">
         <h2 className="text-xl font-bold text-white">PDF Summarizer</h2>
       </div>
@@ -163,6 +170,7 @@ const PDFSummarizer = () => {
       <div className="flex flex-col md:flex-row">
         {/* Left panel - Upload and History */}
         <div className="w-full md:w-1/3 p-6 border-r border-gray-200">
+          {/* Upload Section */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-4">Upload Your PDF</h3>
             <form onSubmit={handleSubmit}>
@@ -193,14 +201,12 @@ const PDFSummarizer = () => {
             </form>
           </div>
 
+          {/* History Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4 flex items-center">
               <BsClockHistory className="mr-2" /> Previous Summaries
             </h3>
-            <div
-          className="space-y-4 max-h-[150px] overflow-y-auto pr-2 scrollbar-hide hover:scrollbar-default"
-         
-        >
+            <div className="space-y-4 max-h-[150px] overflow-y-auto pr-2 scrollbar-hide hover:scrollbar-default">
               {history.length === 0 ? (
                 <p className="text-sm text-gray-500">No previous summaries found</p>
               ) : (
@@ -226,6 +232,7 @@ const PDFSummarizer = () => {
 
         {/* Right panel - Summary and Audio */}
         <div className="w-full md:w-2/3 p-6">
+          {/* Summary Header */}
           <div className="bg-gray-50 rounded-lg p-4 mb-4 flex justify-between items-center">
             <h3 className="text-lg font-semibold">Summary</h3>
             {audioUrl && (
@@ -249,6 +256,7 @@ const PDFSummarizer = () => {
             )}
           </div>
           
+          {/* Summary Content */}
           <div className="bg-white border border-gray-200 rounded-lg p-4 h-96 overflow-y-auto scrollbar-hide hover:scrollbar-default">
             {summary ? (
               <p className="text-gray-700 whitespace-pre-line">{summary}</p>

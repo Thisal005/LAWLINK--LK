@@ -1,10 +1,9 @@
-// frontend/src/ClientAccountSettings.jsx
 import React, { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../Context/AppContext"
+import { AppContext } from "../../Context/AppContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Upload, X } from 'lucide-react';
+import { Upload } from 'lucide-react';
 import ClientSidebar from "../../Components/dashboard/client/ClientSideBar";
 import Header from "../../Components/dashboard/client/ClientHeader";
 
@@ -18,13 +17,12 @@ const ClientAccountSettings = () => {
     email: "",
     contact: "",
     province: "",
+    address: "",
+    dateOfBirth: "",
     profilePicture: null,
-    receiveNotifications: false,
-    receiveEmailNotifications: false,
   });
   const [tempProfilePicture, setTempProfilePicture] = useState(null);
 
-  // Sri Lanka's 9 provinces
   const provinces = [
     "Central",
     "Eastern",
@@ -37,60 +35,45 @@ const ClientAccountSettings = () => {
     "Western",
   ];
 
-  // Initialize form data from userData
   useEffect(() => {
     if (!userData?._id) {
       toast.error("Please log in to edit your settings.");
-      navigate("/client-login"); // Adjust route as needed
+      navigate("/client-login");
     } else {
       setFormData({
         fullName: userData.fullName || "",
         email: userData.email || "",
         contact: userData.contact || "",
         province: userData.province || "",
+        address: userData.address || "",
+        dateOfBirth: userData.dateOfBirth || "",
         profilePicture: null,
-        receiveNotifications: userData.receiveNotifications || false,
-        receiveEmailNotifications: userData.receiveEmailNotifications || false,
       });
       setTempProfilePicture(userData.profilePicture || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
       setLoading(false);
     }
   }, [userData, navigate]);
 
-  // Handle input changes
   const handleChange = (e) => {
-    const { name, value, files, type, checked } = e.target;
+    const { name, value, files } = e.target;
     if (name === "profilePicture" && files[0]) {
       setFormData((prev) => ({ ...prev, profilePicture: files[0] }));
       const reader = new FileReader();
       reader.onload = (e) => setTempProfilePicture(e.target.result);
       reader.readAsDataURL(files[0]);
-    } else if (type === "checkbox") {
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-      toast.info(`${name === "receiveNotifications" ? "Notification" : "Email notification"} preference updated.`, {
-        position: "top-right",
-        autoClose: 2000,
-      });
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  // Remove profile picture
-  const handleRemovePhoto = () => {
-    setTempProfilePicture("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
-    setFormData((prev) => ({ ...prev, profilePicture: null }));
-  };
-
-  // Submit form to backend
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
     const formDataToSend = new FormData();
     formDataToSend.append("province", formData.province);
-    formDataToSend.append("receiveNotifications", formData.receiveNotifications);
-    formDataToSend.append("receiveEmailNotifications", formData.receiveEmailNotifications);
+    formDataToSend.append("address", formData.address);
+    formDataToSend.append("dateOfBirth", formData.dateOfBirth);
     if (formData.profilePicture) {
       formDataToSend.append("profilePicture", formData.profilePicture);
     }
@@ -103,7 +86,7 @@ const ClientAccountSettings = () => {
       if (response.data.success) {
         setUserData(response.data.userData);
         toast.success("Profile updated successfully!");
-        navigate("/client-dashboard"); // Adjust route as needed
+        navigate("/client-dashboard");
       } else {
         toast.error(response.data.message || "Update failed.");
       }
@@ -131,21 +114,24 @@ const ClientAccountSettings = () => {
       <div className="flex-1 flex flex-col lg:ml-64 xl:ml-72">
         <Header displayName={displayName} practiceAreas="Client" />
         <div className="flex-1 p-6 mt-16 overflow-y-auto">
-          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Profile Settings</h2>
-            <p className="text-sm text-gray-600 mb-6">
-              For your security, certain details are locked. Contact support to modify them.
-            </p>
+          <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">Profile Settings</h2>
+            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Profile Picture */}
-              <div className="flex items-center gap-6">
-                <img 
-                  src={tempProfilePicture}
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full object-cover ring-2 ring-gray-200"
-                />
-                <div className="space-y-2">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="flex items-center gap-6 border-b border-gray-200 pb-6">
+                <div className="relative">
+                  <img
+                    src={tempProfilePicture}
+                    alt="Profile"
+                    className="w-28 h-28 rounded-full object-cover ring-4 ring-blue-100 shadow-sm"
+                  />
+                  <div className="absolute bottom-0 right-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                    <Upload className="w-5 h-5" />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
                   <input
                     type="file"
                     id="profile-picture-upload"
@@ -156,63 +142,55 @@ const ClientAccountSettings = () => {
                   />
                   <label
                     htmlFor="profile-picture-upload"
-                    className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors inline-flex items-center gap-2 cursor-pointer text-sm"
+                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 inline-flex items-center gap-2 cursor-pointer text-sm font-semibold shadow-md"
                   >
-                    <Upload className="w-4 h-4" />
-                    Upload Photo
+                    <Upload className="w-4 h-4 text-white" />
+                    <span className="text-white">Upload New Photo</span>
                   </label>
-                  <button
-                    type="button"
-                    onClick={handleRemovePhoto}
-                    className="px-3 py-1 text-gray-600 hover:text-gray-800 transition-colors text-sm"
-                  >
-                    Remove
-                  </button>
                 </div>
               </div>
 
-              {/* Form Fields */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input 
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                  <input
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500 cursor-not-allowed"
+                    className="w-full p-3 border border-gray-200 rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed focus:outline-none"
                     disabled
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input 
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500 cursor-not-allowed"
+                    className="w-full p-3 border border-gray-200 rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed focus:outline-none"
                     disabled
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
-                  <input 
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Contact Number</label>
+                  <input
                     type="tel"
                     name="contact"
                     value={formData.contact}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md bg-gray-100 text-gray-500 cursor-not-allowed"
+                    className="w-full p-3 border border-gray-200 rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed focus:outline-none"
                     disabled
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Province</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Province</label>
                   <select
                     name="province"
                     value={formData.province}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
                   >
                     <option value="">Select Province</option>
                     {provinces.map((province) => (
@@ -222,45 +200,41 @@ const ClientAccountSettings = () => {
                     ))}
                   </select>
                 </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                    placeholder="Enter your address"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Date of Birth</label>
+                  <input
+                    type="date"
+                    name="dateOfBirth"
+                    value={formData.dateOfBirth}
+                    onChange={handleChange}
+                    className="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                  />
+                </div>
               </div>
 
-              {/* Notification Checkboxes */}
-              <div className="space-y-3">
-                <label className="flex items-center gap-2 text-sm text-gray-700">
-                  <input
-                    type="checkbox"
-                    name="receiveNotifications"
-                    checked={formData.receiveNotifications}
-                    onChange={handleChange}
-                    className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  Receive Notifications
-                </label>
-                <label className="flex items-center gap-2 text-sm text-gray-700">
-                  <input
-                    type="checkbox"
-                    name="receiveEmailNotifications"
-                    checked={formData.receiveEmailNotifications}
-                    onChange={handleChange}
-                    className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  Receive Notifications via Email
-                </label>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex justify-end gap-3 pt-4">
+              <div className="flex justify-end gap-4 pt-6">
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 transition-colors text-sm font-medium"
+                  className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition-all duration-300 text-sm font-semibold shadow-md"
                 >
                   {submitting ? "Saving..." : "Save Changes"}
                 </button>
                 <button
                   type="button"
                   onClick={() => navigate("/client-dashboard")}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors text-sm font-medium"
+                  className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all duration-300 text-sm font-semibold"
                 >
                   Cancel
                 </button>

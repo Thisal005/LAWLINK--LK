@@ -261,3 +261,14 @@ label {
 .typing-indicator span:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+/* Ensure CaseCardForLawyer stays on top */
+.case-card-lawyer {
+  position: relative;
+  z-index: 50 !important;
+}
+
+.case-card-lawyer button {
+  z-index: 1000 !important;
+  pointer-events: auto !important;
+}
