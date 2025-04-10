@@ -1,7 +1,6 @@
-// Backend/routes/chatbot.routes.js
 import express from "express";
 import { protectRoute } from "../middleware/protectRoute.js";
-import { chatWithLegalBot, uploadChatbotFile, initChatbot } from "../controllers/chatbot.controller.js";
+import { chatWithLegalBot, uploadChatbotFile, initChatbot, healthCheck } from "../controllers/chatbot.controller.js";
 import multer from "multer";
 
 const storage = multer.diskStorage({
@@ -24,6 +23,7 @@ const upload = multer({
       cb(new Error("Only PDFs and text files are allowed"));
     }
   },
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
 });
 
 const router = express.Router();
@@ -31,5 +31,6 @@ const router = express.Router();
 router.get("/init", protectRoute, initChatbot);
 router.post("/ask", protectRoute, chatWithLegalBot);
 router.post("/upload-file", protectRoute, upload.single("file"), uploadChatbotFile);
+router.get("/health", protectRoute, healthCheck);
 
 export default router;

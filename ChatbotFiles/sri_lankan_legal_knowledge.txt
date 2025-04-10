@@ -1,0 +1,42 @@
+# Sri Lankan Legal Knowledge Base
+
+## Penal Code of Sri Lanka
+### Introduction
+The Penal Code of Sri Lanka (Chapter 19) is the main criminal code of Sri Lanka. It outlines criminal offenses, procedures, and penalties applicable within the jurisdiction. The code was first enacted in 1883 during the British colonial period and has undergone numerous amendments since then.
+
+### Key Sections
+#### Section 293 - Homicide
+• <b>Definition:</b> Causing of death of a human being by another human being.
+• <b>Categories:</b>
+  ◦ Culpable homicide - When death is caused with the intention of causing death.
+  ◦ Murder - Culpable homicide becomes murder when done with premeditation.
+• <b>Punishment:</b> Death penalty or life imprisonment for murder, imprisonment up to 20 years for culpable homicide not amounting to murder.
+
+#### Section 350-365 - Theft and Related Offenses
+• <b>Theft (Section 350):</b> Dishonest taking of property without consent.
+  ◦ Punishment: Imprisonment up to 3 years.
+• <b>Robbery (Section 358):</b> Theft with force or threat of force.
+  ◦ Punishment: Imprisonment up to 10 years.
+
+## Motor Traffic Act of Sri Lanka
+### Introduction
+The Motor Traffic Act (No. 14 of 1951) regulates the registration, licensing, and operation of motor vehicles in Sri Lanka. The act is administered by the Department of Motor Traffic.
+
+### Key Provisions
+#### Driving Licenses
+• <b>Categories:</b>
+  ◦ Class A: Motorcycles
+  ◦ Class B: Light vehicles (cars, vans up to 12 passengers)
+• <b>Requirements:</b>
+  ◦ Minimum age: 18 years
+  ◦ Medical fitness certificate
+  ◦ Successful completion of written and practical tests
+
+#### Traffic Violations and Penalties
+• <b>Drunk Driving:</b>
+  ◦ Legal limit: 80mg of alcohol per 100ml of blood
+  ◦ Penalties: Fine up to LKR 25,000 and/or imprisonment up to 2 years
+• <b>Speeding:</b>
+  ◦ Urban areas: 50 km/h maximum
+  ◦ Highways: 100 km/h maximum
+  ◦ Penalties: Fine up to LKR 3,000 for first offense, higher for repeat offenders
