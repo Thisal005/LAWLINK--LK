@@ -3,6 +3,7 @@ import useVideocall from "../hooks/useVideocall";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Camera, CameraOff, Mic, MicOff, PhoneOff } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // Add this for navigation
 
 const VideoMeet = ({ meetingId, userName }) => {
   const {
@@ -21,6 +22,7 @@ const VideoMeet = ({ meetingId, userName }) => {
   const [callStarted, setCallStarted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [meetingInfo, setMeetingInfo] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (meetingId) {
@@ -42,7 +44,7 @@ const VideoMeet = ({ meetingId, userName }) => {
       const response = await axios.get(`/api/meetings/${meetingId}`, {
         withCredentials: true,
       });
-      setMeetingInfo(response.data.data); 
+      setMeetingInfo(response.data.data);
     } catch (err) {
       toast.error("Failed to fetch meeting information");
     }
@@ -68,7 +70,7 @@ const VideoMeet = ({ meetingId, userName }) => {
       await axios.post(`/api/meetings/end/${meetingId}`, {}, { withCredentials: true });
       setCallStarted(false);
       toast.success("Meeting ended");
-      navigate("/client-dashboard"); // Redirect to dashboard or another page
+      navigate("/client-dashboard"); // Redirect to dashboard
     } catch (err) {
       toast.error("Failed to end meeting");
     }
@@ -83,10 +85,7 @@ const VideoMeet = ({ meetingId, userName }) => {
           </h1>
           <p className="text-sm text-gray-600">Room ID: {meetingId}</p>
         </div>
-
         <div className="w-full max-w-sm">
-    
-
           <button
             onClick={handleStartCall}
             disabled={loading}
@@ -102,6 +101,14 @@ const VideoMeet = ({ meetingId, userName }) => {
             )}
           </button>
         </div>
+      </div>
+    );
+  }
+
+  if (callStarted && !remoteStream) {
+    return (
+      <div className="p-6 bg-white rounded-lg h-full border border-gray-200 flex flex-col justify-center items-center">
+        <p className="text-gray-600">Waiting for the other participant...</p>
       </div>
     );
   }
