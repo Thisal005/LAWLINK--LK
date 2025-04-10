@@ -34,6 +34,7 @@ import { SocketProvider } from "./Context/SocketContext";
 import "react-toastify/dist/ReactToastify.css";
 import PostCaseForm from "./pages/Client/CreatePostForm";
 import CaseHistory from "./pages/Client/CaseHistory";
+import Help from "./pages/Client/HelpCircle";
 
 
 
@@ -48,6 +49,7 @@ function App() {
           <ToastContainer />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/help" element={<Help />} />
             <Route path="/client-dashboard" element={<ProtectedRoute><ClientDashboard/></ProtectedRoute>} />
             <Route path="/lawyer-dashboard" element={<ProtectedRoute><LawyerDasgboard/></ProtectedRoute>} />
             <Route path="/create-account" element={<ClientCreateAcc />} />
