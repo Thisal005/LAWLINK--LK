@@ -1,4 +1,3 @@
-// frontend/src/pages/Dashboard/Lawyer/Components/LawyerAccountSettings.jsx
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../Context/AppContext";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +9,16 @@ import { toast } from "react-toastify";
 
 const ProfileSettings = ({ profilePicture, displayName, practiceAreas, onSave }) => {
   const navigate = useNavigate();
+  const { backendUrl } = useContext(AppContext); // Assuming backendUrl is provided by AppContext
   const [tempProfilePicture, setTempProfilePicture] = useState(profilePicture);
   const [tempDisplayName, setTempDisplayName] = useState(displayName);
   const [tempPracticeAreas, setTempPracticeAreas] = useState(practiceAreas);
   const [qualificationPhotos, setQualificationPhotos] = useState([]);
-  const [district, setDistrict] = useState(""); // New field
-  const [caseType, setCaseType] = useState(""); // New field
+  const [district, setDistrict] = useState("");
+  const [caseType, setCaseType] = useState("");
 
-  const districts = ["Colombo", "Gampaha", "Kandy", "Galle", "Jaffna"]; // Example list
-  const caseTypes = ["Criminal Defense", "Civil Litigation", "Family Law", "Corporate Law", "Property Law"]; // Example list
+  const districts = ["Colombo", "Gampaha", "Kandy", "Galle", "Jaffna"];
+  const caseTypes = ["Criminal Defense", "Civil Litigation", "Family Law", "Corporate Law", "Property Law"];
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -45,27 +45,44 @@ const ProfileSettings = ({ profilePicture, displayName, practiceAreas, onSave })
     setQualificationPhotos(qualificationPhotos.filter((_, i) => i !== index));
   };
 
-  const handleSaveChanges = () => {
-    if (!district || !caseType) {
-      alert("Please select a district and case type.");
-      return;
-    }
-    onSave({
+  const handleSaveChanges = async () => {
+    // No validation; all fields are optional
+    const updatedData = {
       profilePicture: tempProfilePicture,
       displayName: tempDisplayName,
       practiceAreas: tempPracticeAreas,
       district,
       caseType,
-    });
+      qualificationPhotos,
+    };
+
+    try {
+      const response = await axios.put(
+        `${backendUrl}/api/lawyer/update`,
+        updatedData,
+        { withCredentials: true } // Send JWT cookie
+      );
+
+      if (response.data.success) {
+        toast.success("Profile saved successfully!");
+        onSave(updatedData); // Call original onSave prop
+        navigate("/lawyer-dashboard/cases"); // Redirect to case dashboard
+      } else {
+        toast.error(response.data.message || "Failed to save profile");
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Error saving profile");
+    }
   };
 
   return (
     <div className="p-20 bg-gray-50 min-h-screen">
       {/* Application header */}
-            <Header />
-      
-            {/* Sidebar with active tab set to "Dashboard" */}
-            <Sidebar activeTab="Dashboard"/>
+      <Header />
+
+      {/* Sidebar with active tab set to "Dashboard" */}
+      <Sidebar activeTab="Dashboard" />
+
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-gray-800">Account Settings</h1>
@@ -166,7 +183,7 @@ const ProfileSettings = ({ profilePicture, displayName, practiceAreas, onSave })
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               value={district}
               onChange={(e) => setDistrict(e.target.value)}
-              disabled={district !== ""} // Disable after selection
+              disabled={district !== ""}
             >
               <option value="">Select a district</option>
               {districts.map((d) => (
@@ -182,7 +199,7 @@ const ProfileSettings = ({ profilePicture, displayName, practiceAreas, onSave })
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               value={caseType}
               onChange={(e) => setCaseType(e.target.value)}
-              disabled={caseType !== ""} // Disable after selection
+              disabled={caseType !== ""}
             >
               <option value="">Select a case type</option>
               {caseTypes.map((ct) => (
@@ -234,7 +251,7 @@ const ProfileSettings = ({ profilePicture, displayName, practiceAreas, onSave })
             <textarea
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors h-32"
               placeholder="Tell clients about your experience and expertise..."
-            ></textarea>
+            />
           </div>
         </div>
 
