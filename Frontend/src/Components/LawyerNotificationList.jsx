@@ -30,8 +30,8 @@ const LawyerNotificationList = () => {
   const getNotificationStyle = (message) => {
     if (message.includes("New case available")) return "bg-green-100 text-green-800";
     if (message.includes("Offer accepted")) return "bg-blue-100 text-blue-800";
-    if (message.includes("Case status updated")) return "bg-yellow-100 text-yellow-800";
-    if (message.includes("Payment sent")) return "bg-purple-100 text-purple-800";
+    if (message.includes("Case closed")) return "bg-red-100 text-red-800";
+    if (message.includes("Meeting scheduled")) return "bg-purple-100 text-purple-800";
     return "bg-gray-100 text-gray-800";
   };
 
@@ -45,8 +45,7 @@ const LawyerNotificationList = () => {
           LAWYER NOTIFICATIONS
         </h2>
       </div>
-
-      <div className="h-[5px] bg-blue-500 w-265 rounded-full my-5 transition-all duration-300 hover:bg-purple-300 mb-10"></div>
+      <div className="h-[5px] bg-blue-500 w-64 rounded-full my-5 transition-all duration-300 hover:bg-purple-300 mb-10"></div>
       {loading ? (
         <p className="text-gray-600">Loading notifications...</p>
       ) : notifications.length > 0 ? (
@@ -60,9 +59,7 @@ const LawyerNotificationList = () => {
             }`}
           >
             <p className="font-medium">{notification.message}</p>
-            <p className="text-sm">
-              {new Date(notification.createdAt).toLocaleString()}
-            </p>
+            <p className="text-sm">{new Date(notification.createdAt).toLocaleString()}</p>
           </div>
         ))
       ) : (
@@ -72,4 +69,4 @@ const LawyerNotificationList = () => {
   );
 };
 
-export default LawyerNotificationList; // Ensure this is present
+export default LawyerNotificationList;
