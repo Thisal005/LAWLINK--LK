@@ -10,15 +10,15 @@ const notificationSchema = new mongoose.Schema({
   userType: {
     type: String,
     required: true,
-    enum: ["User", "Lawyer"], // "User" for clients
+    enum: ["User", "Lawyer"],
   },
   message: {
     type: String,
     required: true,
   },
-  caseId: {
+  taskId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Case",
+    ref: "Task",
     required: false,
   },
   unread: {

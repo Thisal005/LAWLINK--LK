@@ -35,19 +35,3 @@ export const markAllAsRead = async (req, res) => {
     res.status(500).json({ success: false, msg: "Server error" });
   }
 };
-
-export const createNotification = async (userId, userType, message, caseId = null) => {
-  try {
-    const notification = new Notification({
-      userId,
-      userType,
-      message,
-      caseId,
-    });
-    await notification.save();
-    return notification;
-  } catch (error) {
-    console.error("Error creating notification:", error.message);
-    throw error;
-  }
-};
