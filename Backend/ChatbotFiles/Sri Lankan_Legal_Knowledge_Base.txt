@@ -1,0 +1,572 @@
+# Sri Lankan Legal Knowledge Base
+
+## Penal Code of Sri Lanka
+
+### Introduction
+The Penal Code of Sri Lanka (Chapter 19) is the main criminal code of Sri Lanka. It outlines criminal offenses, procedures, and penalties applicable within the jurisdiction. The code was first enacted in 1883 during the British colonial period and has undergone numerous amendments since then.
+
+### Key Sections
+
+#### Section 293 - Homicide
+• <b>Definition:</b> Causing of death of a human being by another human being.
+• <b>Categories:</b>
+  ◦ Culpable homicide - When death is caused with the intention of causing death.
+  ◦ Murder - Culpable homicide becomes murder when done with premeditation.
+• <b>Punishment:</b> Death penalty or life imprisonment for murder, imprisonment up to 20 years for culpable homicide not amounting to murder.
+
+#### Section 350-365 - Theft and Related Offenses
+• <b>Theft (Section 350):</b> Dishonest taking of property without consent.
+  ◦ Punishment: Imprisonment up to 3 years.
+• <b>Robbery (Section 358):</b> Theft with force or threat of force.
+  ◦ Punishment: Imprisonment up to 10 years.
+• <b>Extortion (Section 364):</b> Obtaining property through threats.
+  ◦ Punishment: Imprisonment up to 7 years.
+
+#### Section 300-308 - Assault and Criminal Force
+• <b>Assault:</b> Making any gesture or preparation intending to cause reasonable apprehension of criminal force.
+• <b>Criminal Force:</b> Intentionally using force on another person without their consent.
+• <b>Punishment:</b> Varies from 1 to 5 years imprisonment depending on severity.
+
+## Motor Traffic Act of Sri Lanka
+
+### Introduction
+The Motor Traffic Act (No. 14 of 1951) regulates the registration, licensing, and operation of motor vehicles in Sri Lanka. The act is administered by the Department of Motor Traffic.
+
+### Key Provisions
+
+#### Vehicle Registration
+• All motor vehicles must be registered with the Department of Motor Traffic.
+• Requirements include:
+  ◦ Certificate of origin or previous registration
+  ◦ Insurance certificate
+  ◦ Revenue license
+  ◦ Certificate of roadworthiness
+
+#### Driving Licenses
+• <b>Categories:</b>
+  ◦ Class A: Motorcycles
+  ◦ Class B: Light vehicles (cars, vans up to 12 passengers)
+  ◦ Class C: Commercial vehicles (trucks, lorries)
+  ◦ Class D: Heavy vehicles (buses over 12 passengers)
+• <b>Requirements:</b>
+  ◦ Minimum age: 18 years
+  ◦ Medical fitness certificate
+  ◦ Successful completion of written and practical tests
+
+#### Traffic Violations and Penalties
+• <b>Drunk Driving:</b>
+  ◦ Legal limit: 80mg of alcohol per 100ml of blood
+  ◦ Penalties: Fine up to LKR 25,000 and/or imprisonment up to 2 years
+• <b>Speeding:</b>
+  ◦ Urban areas: 50 km/h maximum
+  ◦ Highways: 100 km/h maximum
+  ◦ Penalties: Fine up to LKR 3,000 for first offense, higher for repeat offenders
+• <b>Causing an Accident:</b>
+  ◦ With injury: Fine up to LKR 10,000 and/or imprisonment up to 5 years
+  ◦ With death: Fine up to LKR 25,000 and/or imprisonment up to 10 years
+
+#### Road Accident Claims
+• <b>Insurance Requirements:</b>
+  ◦ All vehicles must have at least third-party insurance
+  ◦ Comprehensive insurance covers own damages as well as third-party damages
+• <b>Claim Process:</b>
+  ◦ File police report immediately
+  ◦ Inform insurance company within 24 hours
+  ◦ Submit claim with supporting documents (medical reports, repair estimates)
+  ◦ Insurance assessment and settlement
+
+## Family Law in Sri Lanka
+
+### Marriage Laws
+• <b>Legal Marriage Age:</b>
+  ◦ 18 years for both males and females
+• <b>Types of Marriages:</b>
+  ◦ General Law (Marriage Registration Ordinance)
+  ◦ Kandyan Law (applicable to Kandyan Sinhalese)
+  ◦ Muslim Law (Muslim Marriage and Divorce Act)
+  ◦ Tamil Law (applicable to Tamils of Indian origin)
+
+### Divorce Procedures
+• <b>General Law:</b>
+  ◦ Grounds: Adultery, malicious desertion, incurable impotence
+  ◦ Two-year separation required before filing
+• <b>Kandyan Law:</b>
+  ◦ Grounds: Adultery, inability to live together
+  ◦ No specific separation period required
+• <b>Muslim Law:</b>
+  ◦ Talaq (husband's right to divorce)
+  ◦ Khula (wife-initiated divorce with compensation)
+  ◦ Fasakh (judicial divorce due to specific grounds)
+
+### Child Custody
+• <b>Best Interest Principle:</b> Courts determine custody based on the child's best interests
+• <b>Age Considerations:</b> Children under 12 years often placed with mother
+• <b>Types of Custody:</b>
+  ◦ Legal custody (decision-making authority)
+  ◦ Physical custody (residence and daily care)
+  ◦ Joint custody (shared between parents)
+
+## Labor Laws in Sri Lanka
+
+### Employment Rights
+• <b>Working Hours:</b>
+  ◦ Standard: 8 hours per day, 45 hours per week
+  ◦ Overtime: Maximum 12 hours per week, paid at 1.5x normal rate
+• <b>Leave Entitlements:</b>
+  ◦ Annual leave: 14 days after 1 year of service
+  ◦ Sick leave: 7 days with pay, 14 days half-pay
+  ◦ Maternity leave: 84 working days for first two children, 42 days thereafter
+
+### Termination of Employment
+• <b>Notice Period:</b>
+  ◦ Less than 1 year service: 2 weeks
+  ◦ 1-5 years service: 1 month
+  ◦ Over 5 years service: 3 months
+• <b>Unfair Dismissal:</b>
+  ◦ Grounds: Discrimination, union activities, pregnancy
+  ◦ Remedy: Reinstatement or compensation
+
+### Industrial Disputes
+• <b>Resolution Mechanisms:</b>
+  ◦ Conciliation by Commissioner of Labor
+  ◦ Arbitration
+  ◦ Industrial Court proceedings
+• <b>Trade Union Rights:</b>
+  ◦ Freedom of association
+  ◦ Collective bargaining
+  ◦ Right to strike with proper notice
+
+## Property Law in Sri Lanka
+
+### Land Ownership
+• <b>Types of Land:</b>
+  ◦ Private land
+  ◦ State land
+  ◦ Temple land (Viharagam and Devalagam)
+• <b>Transfer Requirements:</b>
+  ◦ Deed must be notarized
+  ◦ Registration at Land Registry Office
+  ◦ Payment of stamp duty (4% of property value)
+
+### Landlord-Tenant Relations
+• <b>Rent Control:</b>
+  ◦ Applies to premises constructed before 1972
+  ◦ Annual rent increase limited to 5%
+• <b>Eviction Grounds:</b>
+  ◦ Non-payment of rent
+  ◦ Breach of tenancy agreement
+  ◦ Landlord requiring premises for personal use
+• <b>Notice Requirements:</b>
+  ◦ One month for monthly tenancies
+  ◦ Three months for yearly tenancies
+
+## Civil Procedure in Sri Lanka
+
+### Court Structure
+• <b>District Courts:</b> Civil matters exceeding LKR 3 million
+• <b>Magistrate Courts:</b> Criminal cases, civil matters up to LKR 3 million
+• <b>High Courts:</b> Major criminal cases, appeals from lower courts
+• <b>Court of Appeal:</b> Appeals from District Courts and High Courts
+• <b>Supreme Court:</b> Final appellate jurisdiction, constitutional matters
+
+### Civil Suit Process
+• <b>Filing a Plaint:</b>
+  ◦ Statement of claim
+  ◦ Supporting documents
+  ◦ Payment of court fees
+• <b>Summons:</b> Served to defendant requiring appearance
+• <b>Answer:</b> Defendant's response to allegations
+• <b>Trial:</b>
+  ◦ Examination of witnesses
+  ◦ Documentary evidence
+  ◦ Arguments
+• <b>Judgment:</b> Court's decision on the matter
+• <b>Appeal:</b> Within 14 days of judgment
+
+### Limitation Periods
+• <b>Contract claims:</b> 3 years from breach
+• <b>Tort claims:</b> 2 years from damage
+• <b>Property recovery:</b> 10 years from dispossession
+• <b>Against government:</b> 1 year from cause of action
+
+## Criminal Procedure in Sri Lanka
+
+### Investigation Process
+• <b>Complaint/FIR:</b> Filed at police station
+• <b>Investigation:</b> Conducted by police
+• <b>Arrest:</b> With or without warrant depending on offense
+• <b>Detention:</b> Maximum 24 hours before production before Magistrate
+
+### Trial Procedure
+• <b>Indictment/Charge Sheet:</b> Formal accusation
+• <b>Arraignment:</b> Reading of charges and plea
+• <b>Prosecution Case:</b> Presentation of evidence and witnesses
+• <b>Defense Case:</b> Counter-evidence and witnesses
+• <b>Verdict:</b> Guilty or not guilty
+• <b>Sentencing:</b> If found guilty
+
+### Bail Provisions
+• <b>Bailable Offenses:</b> Right to bail
+• <b>Non-Bailable Offenses:</b> Discretion of court
+• <b>Conditions:</b>
+  ◦ Surety bond
+  ◦ Reporting to police station
+  ◦ Surrender of passport
+
+## Platform-Specific Information
+
+### Client Workflow
+• <b>Registration & Login:</b>
+  ◦ Register with valid email and phone number
+  ◦ Verify account through email confirmation
+  ◦ Set secure password
+• <b>Case Management:</b>
+  ◦ Post up to 3 Pending cases simultaneously
+  ◦ Required details: legal issue, district, case type
+  ◦ Track case status through color-coded system:
+    ▪ Pending: Gray
+    ▪ Ongoing: Yellow-golden
+    ▪ Closed: Red
+    ▪ Expired: Dark gray
+• <b>Lawyer Engagement:</b>
+  ◦ Receive notifications when lawyers express interest
+  ◦ Respond with Yes/No to lawyer interest
+  ◦ Chat with lawyers only when case status is Ongoing
+• <b>Notifications:</b>
+  ◦ Case expiry warning (after 14 days)
+  ◦ Lawyer interest alerts
+  ◦ Status change updates
+
+### Lawyer Workflow
+• <b>Registration & Verification:</b>
+  ◦ Professional signup with credentials
+  ◦ Admin verification required before activation
+  ◦ Set district and case type preferences (locked after first case)
+• <b>Case Discovery:</b>
+  ◦ Browse Pending cases filtered by district/case types
+  ◦ Express interest in relevant cases
+  ◦ Await client confirmation
+• <b>Case Management:</b>
+  ◦ Handle up to 3 Ongoing cases simultaneously
+  ◦ Add private notes and tasks for each case
+  ◦ Close cases when resolved
+• <b>Client Communication:</b>
+  ◦ Secure in-platform messaging
+  ◦ Document sharing capabilities
+  ◦ Appointment scheduling
+
+### Case Types
+• <b>Criminal:</b>
+  ◦ Assault and battery
+  ◦ Theft and robbery
+  ◦ Drug offenses
+  ◦ Homicide
+• <b>Civil:</b>
+  ◦ Contract disputes
+  ◦ Property disputes
+  ◦ Debt recovery
+  ◦ Professional negligence
+• <b>Family:</b>
+  ◦ Divorce and separation
+  ◦ Child custody
+  ◦ Maintenance claims
+  ◦ Adoption
+• <b>Corporate:</b>
+  ◦ Business formation
+  ◦ Shareholder disputes
+  ◦ Intellectual property
+  ◦ Regulatory compliance
+• <b>Labor:</b>
+  ◦ Wrongful termination
+  ◦ Discrimination
+  ◦ Harassment
+  ◦ Wage disputes
+
+### Districts Available
+• <b>Western Province:</b>
+  ◦ Colombo
+  ◦ Gampaha
+  ◦ Kalutara
+• <b>Central Province:</b>
+  ◦ Kandy
+  ◦ Matale
+  ◦ Nuwara Eliya
+• <b>Southern Province:</b>
+  ◦ Galle
+  ◦ Matara
+  ◦ Hambantota
+• <b>Northern Province:</b>
+  ◦ Jaffna
+  ◦ Kilinochchi
+  ◦ Mannar
+  ◦ Vavuniya
+  ◦ Mullaitivu
+• <b>Eastern Province:</b>
+  ◦ Batticaloa
+  ◦ Ampara
+  ◦ Trincomalee
+
+
+  --- Sri Lankan Law and Legal Case Management Platform Knowledge Base ---
+
+Sri Lanka Legal System Overview
+Sri Lanka’s legal system is a distinctive fusion of Roman-Dutch law, English common law, and customary traditions shaped by its colonial past and diverse cultural fabric.
+Portuguese rule (1505–1658) had minimal legal influence, focusing primarily on trade and religious conversion.
+Dutch rule (1658–1796) entrenched Roman-Dutch law as the foundation for civil matters, including contracts, property, and torts.
+British rule (1796–1948) introduced English criminal law through the Penal Code and commercial law via ordinances.
+Post-independence in 1948, Sri Lanka retained this hybrid framework, weaving in customary laws such as Kandyan, Muslim, and Thesawalamai systems.
+The Constitution of 1978, amended 19 times, stands as the supreme law, establishing a unitary state with a blended presidential-parliamentary governance model.
+The judiciary comprises the Supreme Court (highest appellate authority), Court of Appeal, High Courts, District Courts, and Magistrate’s Courts.
+Parliament, with 225 members elected every 5 years, serves as the primary legislative body.
+The Attorney General’s Department prosecutes criminal cases and provides legal counsel to the government.
+Legal education is offered by the Sri Lanka Law College and universities such as Colombo and Peradeniya.
+
+Criminal Law in Sri Lanka
+The Penal Code of 1883 codifies criminal offenses, rooted in English legal principles.
+Section 2 extends jurisdiction to crimes committed within Sri Lanka or by citizens abroad.
+Section 53 outlines punishments: death, imprisonment, fines, whipping (rarely applied post-1948), and forfeiture.
+Section 296 defines murder as intentional killing, punishable by death or life imprisonment.
+Section 300 addresses culpable homicide not amounting to murder, carrying up to 20 years imprisonment.
+Section 303 covers infanticide, with penalties akin to culpable homicide.
+Section 314 defines robbery as theft with violence, punishable by 7–10 years, or 15 years if armed.
+Section 366 criminalizes theft, involving taking movable property without consent, with up to 7 years imprisonment.
+Section 380 penalizes house-breaking with 7 years, or 14 years if committed at night (Section 381).
+Section 483 addresses forgery, altering documents with deceptive intent, with a maximum of 7 years.
+Section 113A criminalizes abetment, aiding an offense, with penalties matching the principal crime.
+The Code of Criminal Procedure (1979) governs arrest, trial, and appeal processes.
+Arrests require warrants unless for cognizable offenses (e.g., theft, murder) under Section 32.
+Magistrate’s Courts conduct preliminary inquiries, escalating serious cases to the High Court.
+High Court trials for grave offenses (e.g., murder) may involve a jury of 7, requiring a majority verdict.
+The Bail Act (1997) allows discretionary bail, often denied for murder or terrorism-related charges.
+The Evidence Ordinance (1895) regulates evidence admissibility, excluding hearsay except under exceptions like Section 32 (dying declarations).
+Appeals from Magistrate’s Courts proceed to the High Court within 14 days, then to the Court of Appeal, and Supreme Court with leave.
+
+Family Law in Sri Lanka
+Family law is pluralistic, reflecting the nation’s historical and cultural diversity.
+The General Marriage Registration Ordinance (1907) applies to Tamils and low-country Sinhalese, mandating registration for legal validity.
+Section 18 sets the minimum marriage age at 18, requiring parental consent below 21.
+Section 34 voids unregistered marriages under general law.
+Divorce under the Civil Procedure Code (Section 597) is fault-based, citing adultery, malicious desertion, or incurable impotence.
+Section 598 mandates a one-year separation before filing, except in cases of adultery or cruelty.
+The Kandyan Marriage and Divorce Act (1952) governs Kandyan Sinhalese in the Central Province.
+Kandyan marriages are monogamous, allowing divorce by mutual consent or fault (e.g., adultery).
+Section 6 permits dissolution without court proceedings if both parties agree.
+The Muslim Marriage and Divorce Act (1951) applies to Muslims, permitting polygamy (up to four wives).
+Muslim divorce (talaq) allows husbands to unilaterally dissolve marriages, pronounced thrice over months.
+Quazi courts mediate Muslim divorces, enforcing a 3-month iddah period for reconciliation.
+Custody under general law prioritizes child welfare, adjudicated by District Courts.
+Kandyan law traditionally favors paternal custody, while Muslim law grants mothers custody of children under 7.
+The Maintenance Ordinance (1941) mandates support for spouses and children post-divorce, enforceable through courts.
+Adoption lacks a statutory framework, recognized informally under welfare principles by District Courts.
+
+Civil Law in Sri Lanka
+Civil law is anchored in Roman-Dutch law, enriched by statutes and judicial precedent.
+Contracts require offer, acceptance, and consideration, with legality enforced under Roman-Dutch principles.
+The Sale of Goods Ordinance (1896) aligns with English law, governing commercial transactions.
+Section 3 defines a sale as transferring property for a price.
+The Prescription Ordinance (1871) sets limitation periods: 10 years for land disputes, 3 years for contracts, 1 year for torts.
+Property law operates under the Land Registration Ordinance, requiring deeds for ownership.
+The Registration of Title Act (1998) introduces a Torrens system in pilot areas like Gampaha.
+Torts (e.g., negligence, defamation) offer damages or injunctions, based on Roman-Dutch concepts.
+The Civil Procedure Code (1889) regulates civil litigation, from filing plaints to executing decrees.
+Section 5 assigns jurisdiction by cause of action or defendant’s residence.
+Section 217 lists remedies: damages, specific performance, or injunctions.
+Civil cases commence in District Courts, with appeals to the Court of Appeal and Supreme Court.
+Car accidents fall under civil law when seeking damages for negligence, requiring evidence like police reports and witness statements.
+
+Labour Law in Sri Lanka
+Labour law balances worker rights and employer obligations through multiple statutes.
+The Shop and Office Employees Act (1954) caps work at 8 hours daily, with overtime at 1.5 times pay.
+Section 2 mandates minimum wages, adjusted periodically by the Wages Board.
+The Workmen’s Compensation Ordinance (1934) compensates workplace injuries (e.g., LKR 500,000 for death).
+Section 3 imposes employer liability without proving fault.
+The Termination of Employment of Workmen Act (1971) requires just cause or severance for dismissals.
+The Trade Unions Ordinance (1935) legalizes unions, requiring registration with the Labour Department.
+The Industrial Disputes Act (1950) establishes Labour Tribunals for resolving conflicts like unfair dismissal.
+Section 31B allows reinstatement or compensation awards.
+The Maternity Benefits Ordinance (1939) grants 12 weeks paid leave, with 6 weeks post-birth.
+The Employees’ Provident Fund Act (1958) mandates retirement savings: 8% employee, 12% employer contributions.
+
+Constitutional Law
+The Constitution of 1978 defines Sri Lanka as a democratic socialist republic.
+Article 3 vests sovereignty in the people, exercised via Parliament, the President, and referenda.
+Article 9 gives Buddhism foremost place, while safeguarding other religions.
+Fundamental rights (Articles 10–14) include equality, free speech, religion, and assembly.
+Article 126 allows Supreme Court petitions for rights violations within one month.
+The President, elected for 5 years (two-term limit post-19th Amendment), heads the executive.
+Parliament, with 225 members, legislates and approves budgets.
+Judicial review (Article 140) empowers the Supreme Court to scrutinize administrative actions.
+
+Customary Laws
+Kandyan law applies to Sinhalese in the Central Province, preserving pre-colonial norms.
+Kandyan marriages are monogamous, with equal inheritance among children.
+Thesawalamai law governs Northern Province Tamils, emphasizing matrilineal property rights.
+Section 1 requires spousal consent for land sales under Thesawalamai.
+Muslim personal law, under the Muslim Marriage and Divorce Act, follows Sharia principles.
+Inheritance under Muslim law assigns fixed shares (e.g., daughters receive half of sons’ shares).
+
+Environmental and Commercial Law
+The National Environmental Act (1980) regulates pollution, imposing fines up to LKR 100,000.
+The Forest Ordinance (1907) protects forests, penalizing illegal logging with 2 years imprisonment.
+The Companies Act (2007) governs corporate registration and operations.
+The Intellectual Property Act (2003) protects patents (20 years), trademarks (10 years renewable), and copyrights (life plus 50 years).
+
+Legal Case Management Platform Overview
+This platform streamlines legal services in Sri Lanka, efficiently connecting clients and lawyers.
+Clients log in with credentials, accessing a dashboard to post and monitor cases.
+Clients can post up to 3 Pending cases, specifying issue (e.g., "Car accident in Kandy"), district, and case type (e.g., civil).
+Pending cases appear in gray, expiring after 14 days if no lawyer expresses interest.
+Lawyers sign up with name, email, contact, and ID (e.g., bar certificate), pending admin approval.
+Verified lawyers set districts (e.g., Colombo) and case types (e.g., criminal, civil), locked after their first case.
+Lawyers browse Pending cases, filtering by their set districts and types, and express interest.
+Clients receive notifications of interest, responding Yes/No within 48 hours.
+Accepted cases become Ongoing (yellow-golden), enabling secure client-lawyer chat.
+Lawyers add notes (e.g., "Prepared court submission") and tasks (e.g., "Court date: 12/01/2025").
+Clients view notes for transparency but cannot edit them.
+Lawyers close resolved cases, shifting status to Closed (red), with optional client feedback.
+Expired cases (dark gray) notify clients after 14 days, prompting reposting if needed.
+The Chatbot, Lexi, assists 24/7, answering queries based on this knowledge base.
+Notifications cover lawyer interest, case updates, expiry, and inactivity reviews (10 days).
+
+Car Accidents in Sri Lanka
+Car accidents are governed by the Motor Traffic Act (1951), which mandates reporting and regulates road safety.
+Section 152 requires drivers to report accidents involving injury or significant damage to the police within 24 hours.
+Failure to report incurs fines up to LKR 25,000 or imprisonment up to 6 months.
+Civil claims for car accidents fall under Roman-Dutch law, allowing damages for negligence or injury.
+Victims must file civil cases in District Courts, supported by police reports, medical records, and witness statements.
+Insurance claims are common; drivers should notify insurers within 48 hours to process compensation.
+On this platform, clients post car accident cases as "civil" with district details (e.g., "Car accident in Colombo, civil case").
+Lawyers interested in car accident cases can express interest, shifting the case to Ongoing upon client approval.
+
+Platform Scenarios
+Scenario 1: Client posts "Divorce in Galle, family case." Lawyer A expresses interest, client accepts, case shifts to Ongoing.
+Scenario 2: Lawyer adds note "Filed petition on 10/20/2025" and task "Hearing on 11/1/2025."
+Scenario 3: Pending case "Theft in Matara" expires after 14 days, client notified.
+Scenario 4: Client posts "Car accident in Colombo, civil case," Lawyer B expresses interest, case becomes Ongoing.
+Scenario 5: Lawyer adds note "Submitted police report" and task "File damages claim by 12/15/2025."
+Scenario 6: Client posts "Labour dispute in Negombo," lawyer adds task "File tribunal claim."
+Scenario 7: Lawyer closes "Assault case in Kandy" after plea bargain.
+
+Additional Statutes
+The Bribery Act (1954): Up to 10 years for public sector corruption.
+The Motor Traffic Act (1951): Fines for unlicensed driving (LKR 25,000) and accident reporting failures.
+The Mediation Boards Act (1988): Resolves disputes under LKR 25,000.
+The Arbitration Act (1995): Enforces commercial arbitration awards.
+The Consumer Affairs Authority Act (2003): Protects against unfair trade practices.
+
+Judicial Processes
+Criminal trials require proof beyond reasonable doubt, with prosecution presenting evidence first.
+Civil trials involve pleadings, framing issues, and hearings, concluding with enforceable judgments.
+Appeals from District Courts go to the Court of Appeal within 60 days.
+Supreme Court appeals require a substantial question of law, granted via special leave.
+
+Extended Legal Context
+The Evidence Ordinance (1895) governs evidence admissibility in courts.
+Hearsay is generally inadmissible unless under exceptions (e.g., dying declarations under Section 32).
+The Prescription Ordinance (1871) sets limitation periods for civil claims (e.g., 10 years for land disputes).
+The Mediation Boards Act (1988) promotes alternative dispute resolution for minor disputes.
+The Intellectual Property Act (2003) safeguards trademarks, patents, and copyrights.
+
+More Criminal Law
+Section 120: Sedition, up to 2 years for inciting disaffection.
+Section 383: Extortion, 10 years maximum penalty.
+Section 493: Bigamy, 7 years under general law.
+
+More Family Law
+Section 19 of Marriage Ordinance: Unregistered marriages void.
+Section 34 of Kandyan Act: Divorce by mutual consent.
+Muslim law: Talaq requires 3 pronouncements over 3 months.
+
+More Civil Law
+Section 5 of Civil Procedure Code: Jurisdiction by action location.
+Section 217: Remedies include damages or injunctions.
+Car accident claims require proof of negligence, filed within 3 years under the Prescription Ordinance.
+
+More Labour Law
+Section 2 of Shop Act: Overtime at 1.5x rate.
+Section 10 of Workmen’s Compensation: Covers medical costs for workplace injuries.
+
+More Platform Features
+Clients receive email and in-app notifications for all case updates.
+Lawyers can filter Pending cases by district and case type for efficiency.
+The platform logs actions (e.g., case posting, interest expressed) with timestamps.
+Clients can upload documents (e.g., police reports, medical records) when posting a case.
+Lawyers can download client-uploaded files for Ongoing cases.
+
+More Judicial Details
+High Court sittings occur in provincial capitals (e.g., Colombo, Kandy).
+Supreme Court hears constitutional cases monthly in Colombo.
+
+--- End of Knowledge Base ---
+
+
+Sri Lankan Divorce Laws and Procedure (General Law) - As of April 10, 2025
+
+Overview of Divorce Laws in Sri Lanka
+-------------------------------------
+In Sri Lanka, divorce laws depend on the legal system applicable to the marriage. This document focuses on the General Law under the Marriage Registration Ordinance No. 19 of 1907, which applies to most Sri Lankans (e.g., Sinhalese not under Kandyan Law, Tamils, Christians, etc.). Divorce under this law is fault-based, requiring proof of a matrimonial fault by one spouse. Note: Proposed reforms in 2024 to introduce no-fault divorce are not yet enacted as of April 10, 2025.
+
+Grounds for Divorce (Fault-Based)
+--------------------------------
+1. Adultery: Sexual intercourse with someone other than the spouse after marriage. Requires strong evidence (beyond reasonable doubt), though circumstantial evidence is often accepted.
+2. Malicious Desertion:
+   - Simple Malicious Desertion: The at-fault spouse abandons the matrimonial home with intent to end the marriage.
+   - Constructive Malicious Desertion: The innocent spouse is forced to leave due to the other’s intolerable behavior.
+3. Incurable Impotency at the Time of Marriage: The spouse was incurably impotent when the marriage was contracted, preventing consummation.
+
+What to Do in a Divorce Situation
+--------------------------------
+1. Assess Your Situation:
+   - Identify which ground(s) apply to your case (adultery, desertion, or impotency).
+   - Determine if you’re the plaintiff (filing for divorce) or defendant (responding to a filing).
+
+2. Consult a Lawyer:
+   - Hire a qualified Sri Lankan attorney specializing in family law. They will guide you through the process, draft legal documents, and represent you in court.
+   - Discuss your evidence and strategy, as fault must be proven in court.
+
+3. Gather Required Documents (See Below):
+   - Collect all necessary paperwork to support your case and meet court requirements.
+
+4. File the Divorce Case:
+   - Your lawyer will file a Plaint in the District Court with jurisdiction over your or your spouse’s domicile (at least one must be domiciled in Sri Lanka).
+   - The Plaint outlines the matrimonial fault and relief sought (e.g., divorce, custody, alimony).
+
+5. Serve Summons:
+   - The court will issue summons to the defendant (your spouse), who must respond. If they’re abroad, this may involve the Sri Lankan Embassy in that country.
+
+6. Court Proceedings:
+   - Uncontested Divorce: If the defendant agrees to the divorce, the process is faster. The court issues a Decree Nisi (temporary divorce order), which becomes absolute after 3 months.
+   - Contested Divorce: If the defendant disputes the claims, a trial occurs. You’ll need to present evidence (witnesses, documents, etc.) to prove fault. This can take years, especially if custody or finances are disputed.
+
+7. Post-Divorce Matters:
+   - Address custody (court prioritizes the child’s best interests, often favoring the father unless unfit), child maintenance, and alimony (discretionary, based on need and means).
+   - Await the Decree Absolute to finalize the divorce.
+
+Required Documents
+------------------
+1. Original Marriage Certificate (or Certified Copy):
+   - Obtain from the Registrar of Marriages where the marriage was registered.
+2. Certified Copies of Children’s Birth Certificates (if applicable):
+   - Needed if seeking custody or maintenance for children.
+3. Evidence of Matrimonial Fault:
+   - Adultery: Witness statements, photos, messages, or other circumstantial evidence.
+   - Desertion: Proof of abandonment (e.g., affidavits, utility bills showing separate residences) or intolerable conduct (e.g., police reports for abuse).
+   - Impotency: Medical reports from the time of marriage.
+4. Timeline of Events:
+   - A detailed chronology of the marriage breakdown, prepared with your lawyer.
+5. Proxy (Power of Attorney):
+   - If you’re abroad or unable to appear, sign a proxy appointing your lawyer to act on your behalf (prepared by your lawyer).
+6. Addresses:
+   - Current addresses of both spouses in Sri Lanka (for jurisdiction and summons).
+
+Additional Notes
+----------------
+- Jurisdiction: At least one spouse must be domiciled in Sri Lanka (have a permanent address there).
+- Timeframe: Uncontested divorces take 6 months to 1 year (including the 3-month Decree Nisi period). Contested cases can take several years.
+- If Abroad: You can file through a power of attorney holder (e.g., a friend or lawyer in Sri Lanka). Coordinate with the Sri Lankan Embassy for summons if the defendant is overseas.
+- Proposed Reforms: A no-fault divorce law is under consideration (as of July 2024 announcements), but not yet in effect. Check with your lawyer for updates.
+
+Recommendation
+--------------
+Divorce in Sri Lanka can be complex and emotionally taxing, especially in contested cases. Engage a reputable lawyer early, gather strong evidence, and be prepared for a potentially lengthy process if disputed. For the latest legal status (e.g., no-fault divorce enactment), consult a legal professional in Sri Lanka.
+

@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 const REFRESH_INTERVAL = 10 * 60 * 1000; // 10 minutes
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 const CACHE_MIN_LENGTH = 100;
+const FILE_DIR = path.join(__dirname, "../ChatbotFiles"); // Adjusted to backend/ChatbotFiles
 
 // State
 let cachedFileContent = "";
@@ -23,12 +24,11 @@ const log = (message, level = "info") => {
 
 // Create default knowledge base
 const createDefaultKnowledgeBase = async () => {
-  const fileDir = path.join(__dirname, "../../ChatbotFiles");
-  const defaultFilePath = path.join(fileDir, "sri_lankan_legal_knowledge.txt");
+  const defaultFilePath = path.join(FILE_DIR, "Sri_Lankan_Legal_Knowledge_Base.txt");
 
   try {
-    if (!fs.existsSync(fileDir)) {
-      fs.mkdirSync(fileDir, { recursive: true });
+    if (!fs.existsSync(FILE_DIR)) {
+      fs.mkdirSync(FILE_DIR, { recursive: true });
       log("Created ChatbotFiles directory");
     }
 
@@ -88,30 +88,29 @@ The Motor Traffic Act (No. 14 of 1951) regulates the registration, licensing, an
 
 // Refresh file content
 const refreshFileContent = async () => {
-  const fileDir = path.join(__dirname, "../../ChatbotFiles");
   let newContent = "";
 
   try {
-    if (!fs.existsSync(fileDir)) {
+    if (!fs.existsSync(FILE_DIR)) {
       log("ChatbotFiles directory not found, creating...");
       await createDefaultKnowledgeBase();
     }
 
-    const files = fs.readdirSync(fileDir)
+    const files = fs.readdirSync(FILE_DIR)
       .filter(file => /\.(pdf|txt)$/i.test(file))
-      .filter(file => fs.statSync(path.join(fileDir, file)).size <= MAX_FILE_SIZE);
+      .filter(file => fs.statSync(path.join(FILE_DIR, file)).size <= MAX_FILE_SIZE);
     log(`📜 Files found: ${files.length ? files.join(", ") : "None"}`);
 
     if (files.length === 0) {
       await createDefaultKnowledgeBase();
-      const retryFiles = fs.readdirSync(fileDir).filter(file => /\.(pdf|txt)$/i.test(file));
+      const retryFiles = fs.readdirSync(FILE_DIR).filter(file => /\.(pdf|txt)$/i.test(file));
       if (retryFiles.length === 0) {
         newContent = "Default content: This is a Sri Lankan legal case management platform.";
       }
     }
 
     for (const file of files) {
-      const filePath = path.join(fileDir, file);
+      const filePath = path.join(FILE_DIR, file);
       log(`Reading file: ${file}`);
 
       if (file.endsWith(".txt")) {
