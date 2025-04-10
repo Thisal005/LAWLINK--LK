@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { getCookie } from "../utills/cookies";
 
 export const AppContext = createContext();
 
@@ -11,62 +12,46 @@ export const AppContentProvider = (props) => {
   const [lawyerData, setLawyerData] = useState(null);
   const [email, setEmail] = useState("");
   const [privateKey, setPrivateKey] = useState(null);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true); 
 
   useEffect(() => {
     const checkLoginStatus = async () => {
       setIsCheckingAuth(true);
       try {
-        // Try client first
-        let data;
-        try {
-          const clientResponse = await axios.get(`${backendUrl}/api/user/data`, {
-            withCredentials: true,
-          });
-          data = clientResponse.data;
-          if (data.success) {
-            setIsLoggedIn(true);
-            setUserData(data.userData);
-            setPrivateKey(data.userData.privateKey);
-            return; // Exit if client auth succeeds
-          }
-        } catch (clientError) {
-          console.log("Client auth check failed:", clientError.response?.data || clientError.message);
-        }
-
-        // If client fails, try lawyer
-        const lawyerResponse = await axios.get(`${backendUrl}/api/lawyer-data/data`, {
+        const { data } = await axios.get(`${backendUrl}/api/user/data`, {
           withCredentials: true,
         });
-        data = lawyerResponse.data;
+        console.log("User data response:", data);
         if (data.success) {
           setIsLoggedIn(true);
-          setLawyerData(data.UserData);
-          setPrivateKey(data.UserData.privateKey);
+          setUserData(data.userData);
+          setPrivateKey(data.userData.privateKey);
         } else {
           setIsLoggedIn(false);
           setUserData(null);
-          setLawyerData(null);
         }
       } catch (error) {
-        console.log("Auth check failed:", error.response?.data || error.message);
+        console.log("User auth check failed:", error.response?.data || error.message);
         setIsLoggedIn(false);
         setUserData(null);
-        setLawyerData(null);
       } finally {
         setIsCheckingAuth(false);
       }
     };
-
+  
     checkLoginStatus();
   }, [backendUrl]);
 
+  
   const getUserData = async () => {
     try {
       const { data } = await axios.get(`${backendUrl}/api/user/data`, {
         withCredentials: true,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
+      console.log("Fetched user data:", data);
       if (data.success) {
         setUserData(data.userData);
         setPrivateKey(data.userData.privateKey);
@@ -83,10 +68,8 @@ export const AppContentProvider = (props) => {
 
   const getLawyerData = async () => {
     try {
-      const { data } = await axios.get(`${backendUrl}/api/lawyer-data/data`, {
-        withCredentials: true,
-        headers: { "Content-Type": "application/json" },
-      });
+      const { data } = await axios.get(`${backendUrl}/api/lawyer-data/data`, { withCredentials: true });
+      console.log("Fetched lawyer data:", data);
       if (data.success) {
         setLawyerData(data.UserData);
         setPrivateKey(data.UserData.privateKey);
@@ -131,7 +114,7 @@ export const AppContentProvider = (props) => {
     setEmail,
     privateKey,
     getPublicKey,
-    isCheckingAuth,
+    isCheckingAuth, 
   };
 
   return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>;
