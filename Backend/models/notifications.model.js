@@ -1,4 +1,3 @@
-// models/notification.model.js
 import mongoose from "mongoose";
 
 const notificationSchema = new mongoose.Schema({
@@ -11,15 +10,15 @@ const notificationSchema = new mongoose.Schema({
   userType: {
     type: String,
     required: true,
-    enum: ["User", "Lawyer"],
+    enum: ["User", "Lawyer"], // "User" for clients
   },
   message: {
     type: String,
     required: true,
   },
-  taskId: {
+  caseId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Task",
+    ref: "Case",
     required: false,
   },
   unread: {

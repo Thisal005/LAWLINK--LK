@@ -96,13 +96,6 @@ const Header = ({ displayName: propDisplayName, practiceAreas = "Corporate Law" 
           >
             <Calendar className="w-5 h-5 text-white" />
           </button>
-          <button
-            className="p-2 hover:bg-blue-800 rounded-full transition-colors duration-200 flex items-center justify-center"
-            aria-label="Help"
-            title="Get Help"
-          >
-            <HelpCircle className="w-5 h-5 text-white" />
-          </button>
           <div className="relative" ref={notificationRef}>
             <button
               className={`p-2 ${notificationsVisible ? "bg-blue-800" : "hover:bg-blue-800"} rounded-full transition-colors duration-200 flex items-center justify-center relative`}

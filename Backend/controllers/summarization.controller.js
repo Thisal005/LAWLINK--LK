@@ -7,45 +7,54 @@ import Lawyer from "../models/lawyer.model.js";
 import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
-import textToSpeech from "@google-cloud/text-to-speech"; 
+import textToSpeech from "@google-cloud/text-to-speech";
 
 dotenv.config();
 
-const uploadDir = "Backend/uploads/pdf"; // Directory for uploaded PDFs
-const audioDir = "Backend/audio";   
+// Define directories for file uploads and audio storage
+const uploadDir = "Backend/uploads/pdf";
+const audioDir = "Backend/audio";
+
+// Resolve the path to Google Cloud credentials
 const credentialsPath = path.resolve(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
+// Ensure required directories exist, create them if they don't
 [uploadDir, audioDir].forEach((dir) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
 });
 
+// Check if Google Cloud credentials file exists
 if (!fs.existsSync(credentialsPath)) {
   console.error('Google Cloud credentials file not found!');
   process.exit(1);
 }
 
+// Configure Multer for handling PDF file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadDir);
+    cb(null, uploadDir); // Save files in the upload directory
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.originalname + "-" + uniqueSuffix + path.extname(file.originalname));
+    cb(null, file.originalname + "-" + uniqueSuffix + path.extname(file.originalname)); // Generate unique filenames
   },
 });
 
 const upload = multer({ storage: storage }).single("pdf");
 
+// Initialize Google Generative AI and Text-to-Speech clients
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const ttsClient = new textToSpeech.TextToSpeechClient({
-  keyFilename: credentialsPath
+  keyFilename: credentialsPath,
 });
 
+// Controller function to summarize a PDF file
 export const summarizePDF = async (req, res) => {
   upload(req, res, async (err) => {
     if (err) {
+      // Handle file upload errors
       return res.status(400).json({ message: "File upload failed", error: err.message });
     }
 
@@ -56,21 +65,23 @@ export const summarizePDF = async (req, res) => {
     try {
       const lawyerId = req.user._id;
 
+      // Verify if the lawyer exists in the database
       const lawyer = await Lawyer.findById(lawyerId);
       if (!lawyer) {
         return res.status(404).json({ message: "Lawyer not found" });
       }
 
+      // Check if the lawyer has reached the summarization limit
       const summarizationCount = await Summarization.countDocuments({ lawyerId });
       if (summarizationCount >= 50) {
         return res.status(403).json({ message: "Summarization limit reached" });
       }
 
-      // Extract text from PDF
+      // Extract text content from the uploaded PDF
       const data = await pdfParse(fs.readFileSync(req.file.path));
       const text = data.text;
 
-      // Generate summary with error handling
+      // Generate a summary using Google Generative AI
       let summary;
       try {
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
@@ -86,21 +97,22 @@ export const summarizePDF = async (req, res) => {
         return res.status(500).json({ message: "Error generating summary" });
       }
 
-      // Generate audio with error handling
+      // Generate audio from the summary using Google Text-to-Speech
       try {
-        const audioFileName = `${req.file.filename}.mp3`;
-        const audioFilePath = path.join(audioDir, audioFileName);
+        const audioFileName = `${req.file.filename}.mp3`; 
+        const audioFilePath = path.join(audioDir, audioFileName); 
 
         const ttsRequest = {
-          input: { text: summary },
-          voice: { languageCode: "en-US", ssmlGender: "NEUTRAL" },
-          audioConfig: { audioEncoding: "MP3" },
+          input: { text: summary }, 
+          voice: { languageCode: "en-US", ssmlGender: "NEUTRAL" }, 
+          audioConfig: { audioEncoding: "MP3" }, 
         };
 
+        // Generate audio content and save it to a file
         const [ttsResponse] = await ttsClient.synthesizeSpeech(ttsRequest);
         fs.writeFileSync(audioFilePath, ttsResponse.audioContent, "binary");
 
-        // Save summarization with audio reference
+        // Save summarization details in the database
         const summarization = new Summarization({
           lawyerId,
           originalFilename: req.file.filename,
@@ -110,11 +122,12 @@ export const summarizePDF = async (req, res) => {
 
         await summarization.save();
 
+        // Respond with the summary and audio URL
         const audioUrl = `/audio/${audioFileName}`;
         res.status(200).json({ summary, audioUrl });
       } catch (error) {
         console.error("Text-to-Speech API error:", error);
-        // Still return summary even if audio generation fails
+        // Respond with the summary but indicate audio generation failure
         res.status(200).json({ 
           summary, 
           audioUrl: null,
@@ -128,10 +141,15 @@ export const summarizePDF = async (req, res) => {
   });
 };
 
+// Controller function to retrieve summarization history for a lawyer
 export const getSummarizationHistory = async (req, res) => {
   try {
     const lawyerId = req.user._id;
+
+    // Fetch summarization history from the database, sorted by creation date
     const history = await Summarization.find({ lawyerId }).sort({ createdAt: -1 });
+
+    // Respond with the history, including audio URLs if available
     res.status(200).json(
       history.map((item) => ({
         ...item._doc,
@@ -139,6 +157,7 @@ export const getSummarizationHistory = async (req, res) => {
       }))
     );
   } catch (error) {
+    console.error("Error fetching summarization history:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };

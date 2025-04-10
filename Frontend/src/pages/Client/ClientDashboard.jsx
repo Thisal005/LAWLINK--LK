@@ -152,7 +152,7 @@ function ClientDashboard() {
               <div className="p-4 border border-blue-200 rounded-lg hover:bg-blue-50 transition-all">
                 <h4 className="font-medium text-gray-800">Learn the Basics</h4>
                 <p className="text-gray-600">Watch a tutorial on managing your cases.</p>
-                <a href="/tutorial" className="text-blue-600 hover:underline">
+                <a href="https://youtu.be/hcw-RQeQaJM" className="text-blue-600 hover:underline">
                   Watch Now
                 </a>
               </div>
@@ -160,7 +160,7 @@ function ClientDashboard() {
                 <h4 className="font-medium text-gray-800">Contact Support</h4>
                 <p className="text-gray-600">Need help? Reach out to our team.</p>
                 <button
-                  onClick={() => navigate("/support")}
+                  onClick={() => navigate("")}
                   className="text-blue-600 hover:underline"
                 >
                   Get Support
@@ -169,7 +169,7 @@ function ClientDashboard() {
               <div className="p-4 border border-blue-200 rounded-lg hover:bg-blue-50 transition-all">
                 <h4 className="font-medium text-gray-800">Explore Features</h4>
                 <p className="text-gray-600">Discover what you can do with your dashboard.</p>
-                <a href="/features" className="text-blue-600 hover:underline">
+                <a href="/help" className="text-blue-600 hover:underline">
                   Learn More
                 </a>
               </div>
