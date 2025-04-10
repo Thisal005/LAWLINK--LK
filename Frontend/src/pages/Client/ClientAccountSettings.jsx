@@ -49,7 +49,7 @@ const ClientAccountSettings = () => {
         dateOfBirth: userData.dateOfBirth || "",
         profilePicture: null,
       });
-      setTempProfilePicture(userData.profilePicture || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+      setTempProfilePicture(userData.profilePicture || "../../../assets/images/profilepic.jpg");
       setLoading(false);
     }
   }, [userData, navigate]);
