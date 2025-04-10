@@ -1,20 +1,10 @@
 import express from "express";
-import Notification from "../models/notifications.model.js";
+import { getNotifications, markAllAsRead } from "../controllers/notification.controller.js";
 import { protectRoute } from "../middleware/protectRoute.js";
 
 const notificationRouter = express.Router();
 
-notificationRouter.get("/", protectRoute, async (req, res) => {
-  try {
-    const lawyerId = req.user._id;
-    const notifications = await Notification.find({ recipientId: lawyerId }).sort({
-      createdAt: -1,
-    });
-    res.status(200).json(notifications);
-  } catch (err) {
-    console.error("Error fetching notifications:", err.message);
-    res.status(500).json({ msg: "Server error" });
-  }
-});
+notificationRouter.get("/", protectRoute, getNotifications);
+notificationRouter.put("/mark-read", protectRoute, markAllAsRead);
 
 export default notificationRouter;
