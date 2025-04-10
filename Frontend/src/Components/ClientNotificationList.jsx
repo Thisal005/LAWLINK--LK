@@ -1,52 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AppContext } from "../Context/AppContext";
 
 const ClientNotificationList = () => {
-  // Hardcoded notifications
-  const [notifications] = useState([
-    {
-      _id: "1",
-      message: "You have successfully posted a case",
-      unread: true,
-      createdAt: new Date("2025-04-04T10:00:00Z"),
-    },
-    {
-      _id: "2",
-      message: "A lawyer has been assigned to your case",
-      unread: true,
-      createdAt: new Date("2025-04-04T12:00:00Z"),
-    },
-    {
-      _id: "3",
-      message: "Lawyer has sent a note",
-      unread: true,
-      createdAt: new Date("2025-04-04T14:00:00Z"),
-    },
-    {
-      _id: "4",
-      message: "A new task has been assigned by your lawyer",
-      unread: true,
-      createdAt: new Date("2025-04-04T15:00:00Z"),
-    },
-    {
-      _id: "5",
-      message: "Lawyer has scheduled a meeting on 2025-04-10 at 10:00 AM",
-      unread: true,
-      createdAt: new Date("2025-04-04T16:00:00Z"),
-    },
-  ]);
+  const [notifications, setNotifications] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { backendUrl } = useContext(AppContext);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(`${backendUrl}/api/notifications`, {
+          withCredentials: true,
+        });
+        setNotifications(res.data.data || res.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching client notifications:", error);
+        toast.error("Failed to fetch notifications");
+        setLoading(false);
+      }
+    };
+    fetchNotifications();
+  }, [backendUrl]);
 
   const getNotificationStyle = (message) => {
-    if (message.includes("You have successfully posted a case")) 
-      return "bg-green-100 text-green-800";
-    if (message.includes("A lawyer has been assigned to your case")) 
-      return "bg-blue-100 text-blue-800";
-    if (message.includes("Lawyer has sent a note")) 
-      return "bg-yellow-100 text-yellow-800";
-    if (message.includes("A new task has been assigned by your lawyer")) 
-      return "bg-orange-100 text-orange-800";
-    if (message.includes("Lawyer has scheduled a meeting")) 
-      return "bg-purple-100 text-purple-800";
-    return "bg-gray-100 text-gray-800"; // Default for other unread notifications
+    if (message.includes("You have successfully posted a case")) return "bg-green-100 text-green-800";
+    if (message.includes("A lawyer has accepted your case")) return "bg-blue-100 text-blue-800";
+    if (message.includes("Case closed")) return "bg-red-100 text-red-800";
+    if (message.includes("Meeting scheduled")) return "bg-purple-100 text-purple-800";
+    return "bg-gray-100 text-gray-800";
   };
 
   return (
@@ -59,9 +45,10 @@ const ClientNotificationList = () => {
           CLIENT NOTIFICATIONS
         </h2>
       </div>
-
-      <div className="h-[5px] bg-blue-500 w-265 rounded-full my-5 transition-all duration-300 hover:bg-purple-300 mb-10"></div>
-      {notifications.length > 0 ? (
+      <div className="h-[5px] bg-blue-500 w-64 rounded-full my-5 transition-all duration-300 hover:bg-purple-300 mb-10"></div>
+      {loading ? (
+        <p className="text-gray-600">Loading notifications...</p>
+      ) : notifications.length > 0 ? (
         notifications.map((notification) => (
           <div
             key={notification._id}
@@ -72,9 +59,7 @@ const ClientNotificationList = () => {
             }`}
           >
             <p className="font-medium">{notification.message}</p>
-            <p className="text-sm">
-              {new Date(notification.createdAt).toLocaleString()}
-            </p>
+            <p className="text-sm">{new Date(notification.createdAt).toLocaleString()}</p>
           </div>
         ))
       ) : (

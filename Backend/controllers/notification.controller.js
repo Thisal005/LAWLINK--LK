@@ -1,4 +1,4 @@
-import Notification from "../models/notification.model.js";
+import Notification from "../models/notifications.model.js";
 
 export const getNotifications = async (req, res) => {
   try {
@@ -33,5 +33,21 @@ export const markAllAsRead = async (req, res) => {
   } catch (error) {
     console.error("Error marking notifications as read:", error.message);
     res.status(500).json({ success: false, msg: "Server error" });
+  }
+};
+
+export const createNotification = async (userId, userType, message, caseId = null) => {
+  try {
+    const notification = new Notification({
+      userId,
+      userType,
+      message,
+      caseId,
+    });
+    await notification.save();
+    return notification;
+  } catch (error) {
+    console.error("Error creating notification:", error.message);
+    throw error;
   }
 };
